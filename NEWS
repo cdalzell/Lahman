@@ -1,0 +1,15 @@
+Version 1.0-7 (2011-09-27)
+o Extended examples in Batting.Rd
+
+Version 1.0-6 (2011-09-26)
+o Added battingStats() function to calculate BA and friends
+
+Version 1.0-5 (2011-09-25)
+o Added Authors@R in DESCRIPTION for R 2.14.x
+o Fixed Appearances table
+o Added demo/batting-summstats.R
+o Added a few examples to various files
+o Initial export to R-Forge
+
+
+
