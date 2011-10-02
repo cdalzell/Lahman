@@ -5,7 +5,8 @@
 Managers table
 }
 \description{
-Managers table
+Managers table: information about individual team managers, teams they managed and some basic statistics
+for those teams in each year.
 }
 \usage{data(Managers)}
 \format{
@@ -36,3 +37,112 @@ Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, \url{http://base
 %%  ~~ possibly secondary sources and usages ~~
 %}
 \keyword{datasets}
+
+\examples{
+####################################
+# Basic career summaries by manager
+####################################
+
+library('plyr')
+mgrsumm <- function(d) {
+    df <- data.frame(with(d,
+              nyear = length(unique(yearID)),
+              yearBegin = min(yearID),
+              yearEnd = max(yearID),
+              nTeams = length(unique(teamID)),
+              nfirst = sum(rank == 1L),
+              W = sum(W),
+              L = sum(L),
+              WinPct = round(W/(W + L), 3)))
+    df
+}
+
+mgrTotals <- ddply(Managers, .(managerID), summarise,
+                  nyear = length(unique(yearID)),
+                  yearBegin = min(yearID),
+                  yearEnd = max(yearID),
+                  nTeams = length(unique(teamID)),
+                  nfirst = sum(rank == 1L),
+                  games = sum(W + L),
+                  W = sum(W),
+                  L = sum(L),
+                  WinPct = round(sum(W)/sum(W + L), 3))
+mgrTotals <- merge(mgrTotals,
+                   subset(Master, !is.na(managerID),
+                          select = c('managerID', 'nameLast', 'nameFirst')),
+                   by = 'managerID')
+
+##########################
+# Some basic queries
+##########################
+
+# Top 20 managers in terms of years of service:
+head(arrange(mgrTotals, -nyear), 20)
+
+# Top 20 winningest managers (500 games minimum)
+head(arrange(subset(mgrTotals, games >= 500), -WinPct), 20)
+
+# Hmm. Most of these are 19th century managers.
+# How about the modern era?
+head(arrange(subset(mgrTotals, yearBegin >= 1900 & games >= 500), -WinPct), 20)
+
+# Top 10 managers in terms of percentage of titles (league or divisional) -
+# should bias toward managers post-1970 since more first place finishes
+# are available
+head(arrange(subset(mgrTotals, yearBegin >= 1900 & games >= 500),
+                -round(nfirst/nyear, 3)), 10)
+
+# How about pre-1969?
+head(arrange(subset(mgrTotals,
+                    yearBegin >= 1900 & yearEnd <= 1969 & games >= 500),
+                    -round(nfirst/nyear, 3)), 10)
+
+##############################################
+# Density plot of the number of games managed:
+##############################################
+
+library('ggplot2')
+ggplot(mgrTotals, aes(x = games)) + geom_density(fill = 'red', alpha = 0.3) +
+    labs(x = 'Number of games managed')
+
+# Who managed more than 4000 games?
+subset(mgrTotals, games >= 4000)
+# Connie Mack had an advantage: he owned the Philadelphia A's :)
+
+# Table of Tony LaRussa's team finishes:
+with(subset(Managers, managerID == 'larusto01m'), table(rank))
+
+# To include zero frequencies, one alternative is the tabulate() function:
+with(subset(Managers, managerID == 'larusto01m'), tabulate(rank, 7))
+
+
+##############################################
+# Scatterplot of winning percentage vs. number of games managed (min 100)
+##############################################
+
+ggplot(subset(mgrTotals, yearBegin >= 1900 & games >= 100),
+       aes(x = games, y = WinPct)) + geom_point() + geom_smooth() +
+    labs(x = 'Number of games managed')
+
+############################################
+# Division titles
+############################################
+
+# Plot of number of first place finishes by managers with at least 8 years
+# of experience in the divisional era (>= 1969):
+
+divMgr <- subset(mgrTotals, yearBegin >= 1969 & nyear >= 8)
+
+# Response is the number of titles
+ggplot(divMgr, aes(x = nyear, y = nfirst)) +
+    geom_point(position = position_jitter(w = 0.2)) +
+    labs(x = 'Number of years', y = 'Number of divisional titles') +
+    geom_smooth()
+
+# Response is the proportion of titles
+ggplot(divMgr, aes(x = nyear, y = round(nfirst/nyear, 3))) +
+    geom_point(position = position_jitter(w = 0.2)) +
+    labs(x = 'Number of years', y = 'Proportion of divisional titles') +
+    geom_smooth()
+
+}

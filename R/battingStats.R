@@ -10,7 +10,6 @@
 #   * batting average on balls in play (BABIP)
 #
 
-## TODO: Why do we get NOTEs:  no visible binding for global variable 'AB' ... ?
 
 battingStats <- function(data=Batting, 
 	idvars=c("playerID","yearID","stint","teamID","lgID"),
@@ -35,11 +34,12 @@ battingStats <- function(data=Batting,
       PA = AB + BB + HBP + SH + SF,
       TB = H + X2B + 2 * X3B + 3 * HR,
       SlugPct = ifelse(AB > 0, round(TB/AB, 3), NA),
-      OBP = ifelse(PA > 0,
-           round((H + BB + HBP)/(PA - SH - SF), 3), NA),
-      OPS = round(OBP + SlugPct, 3),
-      BABIP = ifelse(AB > 0, round(H/(AB - SO), 3), NA)
-      )
+	  OBP = ifelse(PA > 0,
+			  round((H + BB + HBP)/(PA - SH), 3), NA),
+	  OPS = round(OBP + SlugPct, 3),
+	  BABIP = ifelse(AB > 0, round((H - HR)/(AB - SO - HR + SF), 3), NA)
+	  )
     d2 <- d2[, (length(vars)+1):ncol(d2)]
     if (cbind) data.frame(data, d2) else data.frame(data[,idvars], d2)
 }
+

@@ -50,9 +50,9 @@ where players are identified only by \code{playerID}.
 %    \item{lahman40ID,lahman45ID}{ID used in Lahman Database versions 4.0 and 4.5}
     \item{\code{lahman40ID}}{ID used in Lahman Database version 4.0 }
     \item{\code{lahman45ID}}{ID used in Lahman database version 4.5 }
-    \item{\code{retroID}}{ID used by retrosheet}
+    \item{\code{retroID}}{ID used by retrosheet, \url{http://www.retrosheet.org/}}
     \item{\code{holtzID}}{ID used by Sean Holtz's Baseball Almanac}
-    \item{\code{bbrefID}}{ID used by Baseball Reference website}
+    \item{\code{bbrefID}}{ID used by Baseball Reference website, \url{http://www.baseball-reference.com/}}
     \item{\code{birthDate}}{Player's birthdate, in \code{as.Date} format}
     \item{\code{deathDate}}{Player's deathdate, in \code{as.Date} format}
   }
@@ -72,7 +72,7 @@ Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, \url{http://base
 data(Master); data(Batting)
 
 ## add player's name to Batting data
-Master$name <- paste(Master$nameFirst, Master$nameFirst, sep=' ')
+Master$name <- paste(Master$nameFirst, Master$nameLast, sep=' ')
 batting <- merge(Batting, 
                  Master[,c("playerID","name")], 
                  by="playerID", all.x=TRUE)

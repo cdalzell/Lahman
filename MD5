@@ -1,7 +1,7 @@
-5b6f1894203818623669928d8ab9f755 *DESCRIPTION
-653799d1539af5b5289e187b30078328 *NEWS
+4689c48c164058e24c9ee9b2a07a614d *DESCRIPTION
+eff4db7430a075f58a5d10bdd8eb2944 *NEWS
 d41d8cd98f00b204e9800998ecf8427e *R/Lahman-internal.R
-155f52b0f85eb9e0967c8f6bb1bcbba2 *R/battingStats.R
+38e9790483700e68258fb6844f8da416 *R/battingStats.R
 77c4877f3b1354476c9804230628bbee *data/Allstar.RData
 8e15f6c4339215f83583806b94614430 *data/AllstarFull.RData
 9461a1cd3fa572007dcd575a9b0e7b2e *data/Appearances.RData
@@ -45,11 +45,11 @@ bd5d3462fdcbdf4f7fd25353460e514e *man/AwardsPlayers.Rd
 784cfc6ac8c67e4111d80cf618dea416 *man/FieldingOF.Rd
 0c8d7d7df33ce4f77a3df56cb7e5d388 *man/FieldingPost.Rd
 61329ce850799dfdc5b3d34531cee8e5 *man/HOFold.Rd
-bcefd22eec04299e95ac31809caf5c34 *man/HallOfFame.Rd
-477a7aca735d6fdb84e9d503fcc38606 *man/Lahman-package.Rd
-a75bab56423bcb889acc761715b552e2 *man/Managers.Rd
+fc8bc56aae75d654b8e7076204ffaaf9 *man/HallOfFame.Rd
+4746e81f9b4324b94e9a7278fa248359 *man/Lahman-package.Rd
+49c0dbe444f69e890a5c2a86383ac1c6 *man/Managers.Rd
 19816a8b872442f6dffc9f23591af649 *man/ManagersHalf.Rd
-d71f2e0c75ec117b9c61d5a8fcfadf23 *man/Master.Rd
+395eb4722f0b154c02628a2d0cc96066 *man/Master.Rd
 1dcd35c15abfebbcebb5df8fb68e7b6b *man/Pitching.Rd
 f1b4d5dfb95ed862b878a37dc7ef1ae2 *man/PitchingPost.Rd
 1fe56ce5a795f632f4c710517dc64100 *man/Salaries.Rd
@@ -60,4 +60,4 @@ d458a317c3f429eb8f0ef26ff5437992 *man/Schools.Rd
 c90c4b436dca1987a3f1d14ab228c313 *man/TeamsFranchises.Rd
 3e56962bc339485bb2803fd861f279c3 *man/TeamsHalf.Rd
 18acecb5e843c01e2c58a873f2db7cca *man/Xref_Stats.Rd
-34c42de60528e869c689b2fdb54b2c81 *man/battingStats.Rd
+55992bfc5f877e1e593fd3c3d60fc80d *man/battingStats.Rd
