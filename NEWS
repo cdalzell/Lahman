@@ -1,3 +1,6 @@
+Version 1.0-10 (2012-10-04)
+o Fixed deprecated warnings stemming from changes in ggplot2
+
 Version 1.0-8 (2011-10-02)
 o Added examples in HallOfFame.Rd
 o Fixed definitions of BABIP and OBP in battingStats()
@@ -16,4 +19,6 @@ o Fixed Appearances table
 o Added demo/batting-summstats.R
 o Added a few examples to various files
 o Initial export to R-Forge
+
+
 

@@ -125,6 +125,6 @@ ggplot(topHitters, aes(x = yearID, y = BA)) +
                        breaks = seq(0.34, 0.42, by = 0.02),
                        labels = c('.340', '.360', '.380', '.400', '.420')) +
     geom_smooth() +
-    opts(legend.position = 'none')
+    theme(legend.position = 'none')
 
 }

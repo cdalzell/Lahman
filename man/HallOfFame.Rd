@@ -112,7 +112,7 @@ HOFlt <- ddply(HOFlt, .(hofID), mutate,
 # Plot the voting profiles:
 ggplot(HOFlt, aes(x = yearID, y = pct,
                   group = hofID)) +
-    opts(title="Profiles of voting percentage for long-time HOF candidates") +
+    ggtitle("Profiles of voting percentage for long-time HOF candidates") +
     geom_line() +
     geom_hline(yintercept = 75, col = 'red') +
     labs(list(x = "Year", y = "Percentage of votes")) +

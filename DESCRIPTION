@@ -1,8 +1,8 @@
 Package: Lahman
 Type: Package
 Title: Sean Lahman's Baseball Database
-Version: 1.0-8
-Date: 2011-10-02
+Version: 1.0-10
+Date: 2012-10-04
 Authors@R: c(person(given = "Michael", family = "Friendly",
         role=c("aut", "cre"), email="friendly@yorku.ca"), person(given
         = "Dennis", family = "Murphy", role="ctb"))
@@ -20,6 +20,7 @@ LazyLoad: yes
 LazyData: yes
 Repository: CRAN
 Repository/R-Forge/Project: lahman
-Repository/R-Forge/Revision: 9
-Date/Publication: 2011-10-08 16:17:30
-Packaged: 2011-10-07 20:36:10 UTC; rforge
+Repository/R-Forge/Revision: 11
+Repository/R-Forge/DateTimeStamp: 2012-10-04 18:57:43
+Date/Publication: 2012-10-05 14:59:30
+Packaged: 2012-10-04 22:22:13 UTC; rforge

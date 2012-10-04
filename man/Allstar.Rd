@@ -58,9 +58,9 @@ ggplot(allstars, aes(x = yearID, y = Freq, colour = lgID)) +
     scale_colour_manual(breaks = c('AL', 'NL'),
                         values = c('red', 'blue'),
                         labels = c('American', 'National')) +
-    opts(legend.position = c(0.17, 0.88),
-         legend.title = theme_text(size = 15, hjust = 0),
-         legend.text = theme_text(size = 12))
+    theme(legend.position = c(0.17, 0.88),
+         legend.title = element_text(size = 15, hjust = 0),
+         legend.text = element_text(size = 12))
 
 ## Three questions regarding this plot:
 ## (1) Why the temporary jump circa 1960?
