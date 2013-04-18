@@ -1,8 +1,8 @@
 Package: Lahman
 Type: Package
 Title: Sean Lahman's Baseball Database
-Version: 1.0-10
-Date: 2012-10-04
+Version: 2.0-1
+Date: 2013-04-18
 Authors@R: c(person(given = "Michael", family = "Friendly",
         role=c("aut", "cre"), email="friendly@yorku.ca"), person(given
         = "Dennis", family = "Murphy", role="ctb"))
@@ -11,16 +11,15 @@ Maintainer: Michael Friendly <friendly@yorku.ca>
 Description: This package provides the tables from Sean Lahman's
         Baseball Database as a set of R data.frames.  It uses the data
         on pitching, hitting and fielding performance and other tables
-        from 1871 through 2010, as recorded in version 5.8 of the
+        from 1871 through 2012, as recorded in the 2012 version of the
         database.
 Depends: R (>= 2.10)
-Suggests: lattice, ggplot2, googleVis, data.table, vcd, plyr
+Suggests: lattice, ggplot2, googleVis, data.table, vcd, plyr, reshape2,
+        zipcode
 License: GPL
 LazyLoad: yes
 LazyData: yes
+Packaged: 2013-04-24 20:21:32 UTC; friendly
+NeedsCompilation: no
 Repository: CRAN
-Repository/R-Forge/Project: lahman
-Repository/R-Forge/Revision: 11
-Repository/R-Forge/DateTimeStamp: 2012-10-04 18:57:43
-Date/Publication: 2012-10-05 14:59:30
-Packaged: 2012-10-04 22:22:13 UTC; rforge
+Date/Publication: 2013-04-25 07:39:37

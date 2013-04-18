@@ -2,19 +2,19 @@
 \alias{Teams}
 \docType{data}
 \title{
-Teams table
+Teams table - Yearly Stats and Standings
 }
 \description{
 Yearly statistics and standings for teams
 }
 \usage{data(Teams)}
 \format{
-  A data frame with 2655 observations on the following 48 variables.
+  A data frame with 2715 observations on the following 48 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{lgID}}{League; a factor with levels \code{AA} \code{AL} \code{FL} \code{NL} \code{PL} \code{UA}}
     \item{\code{teamID}}{Team; a factor}
-    \item{\code{franchID}}{Franchise (links to TeamsFranchise table)}
+    \item{\code{franchID}}{Franchise (links to \code{\link{TeamsFranchises}} table)}
     \item{\code{divID}}{Team's division; a factor with levels \code{} \code{C} \code{E} \code{W}}
     \item{\code{Rank}}{Position in final standings}
     \item{\code{G}}{Games played}
@@ -83,8 +83,8 @@ teams <- subset(teams, select=-c(HBP,CS,BPF,PPF))
 
 # subset to remove infrequent teams
 tcount <- table(teams$teamID)
-teams <- subset(teams, teams$teamID \%in\% names(tcount)[tcount>10], drop=TRUE)
-teams$teamID <- factor(teams$teamID, levels=names(tcount)[tcount>10])
+teams <- subset(teams, teams$teamID \%in\% names(tcount)[tcount>15], drop=TRUE)
+teams$teamID <- factor(teams$teamID, levels=names(tcount)[tcount>15])
 
 # relevel lgID
 teams$lgID <- factor(teams$lgID, levels= c("AL", "NL"))
@@ -104,6 +104,25 @@ motion1 <- gvisMotionChart(teams, idvar='teamID', timevar='yearID',
 	chartid="gvisTeams", options=list(width=700, height=600))
 plot(motion1)
 #print(motion1, file="gvisTeams.html")
+
+#### merge with ave salary, for those years where salary is available
+
+avesal <- aggregate(salary ~ yearID + teamID, data=Salaries, FUN=mean)
+
+# salary data just starts after 1980
+teamsSal <- subset(teams, yearID>=1980)
+
+# add salary to team data
+teamsSal <- merge(teamsSal, 
+                 avesal[,c("yearID", "teamID", "salary")], 
+                 by=c("yearID", "teamID"), all.x=TRUE)
+
+motion2 <- gvisMotionChart(teamsSal, idvar='teamID', timevar='yearID',
+  xvar="attendance", yvar="salary", sizevar="WinPct",
+	chartid="gvisTeamsSal", options=list(width=700, height=600))
+plot(motion2)
+#print(motion2, file="gvisTeamsSal.html")
+
 }
 }
 }

@@ -1,2 +1,5 @@
 # all the rest is data
-export(battingStats)
+export(battingStats,
+	playerInfo,teamInfo,
+	Label
+	)

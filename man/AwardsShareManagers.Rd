@@ -9,7 +9,7 @@ Award voting for managers awards
 }
 \usage{data(AwardsShareManagers)}
 \format{
-  A data frame with 344 observations on the following 7 variables.
+  A data frame with 372 observations on the following 7 variables.
   \describe{
     \item{\code{awardID}}{name of award votes were received for}
     \item{\code{yearID}}{Year}
@@ -24,9 +24,28 @@ Award voting for managers awards
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, \url{http://baseball1.com/statistics/}
+Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
 %}
+\examples{
+# Voting for the BBWAA Manager of the Year award by year and league
+
+require(plyr)
+
+# Sort in decreasing order of points by year and league
+MOYsort <- ddply(AwardsShareManagers, .(yearID, lgID), arrange, desc(pointsWon))
+
+# Any unanimous winners?
+subset(AwardsShareManagers, pointsWon == pointsMax)
+
+# OK, how about highest proportion of possible points?
+AwardsShareManagers[with(AwardsShareManagers, which.max(pointsWon/pointsMax)), ]
+
+# Bobby Cox's MOY vote tallies
+subset(AwardsShareManagers, managerID == "coxbo01m")
+
+}
+
 \keyword{datasets}

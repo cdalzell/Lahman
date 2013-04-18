@@ -12,7 +12,7 @@ where players are identified only by \code{playerID}.
 
 \usage{data(Master)}
 \format{
-  A data frame with 17674 observations on the following 35 variables.
+  A data frame with 18125 observations on the following 35 variables.
   \describe{
     \item{\code{lahmanID}}{Unique number assigned to each player}
     \item{\code{playerID}}{A unique code asssigned to each player.  The \code{playerID} links
@@ -41,8 +41,8 @@ where players are identified only by \code{playerID}.
     \item{\code{nameNick}}{Player's nickname}
     \item{\code{weight}}{Player's weight in pounds}
     \item{\code{height}}{Player's height in inches}
-    \item{\code{bats}}{Player's batting hand (left (L), right (R), or both (B))         }
-    \item{\code{throws}}{Player's throwing hand (left or right)}
+    \item{\code{bats}}{a factor: Player's batting hand (left (L), right (R), or both (B))         }
+    \item{\code{throws}}{a factor: Player's throwing hand (left(L) or right(R))}
     \item{\code{debut}}{Date that player made first major league appearance}
     \item{\code{finalGame}}{Date that player made first major league appearance (blank if still active)}
     \item{\code{college}}{College attended.  Further information in \code{\link{Schools}} and \code{\link{SchoolsPlayers}},
@@ -61,7 +61,7 @@ where players are identified only by \code{playerID}.
 \code{debut}, \code{finalGame} were converted from character strings with \code{as.Date}.
 }
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, \url{http://baseball1.com/statistics/}
+Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -79,8 +79,11 @@ batting <- merge(Batting,
 
 ## batting and throwing
 # right-handed batters are much less ambidexterous in throwing than left-handed batters
+# (should only include batters)
+
 BT <- with(Master, table(bats, throws))
-library(vcd)
+require(vcd)
+structable(BT)
 mosaic(BT, shade=TRUE)
 
 ## Who is Shoeless Joe Jackson?
@@ -89,6 +92,7 @@ joeID <-c(subset(Master, nameLast=="Jackson" & nameFirst=="Joe")["playerID"])
 
 subset(Batting, playerID==joeID)
 subset(Fielding, playerID==joeID)
+
 
 }
 

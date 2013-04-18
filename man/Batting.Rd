@@ -9,7 +9,7 @@ Batting table - batting statistics
 }
 \usage{data(Batting)}
 \format{
-  A data frame with 93955 observations on the following 24 variables.
+  A data frame with 96600 observations on the following 24 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -41,7 +41,7 @@ Batting table - batting statistics
 Variables \code{X2B} and \code{X3B} are named \code{2B} and \code{3B} in the original database
 }
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, \url{http://baseball1.com/statistics/}
+Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -60,6 +60,7 @@ Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, \url{http://base
 \examples{
 data(Batting)
 head(Batting)
+require('plyr')
 
 # calculate batting average and other stats
 batting <- battingStats()
@@ -88,7 +89,6 @@ batting <- arrange(batting, playerID, yearID, stint)
 # for the season - in a normal year, the minimum number of plate appearances is 502)
 eligibleHitters <- subset(batting, yearID >= 1900 & PA > 450)
 
-require('plyr')
 # Find the hitters with the highest BA in MLB each year (there are a
 # few ties).  Include all players with BA > .400
 topHitters <- ddply(eligibleHitters, .(yearID), subset, (BA == max(BA))|BA > .400)
@@ -126,5 +126,24 @@ ggplot(topHitters, aes(x = yearID, y = BA)) +
                        labels = c('.340', '.360', '.380', '.400', '.420')) +
     geom_smooth() +
     theme(legend.position = 'none')
+
+##########################################################
+# after Chris Green,
+# http://sabr.org/research/baseball-s-first-power-surge-home-runs-late-19th-century-major-leagues
+
+# Total home runs by year
+totalHR <- ddply(Batting, .(yearID), summarise,
+                       HomeRuns = sum(as.numeric(HR), na.rm=TRUE),
+                       Games = sum(as.numeric(G_batting), na.rm=TRUE)
+                       )
+
+plot(HomeRuns ~ yearID, data=subset(totalHR, yearID<=1918))
+# take games into account?
+plot(HomeRuns/Games ~ yearID, data=subset(totalHR, yearID<=1918))
+
+# long term trend?
+plot(HomeRuns ~ yearID, data=totalHR)
+plot(HomeRuns/Games ~ yearID, data=totalHR)
+
 
 }

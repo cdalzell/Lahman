@@ -1,3 +1,16 @@
+Version 2.0-1 (2013-04-18)
+o Added Label() and data frames for variable labels
+o Added more examples and plots to Salaries, Pitching, etc. from Dennis Murphy
+o Master$bats, Master$throws made into factors
+o Added some examples to Schools.Rd
+
+Version 2.0-0 (2013-04-08)
+o New major version, now reflecting the 2012 Lahman database.  Some deprecated or defunct
+  tables were dropped.
+o readLahman.R added to inst/scripts for documentation of how the data files were created.
+  The scripts there can be used to simplify future updates.
+o More examples added to various datasets
+
 Version 1.0-10 (2012-10-04)
 o Fixed deprecated warnings stemming from changes in ggplot2
 
@@ -19,6 +32,3 @@ o Fixed Appearances table
 o Added demo/batting-summstats.R
 o Added a few examples to various files
 o Initial export to R-Forge
-
-
-

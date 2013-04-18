@@ -9,7 +9,7 @@ Pitching table
 }
 \usage{data(Pitching)}
 \format{
-  A data frame with 40432 observations on the following 30 variables.
+  A data frame with 41857 observations on the following 30 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -47,9 +47,82 @@ Pitching table
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, \url{http://baseball1.com/statistics/}
+Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
 %}
+\examples{
+# Pitching data
+
+require(plyr)
+
+###################################
+# cleanup, and add some other stats
+###################################
+
+# Restrict to AL and NL data, 1901+
+# All data re SH, SF and GIDP are missing, so remove
+# Intentional walks (IBB) not recorded until 1955
+pitching <- subset(Pitching, yearID >= 1901 & lgID \%in\% c("AL", "NL"))[, -(28:30)]
+
+# Approximate missing BAOpp values (most common remaining missing value)
+pitching$BAOpp <- with(pitching, round(H/(BFP - BB - HBP), 3))
+# Compute WHIP (hits + walks per inning pitched -- lower is better)
+pitching <- mutate(pitching, 
+                   WHIP = round((H + BB) * 3/IPouts, 2),
+                   KperBB = round(ifelse(yearID >= 1955, 
+                                         SO/(BB - IBB), SO/BB), 2))
+
+#####################
+# some simple queries
+#####################
+
+# Team pitching statistics, Toronto Blue Jays, 1993
+tor93 <- subset(pitching, yearID == 1993 & teamID == "TOR")
+arrange(tor93, ERA)
+
+# Career pitching statistics, Greg Maddux
+subset(pitching, playerID == "maddugr01")
+
+# Best ERAs for starting pitchers post WWII
+postwar <- subset(pitching, yearID >= 1946 & IPouts >= 600)
+head(arrange(postwar, ERA), 10)
+
+# Best K/BB ratios post-1955 among starters (excludes intentional walks)
+post55 <- subset(pitching, yearID >= 1955 & IPouts >= 600)
+post55 <- mutate(post55, KperBB = SO/(BB - IBB))
+head(arrange(post55, desc(KperBB)), 10)
+
+# Best K/BB ratios among relievers post-1950 (min. 20 saves)
+head(arrange(subset(pitching, yearID >= 1950 & SV >= 20), desc(KperBB)), 10)
+
+###############################################
+# Winningest pitchers in each league each year:
+###############################################
+
+# Add name & throws information:
+masterInfo <- Master[, c('playerID',
+                         'nameLast', 'nameFirst', 'throws')]
+pitching <- merge(pitching, masterInfo, all.x=TRUE)
+
+wp <- ddply(pitching, .(yearID, lgID), subset, W == max(W), 
+         select = c("playerID", "teamID", "W", "throws"))
+
+anova(lm(formula = W ~ yearID + I(yearID^2) + lgID + throws, data = wp))
+
+# an eye-catching, but naive, specious graph 
+
+require('ggplot2') 
+# compare loess smooth with quadratic fit                              
+ggplot(wp, aes(x = yearID, y = W)) +
+    geom_point(aes(colour = throws, shape=lgID), size = 2) +
+    geom_smooth(method="loess", size=1.5, color="blue") +
+    geom_smooth(method = "lm", se=FALSE, color="black", formula = y ~ poly(x,2)) +
+    ylab("Maximum Wins") + xlab("Year") +
+    ggtitle("Why can't pitchers win 30+ games any more?")
+
+
+}
+
 \keyword{datasets}

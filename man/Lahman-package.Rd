@@ -7,7 +7,7 @@ Sean Lahman's Baseball Database
 }
 \description{
 This database contains pitching, hitting, and fielding statistics for
-Major League Baseball from 1871 through 2010.  It includes data from
+Major League Baseball from 1871 through 2012.  It includes data from
 the two current leagues (American and National), the four other "major" 
 leagues (American Association, Union Association, Players League, and
 Federal League), and the National Association of 1871-1875. 
@@ -28,8 +28,8 @@ challenges and opportunities for data processing and visualization in R.
 \tabular{ll}{
 Package: \tab Lahman\cr
 Type: \tab Package\cr
-Version: \tab 1.0-10\cr
-Date: \tab 2012-10-04\cr
+Version: \tab 2.0-1\cr
+Date: \tab 2013-04-18\cr
 License: \tab GPL version 2 or newer\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr
@@ -37,9 +37,10 @@ LazyData: \tab yes\cr
 
 The main form of this database is a relational database in Microsoft Access format.
 The design follows these general principles.  Each player is assigned a
-unique number (\code{playerID}).  All of the information in different tables relating to that player
-is tagged with his \code{playerID}.  The playerIDs are linked to names and 
-birthdates in the \code{\link{Master}} table.
+unique code (\code{playerID}).  All of the information in different tables relating to that player
+is tagged with his \code{playerID}.  The \code{playerID}s are linked to names and 
+birthdates in the \code{\link{Master}} table.  Similar links exist among other tables
+via analogous \code{*ID} variables.
 
 The database is comprised of the following main tables:
 
@@ -84,14 +85,13 @@ Hall of Fame:  links to Master via \code{hofID}
 
 \tabular{rl}{
   \code{\link{HallOfFame}} \tab Hall of Fame voting data\cr
-  \code{\link{HOFold}} \tab old Hall of Fame table\cr
 }
 
 
-Others:
+Others tables:
 
 %\preformatted{
-  \code{\link{Allstar}}, \code{\link{AllstarFull}} - All-Star games appearances;
+  \code{\link{AllstarFull}} - All-Star games appearances;
   \code{\link{Managers}} - managerial statistics;
   \code{\link{FieldingOF}} - outfield position data;
   \code{\link{ManagersHalf}} - split season data for managers;
@@ -100,6 +100,12 @@ Others:
   \code{\link{Schools}} - Information on schools players attended;
   \code{\link{SchoolsPlayers}} - Information on schools players attended, by player;
 %}
+
+Variable label tables are provided for some of the tables:
+
+\code{\link{battingLabels}},
+\code{\link{pitchingLabels}},
+\code{\link{fieldingLabels}}
 
 }
 
@@ -112,12 +118,12 @@ Maintainer: Michael Friendly <friendly@yorku.ca>
 %%  ~~ possibly secondary sources and usages ~~
 %}
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, Main page, \url{http://baseball1.com/statistics/}
+Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, Main page, \url{http://baseball1.com/statistics/}
 
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, Comma-delimited version,
-\url{http://baseball1.com/files/database/lahman58-csv.zip}
+Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, v. 2012, Comma-delimited version,
+\url{http://seanlahman.com/files/database/lahman2012-csv.zip}
 
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, MS Access version,
-\url{http://baseball1.com/files/database/lahman58.zip}
+Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, MS Access version,
+\url{http://seanlahman.com/files/database/lahman2012-ms.zip}
 
 }

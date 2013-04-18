@@ -22,9 +22,55 @@ Information on schools players attended, by school
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, \url{http://baseball1.com/statistics/}
+Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
 %}
+\examples{
+
+require(plyr)
+
+# how many different schools are listed in each state?
+table(Schools$schoolState)
+
+# top 20 schools 
+schoolInfo <- Schools[, c("schoolID", "schoolName", "schoolCity", "schoolState")]
+
+schoolCount <- ddply(SchoolsPlayers, .(schoolID), summarise,
+                       players = length(schoolID))
+schoolCount <- merge(schoolCount, schoolInfo, by="schoolID", all.x=TRUE)
+
+# Arrange in decreasing order:
+schoolCount <- arrange(schoolCount, desc(players))
+head(schoolCount, 20)
+
+# sum counts by state
+schoolStates <- ddply(schoolCount, .(schoolState), summarise,
+                       players = sum(players),
+                       schools = length(schoolState))
+str(schoolStates)
+summary(schoolStates)
+
+\dontrun{
+if(require(zipcode) {
+	# in lieu of more precise geocoding via schoolName, 
+	# find lat/long of Schools from zipcode file
+	zips <- ddply(zipcode, .(city, state), summarize, latitude=mean(latitude), longitude=mean(longitude))
+	colnames(zips)[1:2] <- c("schoolCity", "schoolState")
+	str(zips)
+	
+	# merge lat/long from zips
+	schoolsXY <- merge(Schools, zips, by=c("schoolCity", "schoolState"), all.x=TRUE)
+	str(schoolsXY)
+	
+	# plot school locations
+	with(subset(schoolsXY, schoolState != 'HI'),
+		plot(jitter(longitude), jitter(latitude))
+		)
+	}
+}	
+
+}
+
 \keyword{datasets}

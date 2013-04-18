@@ -9,7 +9,7 @@ Award information for players awards
 }
 \usage{data(AwardsPlayers)}
 \format{
-  A data frame with 2679 observations on the following 6 variables.
+  A data frame with 5920 observations on the following 6 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{awardID}}{Name of award won}
@@ -23,7 +23,7 @@ Award information for players awards
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2010, v.5.8, \url{http://baseball1.com/statistics/}
+Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -47,6 +47,16 @@ goldglove <- subset(AwardsPlayers, awardID == 'Gold Glove')
 # which players won most often?
 GGcount <- table(goldglove$playerID)
 GGcount[GGcount>10]
+
+# Triple Crown winners
+subset(AwardsPlayers, awardID == "Triple Crown")
+
+# Simultaneous Triple Crown and MVP winners
+# (compare merged file to TC)
+TC <- subset(AwardsPlayers, awardID == "Triple Crown")
+MVP <- subset(AwardsPlayers, awardID == "Most Valuable Player")
+keepvars <- c("playerID", "yearID", "lgID.x")
+merge(TC, MVP, by = c("playerID", "yearID"))[ ,keepvars]
 
 
 }
