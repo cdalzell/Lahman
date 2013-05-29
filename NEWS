@@ -1,3 +1,10 @@
+Version 2.0-3 (2013-05-29)
+o largest RData files are now compressed via R CMD build --resave-data
+
+Version 2.0-2 (2013-05-23)
+o Fixed problems with the Teams*.RData files not having been updated to the 2012 versions.
+o The project for this package now has a web page at http://lahman.r-forge.r-project.org/
+
 Version 2.0-1 (2013-04-18)
 o Added Label() and data frames for variable labels
 o Added more examples and plots to Salaries, Pitching, etc. from Dennis Murphy

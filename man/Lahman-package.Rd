@@ -28,8 +28,8 @@ challenges and opportunities for data processing and visualization in R.
 \tabular{ll}{
 Package: \tab Lahman\cr
 Type: \tab Package\cr
-Version: \tab 2.0-1\cr
-Date: \tab 2013-04-18\cr
+Version: \tab 2.0-3\cr
+Date: \tab 2013-05-29\cr
 License: \tab GPL version 2 or newer\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr
@@ -118,12 +118,12 @@ Maintainer: Michael Friendly <friendly@yorku.ca>
 %%  ~~ possibly secondary sources and usages ~~
 %}
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, Main page, \url{http://baseball1.com/statistics/}
+Lahman, S. (2012) Lahman's Baseball Database, 1871-2012, Main page, \url{http://baseball1.com/statistics/}
 
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, v. 2012, Comma-delimited version,
+Lahman, S. (2012) Lahman's Baseball Database, 1871-2012, v. 2012, Comma-delimited version,
 \url{http://seanlahman.com/files/database/lahman2012-csv.zip}
 
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, MS Access version,
+Lahman, S. (2012) Lahman's Baseball Database, 1871-2012, MS Access version,
 \url{http://seanlahman.com/files/database/lahman2012-ms.zip}
 
 }

@@ -53,23 +53,24 @@ str(schoolStates)
 summary(schoolStates)
 
 \dontrun{
-if(require(zipcode) {
-	# in lieu of more precise geocoding via schoolName, 
-	# find lat/long of Schools from zipcode file
-	zips <- ddply(zipcode, .(city, state), summarize, latitude=mean(latitude), longitude=mean(longitude))
-	colnames(zips)[1:2] <- c("schoolCity", "schoolState")
-	str(zips)
-	
-	# merge lat/long from zips
-	schoolsXY <- merge(Schools, zips, by=c("schoolCity", "schoolState"), all.x=TRUE)
-	str(schoolsXY)
-	
-	# plot school locations
-	with(subset(schoolsXY, schoolState != 'HI'),
-		plot(jitter(longitude), jitter(latitude))
-		)
-	}
-}	
+if(require(zipcode)) {
+  # in lieu of more precise geocoding via schoolName, 
+  # find lat/long of Schools from zipcode file
+  zips <- ddply(zipcode, .(city, state), summarize,
+                latitude=mean(latitude), longitude=mean(longitude))
+  colnames(zips)[1:2] <- c("schoolCity", "schoolState")
+  str(zips)
+
+  # merge lat/long from zips
+  schoolsXY <- merge(Schools, zips, by=c("schoolCity", "schoolState"), all.x=TRUE)
+  str(schoolsXY)
+
+  # plot school locations
+  with(subset(schoolsXY, schoolState != 'HI'),
+    plot(jitter(longitude), jitter(latitude))
+    )
+  }
+}
 
 }
 
