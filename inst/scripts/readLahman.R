@@ -1,13 +1,14 @@
 # Script to read the Lahman data base .csv files & create Rdata files
 
 # directory where the .csv files will be created
-indir <- "c:/R/data/lahman2012/"
-# directory where the .RData files will be created
-outdir <- paste0(indir,"RData")
+indir <- "D:/Dev/R/Lahman/data"
 
-#zipfile <- "http://seanlahman.com/files/database/lahman2012-csv.zip"
-#download.file(zipfile, "./lahman2012-csv.zip" )
-#unzip("./lahman2012-csv.zip", extdir=indir)
+# directory where the .RData files will be created
+outdir <- paste0(indir, "RData")
+
+zipfile <- "http://seanlahman.com/files/database/lahman-csv_2014-02-14.zip"
+download.file(zipfile, "./lahman-csv_2014-02-14.zip" )
+unzip("./lahman-csv_2014-02-14.zip", extdir=indir)
 
 setwd(indir)
 
@@ -16,6 +17,7 @@ setwd(indir)
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
 
 (files <- list.files(path=indir,pattern="*.csv"))
+
 for (i in 1:length(files)) {
 	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="")
 	cat("Read:", files[i], "\trows: ", nrow(inp), " cols: ", ncol(inp), "\n")
@@ -34,11 +36,10 @@ for (i in 1:length(files)) {
 
 	cname <- name <- sub(".csv", "", files[i])
 	assign( name, inp)
-#	save(inp, file=paste(cname, ".RData", sep=""))
+  
+	save(inp, file=paste(cname, ".RData", sep=""))
 #	promptData(inp, name=cname)
 }
-
-
 
 # fix a few problems
 colnames(HallOfFame)[2] <- 'yearID'
@@ -54,7 +55,6 @@ colnames(HallOfFame)[2] <- 'yearID'
 # The format in the as.Date() function is the 'informat', 
 # in SASspeak; the output format is a calendar date in 
 # yyyy-mm-dd format.
-
 Master <- within(Master, {
     debut = as.Date(debut, 
                     format = '%m/%d/%Y %H:%M:%s',
@@ -74,7 +74,6 @@ Master <- within(Master, {
 #  Warning: found non-ASCII string(s)
 #  'named Guillermo VelC!zquez' in object 'Master'
 #  'Martmn Magdaleno Dihigo (Llanos)' in object 'Master'
-
 
 setwd(outdir)
 
