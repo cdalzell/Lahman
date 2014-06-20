@@ -4,7 +4,8 @@
 indir <- "D:/Dev/R/Lahman/data"
 
 # directory where the .RData files will be created
-outdir <- paste0(indir, "RData")
+#outdir <- paste0(indir, "RData")
+outdir <- indir
 
 zipfile <- "http://seanlahman.com/files/database/lahman-csv_2014-02-14.zip"
 download.file(zipfile, "./lahman-csv_2014-02-14.zip")
@@ -16,7 +17,7 @@ setwd(indir)
 #Batting <- read.csv(file="Batting.csv", header=TRUE, stringsAsFactors=FALSE, na.strings="")
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
 
-(files <- list.files(path=indir,pattern="*.csv"))
+(files <- list.files(path=indir, pattern="*.csv"))
 
 for (i in 1:length(files)) {
 	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="")
