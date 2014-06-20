@@ -1,3 +1,4 @@
 *.csv
 data/readme2013.txt
 data/lahman-csv_2014-02-14.zip
+data/*.Rd
