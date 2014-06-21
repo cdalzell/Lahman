@@ -10,7 +10,7 @@ Data on player appearances
 
 \usage{data(Appearances)}
 \format{
-  A data frame with 96737 observations on the following 20 variables.
+  A data frame with 98146 observations on the following 20 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{teamID}}{Team; a factor}
@@ -41,7 +41,7 @@ The Appearances table in the original version has some incorrect variable names.
 In particular, the 5th column is \code{career_year}.
 }
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2014) Lahman's Baseball Database, 1871-2013, 2014 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

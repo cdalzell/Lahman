@@ -9,7 +9,7 @@ Batting table - batting statistics
 }
 \usage{data(Batting)}
 \format{
-  A data frame with 96600 observations on the following 24 variables.
+  A data frame with 97889 observations on the following 24 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -41,7 +41,7 @@ Batting table - batting statistics
 Variables \code{X2B} and \code{X3B} are named \code{2B} and \code{3B} in the original database
 }
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2014) Lahman's Baseball Database, 1871-2013, 2014 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

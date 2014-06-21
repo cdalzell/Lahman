@@ -9,7 +9,7 @@ Post season fielding data
 }
 \usage{data(FieldingPost)}
 \format{
-  A data frame with 11183 observations on the following 17 variables.
+  A data frame with 11554 observations on the following 17 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -34,7 +34,7 @@ Post season fielding data
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2014) Lahman's Baseball Database, 1871-2013, 2014 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

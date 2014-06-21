@@ -10,7 +10,7 @@ for those teams in each year.
 }
 \usage{data(Managers)}
 \format{
-  A data frame with 3306 observations on the following 10 variables.
+  A data frame with 3337 observations on the following 10 variables.
   \describe{
     \item{\code{managerID}}{Player ID Number}
     \item{\code{yearID}}{Year}
@@ -31,7 +31,7 @@ for those teams in each year.
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2014) Lahman's Baseball Database, 1871-2013, 2014 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

@@ -12,7 +12,7 @@ where players are identified only by \code{playerID}.
 
 \usage{data(Master)}
 \format{
-  A data frame with 18125 observations on the following 35 variables.
+  A data frame with 18354 observations on the following 35 variables.
   \describe{
     \item{\code{lahmanID}}{Unique number assigned to each player}
     \item{\code{playerID}}{A unique code asssigned to each player.  The \code{playerID} links
@@ -61,7 +61,7 @@ where players are identified only by \code{playerID}.
 \code{debut}, \code{finalGame} were converted from character strings with \code{as.Date}.
 }
 \source{
-Lahman, S. (2010) Lahman's Baseball Database, 1871-2012, 2012 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2014) Lahman's Baseball Database, 1871-2013, 2014 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
