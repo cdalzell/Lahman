@@ -1,7 +1,8 @@
-## R Library for Sean Lahman's Baseball Database
+R Library for Sean Lahman's Baseball Database
+========================================================
 
-###Version: 2.0-3
-###Date: 2013-05-29
+Version: 2.0-3
+Date: 2013-05-29
 
 Authors:
 * Michael Friendly
