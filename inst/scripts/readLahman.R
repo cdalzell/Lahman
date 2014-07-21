@@ -60,12 +60,12 @@ colnames(HallOfFame)[2] <- 'yearID'
 # in SASspeak; the output format is a calendar date in 
 # yyyy-mm-dd format.
 Master <- within(Master, {
-    debut = as.Date(debut, 
-                    format = '%m/%d/%Y %H:%M:%s',
-                    origin = '1970-01-01')
-    finalGame = as.Date(finalGame, 
-                        format = '%m/%d/%Y %H:%M:%s',
-                        origin = '1970-01-01')
+#    debut = as.Date(debut, 
+#                    format = '%m/%d/%Y %H:%M:%s',
+#                    origin = '1970-01-01')
+#    finalGame = as.Date(finalGame, 
+#                        format = '%m/%d/%Y %H:%M:%s',
+#                        origin = '1970-01-01')
    birthDate = as.Date(paste(birthYear, birthMonth, birthDay, sep = '-'),
                        format = '%Y-%m-%d')
    deathDate = as.Date(paste(deathYear, deathMonth, deathDay, sep = '-'),
