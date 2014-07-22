@@ -11,7 +11,7 @@ Award information for managers awards
 \format{
   A data frame with 169 observations on the following 6 variables.
   \describe{
-    \item{\code{managerID}}{Manager ID code}
+    \item{\code{playerID}}{Manager (player) ID code}
     \item{\code{awardID}}{Name of award won}
     \item{\code{yearID}}{Year}
     \item{\code{lgID}}{League; a factor with levels \code{AL} \code{NL}}

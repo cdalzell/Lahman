@@ -12,7 +12,7 @@ for those teams in each year.
 \format{
   A data frame with 3337 observations on the following 10 variables.
   \describe{
-    \item{\code{managerID}}{Player ID Number}
+    \item{\code{playerID}}{Manager (player) ID code}
     \item{\code{yearID}}{Year}
     \item{\code{teamID}}{Team; a factor}
     \item{\code{lgID}}{League; a factor with levels \code{AA} \code{AL} \code{FL} \code{NL} \code{PL} \code{UA}}

@@ -11,7 +11,7 @@ Split season data for managers
 \format{
   A data frame with 93 observations on the following 10 variables.
   \describe{
-    \item{\code{managerID}}{Manager ID code}
+    \item{\code{playerID}}{Manager (player) ID code}
     \item{\code{yearID}}{Year}
     \item{\code{teamID}}{Team; a factor}
     \item{\code{lgID}}{League; a factor with levels \code{AL} \code{NL}}
