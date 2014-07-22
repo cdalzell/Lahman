@@ -57,7 +57,7 @@ mgrsumm <- function(d) {
     df
 }
 
-mgrTotals <- ddply(Managers, .(managerID), summarise,
+mgrTotals <- ddply(Managers, .(playerID), summarise,
                   nyear = length(unique(yearID)),
                   yearBegin = min(yearID),
                   yearEnd = max(yearID),
@@ -68,9 +68,9 @@ mgrTotals <- ddply(Managers, .(managerID), summarise,
                   L = sum(L),
                   WinPct = round(sum(W)/sum(W + L), 3))
 mgrTotals <- merge(mgrTotals,
-                   subset(Master, !is.na(managerID),
-                          select = c('managerID', 'nameLast', 'nameFirst')),
-                   by = 'managerID')
+                   subset(Master, !is.na(playerID),
+                          select = c('playerID', 'nameLast', 'nameFirst')),
+                   by = 'playerID')
 
 ##########################
 # Some basic queries
@@ -110,10 +110,10 @@ subset(mgrTotals, games >= 4000)
 # Connie Mack had an advantage: he owned the Philadelphia A's :)
 
 # Table of Tony LaRussa's team finishes:
-with(subset(Managers, managerID == 'larusto01m'), table(rank))
+with(subset(Managers, playerID == 'larusto01'), table(rank))
 
 # To include zero frequencies, one alternative is the tabulate() function:
-with(subset(Managers, managerID == 'larusto01m'), tabulate(rank, 7))
+with(subset(Managers, playerID == 'larusto01'), tabulate(rank, 7))
 
 
 ##############################################

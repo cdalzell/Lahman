@@ -44,7 +44,7 @@ subset(AwardsShareManagers, pointsWon == pointsMax)
 AwardsShareManagers[with(AwardsShareManagers, which.max(pointsWon/pointsMax)), ]
 
 # Bobby Cox's MOY vote tallies
-subset(AwardsShareManagers, managerID == "coxbo01m")
+subset(AwardsShareManagers, playerID == "coxbo01")
 
 }
 

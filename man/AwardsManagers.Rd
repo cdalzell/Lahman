@@ -43,7 +43,7 @@ subset(AwardsManagers, awardID == "BBWAA Manager of the year" &
                           lgID == "AL")
 
 # Tony LaRussa's manager of the year awards
-subset(AwardsManagers, managerID == "larusto01m")
+subset(AwardsManagers, playerID == "larusto01")
 
 }
 
