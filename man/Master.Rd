@@ -17,10 +17,6 @@ where players are identified only by \code{playerID}.
     \item{\code{lahmanID}}{Unique number assigned to each player}
     \item{\code{playerID}}{A unique code asssigned to each player.  The \code{playerID} links
                  the data in this file with records on players in the other files.}
-    \item{\code{managerID}}{An ID for individuals who served as managers. Links to information in the 
-                 \code{\link{Managers}}, \code{\link{ManagersHalf}} and other files dealing with managers.}
-    \item{\code{hofID}}{An ID for individuals who are in the baseball Hall of Fame. Links to information
-                 in the \code{\link{HallOfFame}} file.}
     \item{\code{birthYear}}{Year player was born}
     \item{\code{birthMonth}}{Month player was born}
     \item{\code{birthDay}}{Day player was born}
@@ -45,13 +41,7 @@ where players are identified only by \code{playerID}.
     \item{\code{throws}}{a factor: Player's throwing hand (left(L) or right(R))}
     \item{\code{debut}}{Date that player made first major league appearance}
     \item{\code{finalGame}}{Date that player made first major league appearance (blank if still active)}
-    \item{\code{college}}{College attended.  Further information in \code{\link{Schools}} and \code{\link{SchoolsPlayers}},
-          but not linked in the Master file by \code{schoolID}}
-%    \item{lahman40ID,lahman45ID}{ID used in Lahman Database versions 4.0 and 4.5}
-    \item{\code{lahman40ID}}{ID used in Lahman Database version 4.0 }
-    \item{\code{lahman45ID}}{ID used in Lahman database version 4.5 }
     \item{\code{retroID}}{ID used by retrosheet, \url{http://www.retrosheet.org/}}
-    \item{\code{holtzID}}{ID used by Sean Holtz's Baseball Almanac}
     \item{\code{bbrefID}}{ID used by Baseball Reference website, \url{http://www.baseball-reference.com/}}
     \item{\code{birthDate}}{Player's birthdate, in \code{as.Date} format}
     \item{\code{deathDate}}{Player's deathdate, in \code{as.Date} format}
