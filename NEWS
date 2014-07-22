@@ -1,3 +1,10 @@
+Version 3.0-0 (2013-07-20)
+o Updated with data for the 2013 season
+o Changes to reflect alterations in the 2013 schema:
+  o HallOfFame$hofID is now HallOfFame$playerID
+  o managerID is now playerID in all tables
+  o Removed from Master: managerID, hofID, holtzID, lahmanID, lahman40ID, lahman45ID, nameNote, nameNick, and college
+
 Version 2.0-3 (2013-05-29)
 o largest RData files are now compressed via R CMD build --resave-data
 
