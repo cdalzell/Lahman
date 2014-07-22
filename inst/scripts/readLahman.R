@@ -19,9 +19,6 @@ setwd(indir)
 
 (files <- list.files(path=indir, pattern="*.csv"))
 
-# compress mightily on save
-options(save.defaults=list(compress="bzip2", compression_level=9))
-
 for (i in 1:length(files)) {
 	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="")
 	cat("Read:", files[i], "\trows: ", nrow(inp), " cols: ", ncol(inp), "\n")
@@ -79,7 +76,14 @@ Master <- within(Master, {
 #  'named Guillermo VelC!zquez' in object 'Master'
 #  'Martmn Magdaleno Dihigo (Llanos)' in object 'Master'
 
+tools:::showNonASCII(paste0(indir, 'Master.csv'))
+
+# then, fix manually, because I don't know an R way ...
+
 setwd(outdir)
+
+# compress mightily on save
+options(save.defaults=list(compress="bzip2", compression_level=9))
 
 #save(Allstar,             file="Allstar.RData")            
 save(AllstarFull,         file="AllstarFull.RData")        
