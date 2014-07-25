@@ -12,9 +12,9 @@ where players are identified only by \code{playerID}.
 
 \usage{data(Master)}
 \format{
-  A data frame with 18354 observations on the following 35 variables.
+  A data frame with 18354 observations on the following 26 variables.
   \describe{
-    \item{\code{lahmanID}}{Unique number assigned to each player}
+%    \item{\code{lahmanID}}{Unique number assigned to each player}
     \item{\code{playerID}}{A unique code asssigned to each player.  The \code{playerID} links
                  the data in this file with records on players in the other files.}
     \item{\code{birthYear}}{Year player was born}
@@ -31,10 +31,10 @@ where players are identified only by \code{playerID}.
     \item{\code{deathCity}}{City where player died}
     \item{\code{nameFirst}}{Player's first name}
     \item{\code{nameLast}}{Player's last name}
-    \item{\code{nameNote}}{Note about player's name (usually signifying that they changed
-                 their name or played under two differnt names)}
+%    \item{\code{nameNote}}{Note about player's name (usually signifying that they changed
+%                 their name or played under two differnt names)}
     \item{\code{nameGiven}}{Player's given name (typically first and middle)}
-    \item{\code{nameNick}}{Player's nickname}
+ %   \item{\code{nameNick}}{Player's nickname}
     \item{\code{weight}}{Player's weight in pounds}
     \item{\code{height}}{Player's height in inches}
     \item{\code{bats}}{a factor: Player's batting hand (left (L), right (R), or both (B))         }
