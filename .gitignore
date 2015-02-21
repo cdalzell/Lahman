@@ -4,3 +4,4 @@ data/lahman-csv_2014-02-14.zip
 data/*.Rd
 data/.RData
 data/.Rhistory
+source-data/*
