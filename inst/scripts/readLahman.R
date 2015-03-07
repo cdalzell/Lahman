@@ -7,11 +7,12 @@ indir <- "D:/Dev/R/Lahman/data"
 #outdir <- paste0(indir, "RData")
 outdir <- indir
 
-dataFile <- "./lahman-csv_2014-02-14.zip"
+# local data location
+dataFile <- "./lahman-csv_2015-01-24.zip"
 
 # no need to download if we already have the file
-if (file.exists(dataFile)) {
-  zipfile <- "http://seanlahman.com/files/database/lahman-csv_2014-02-14.zip"
+if (!file.exists(dataFile)) {
+  zipfile <- "http://seanlahman.com/files/database/lahman-csv_2015-01-24.zip"
   download.file(zipfile, dataFile)
 }
 

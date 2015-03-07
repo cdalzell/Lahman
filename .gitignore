@@ -1,5 +1,6 @@
 .Rhistory
 *.csv
+*.zip
 data/readme2013.txt
 #data/lahman-csv*.zip
 data/*.Rd
