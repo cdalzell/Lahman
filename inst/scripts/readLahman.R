@@ -24,7 +24,7 @@ setwd(indir)
 #Batting <- read.csv(file="Batting.csv", header=TRUE, stringsAsFactors=FALSE, na.strings="")
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
 
-(files <- list.files(path=indir, pattern="*.csv"))
+(files <- list.files(path=indir, pattern="*.csv$"))
 
 for (i in 1:length(files)) {
 	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="")
