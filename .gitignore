@@ -6,3 +6,4 @@ data/readme2013.txt
 data/*.Rd
 data/.RData
 data/.Rhistory
+.RData
