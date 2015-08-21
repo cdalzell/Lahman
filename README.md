@@ -5,12 +5,12 @@ Version: 4.0-0
 Date: 2014-02-20
 
 Authors:
+* Chris Dalzell
 * Michael Friendly
 * Dennis Murphy
 * Martin Monkman
-* Chris Dalzell
     
-Maintainer: Michael Friendly
+Maintainer: Chris Dalzell
 
 Required: R (>= 2.10)
 
