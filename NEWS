@@ -1,4 +1,4 @@
-Version 3.0-0 (2013-07-20)
+Version 3.0-0 (2014-07-20)
 o Updated with data for the 2013 season
 o Changes to reflect alterations in the 2013 schema:
   o HallOfFame$hofID is now HallOfFame$playerID
