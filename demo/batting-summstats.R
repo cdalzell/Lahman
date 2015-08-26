@@ -34,7 +34,7 @@ summstats <- function(d) {
       }
     vars <- c('AB', 'R', 'H', 'X2B', 'X3B',
               'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'IBB', 'HBP',
-              'SH', 'SF', 'GIDP', 'G_old')
+              'SH', 'SF', 'GIDP')
     d2 <- apply(d[, vars], 2, NAmassage)
     d2 <- if(is.vector(d2)) {as.data.frame(as.list(d2)) } else {
                 as.data.frame(d2) }
@@ -48,7 +48,7 @@ summstats <- function(d) {
       OPS = round(OBP + SlugPct, 3),
       BABIP = ifelse(AB > 0, round(H/(AB - SO), 3), NA)
       )
-    data.frame(d, d2[, 18:24])
+    data.frame(d, d2[, 18:22])
 }
 
 # This function creates a one-line summary of a player's
