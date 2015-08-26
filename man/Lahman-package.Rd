@@ -98,7 +98,7 @@ Others tables:
   \code{\link{Salaries}} - player salary data;
   \code{\link{Appearances}} - data on player appearances;
   \code{\link{Schools}} - Information on schools players attended;
-  \code{\link{SchoolsPlayers}} - Information on schools players attended, by player;
+  \code{\link{CollegePlaying}} - Information on schools players attended, by player and year;
 %}
 
 Variable label tables are provided for some of the tables:
