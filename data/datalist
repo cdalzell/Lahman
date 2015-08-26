@@ -6,6 +6,7 @@ AwardsShareManagers
 AwardsSharePlayers
 Batting
 BattingPost
+CollegePlaying
 Fielding
 FieldingOF
 FieldingPost
@@ -17,7 +18,6 @@ Pitching
 PitchingPost
 Salaries
 Schools
-SchoolsPlayers
 SeriesPost
 Teams
 TeamsFranchises
