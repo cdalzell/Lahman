@@ -9,7 +9,7 @@ Batting table - batting statistics
 }
 \usage{data(Batting)}
 \format{
-  A data frame with 97889 observations on the following 24 variables.
+  A data frame with 99846 observations on the following 22 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -17,7 +17,6 @@ Batting table - batting statistics
     \item{\code{teamID}}{Team; a factor}
     \item{\code{lgID}}{League; a factor with levels \code{AA} \code{AL} \code{FL} \code{NL} \code{PL} \code{UA}}
     \item{\code{G}}{Games: number of games in which a player played}
-    \item{\code{G_batting}}{Game as batter}
     \item{\code{AB}}{At Bats}
     \item{\code{R}}{Runs}
     \item{\code{H}}{Hits: times reached base because of a batted, fair ball without error by the defense}
@@ -34,14 +33,13 @@ Batting table - batting statistics
     \item{\code{SH}}{Sacrifice hits}
     \item{\code{SF}}{Sacrifice flies}
     \item{\code{GIDP}}{Grounded into double plays}
-    \item{\code{G_old}}{Old version of games (deprecated)}
   }
 }
 \details{
 Variables \code{X2B} and \code{X3B} are named \code{2B} and \code{3B} in the original database
 }
 \source{
-Lahman, S. (2014) Lahman's Baseball Database, 1871-2013, 2014 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -134,7 +132,7 @@ ggplot(topHitters, aes(x = yearID, y = BA)) +
 # Total home runs by year
 totalHR <- ddply(Batting, .(yearID), summarise,
                        HomeRuns = sum(as.numeric(HR), na.rm=TRUE),
-                       Games = sum(as.numeric(G_batting), na.rm=TRUE)
+                       Games = sum(as.numeric(G), na.rm=TRUE)
                        )
 
 plot(HomeRuns ~ yearID, data=subset(totalHR, yearID<=1918))
