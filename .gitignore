@@ -1,8 +1,8 @@
 .Rhistory
 *.csv
 *.zip
-data/readme2013.txt
-#data/lahman-csv*.zip
+data/readme*.txt
+data/lahman-csv*.zip
 data/*.Rd
 data/.RData
 data/.Rhistory
