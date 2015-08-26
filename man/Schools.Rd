@@ -37,7 +37,7 @@ table(Schools$schoolState)
 # top 20 schools 
 schoolInfo <- Schools[, c("schoolID", "schoolName", "schoolCity", "schoolState")]
 
-schoolCount <- ddply(SchoolsPlayers, .(schoolID), summarise,
+schoolCount <- ddply(CollegePlaying, .(schoolID), summarise,
                        players = length(schoolID))
 schoolCount <- merge(schoolCount, schoolInfo, by="schoolID", all.x=TRUE)
 
