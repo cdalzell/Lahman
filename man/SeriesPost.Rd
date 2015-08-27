@@ -9,7 +9,7 @@ Post season series information
 }
 \usage{data(SeriesPost)}
 \format{
-  A data frame with 289 observations on the following 9 variables.
+  A data frame with 298 observations on the following 9 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{round}}{Level of playoffs }
@@ -26,7 +26,7 @@ Post season series information
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2014) Lahman's Baseball Database, 1871-2013, 2014 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

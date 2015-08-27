@@ -10,7 +10,7 @@ Baseball Hall of Fame.
 }
 \usage{data(HallOfFame)}
 \format{
-  A data frame with 4054 observations on the following 8 variables.
+  A data frame with 4088 observations on the following 9 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year of ballot}
@@ -32,7 +32,7 @@ described in \url{http://en.wikipedia.org/wiki/National_Baseball_Hall_of_Fame_an
 
 }
 \source{
-Lahman, S. (2014) Lahman's Baseball Database, 1871-2013, 2014 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

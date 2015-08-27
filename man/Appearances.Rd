@@ -10,13 +10,12 @@ Data on player appearances
 
 \usage{data(Appearances)}
 \format{
-  A data frame with 98146 observations on the following 20 variables.
+  A data frame with 99466 observations on the following 21 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{teamID}}{Team; a factor}
     \item{\code{lgID}}{League; a factor with levels \code{AA} \code{AL} \code{FL} \code{NL} \code{PL} \code{UA}}
     \item{\code{playerID}}{Player ID code}
-%    \item{\code{career_year}}{Player ID code}
     \item{\code{G_all}}{Total games played}
     \item{\code{GS}}{Games started}
     \item{\code{G_batting}}{Games in which player batted}
@@ -41,7 +40,7 @@ The Appearances table in the original version has some incorrect variable names.
 In particular, the 5th column is \code{career_year}.
 }
 \source{
-Lahman, S. (2014) Lahman's Baseball Database, 1871-2013, 2014 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
