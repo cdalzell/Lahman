@@ -39,7 +39,7 @@ library('lattice')
 dotplot(awardtab)
 
 # Restrict to MVP awards
-mvp <- subset(AwardsPlayers, awardID == 'MVP')
+mvp <- subset(AwardsPlayers, awardID == 'Most Valuable Player')
 # Who won in 1994?
 mvp[mvp$yearID == 1994L, ]
 
