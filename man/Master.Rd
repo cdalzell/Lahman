@@ -78,7 +78,9 @@ mosaic(BT, shade=TRUE)
 
 ## Who is Shoeless Joe Jackson?
 subset(Master, nameLast=="Jackson" & nameFirst=="Joe")
-joeID <-c(subset(Master, nameLast=="Jackson" & nameFirst=="Joe")["playerID"])
+subset(Master, nameLast=="Jackson" & nameFirst=="Shoeless Joe")
+
+joeID <-c(subset(Master, nameLast=="Jackson" & nameFirst=="Shoeless Joe")["playerID"])
 
 subset(Batting, playerID==joeID)
 subset(Fielding, playerID==joeID)
