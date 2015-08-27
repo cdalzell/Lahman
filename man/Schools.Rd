@@ -12,10 +12,10 @@ Information on schools players attended, by school
   A data frame with 749 observations on the following 5 variables.
   \describe{
     \item{\code{schoolID}}{school ID code}
-    \item{\code{schoolName}}{school name}
-    \item{\code{schoolCity}}{city where school is located}
-    \item{\code{schoolState}}{state where school's city is located}
-    \item{\code{schoolNick}}{nickname for school's baseball team}
+    \item{\code{name_full}}{school name}
+    \item{\code{city}}{city where school is located}
+    \item{\code{state}}{state where school's city is located}
+    \item{\code{country}}{country where school is located}
   }
 }
 %\details{
@@ -31,11 +31,14 @@ Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http
 
 require(plyr)
 
-# how many different schools are listed in each state?
-table(Schools$schoolState)
+# How many different schools are listed in each state?
+table(Schools$state)
+ 
+# How many different schools are listed in each country?
+table(Schools$country)
 
-# top 20 schools 
-schoolInfo <- Schools[, c("schoolID", "schoolName", "schoolCity", "schoolState")]
+# Top 20 schools 
+schoolInfo <- Schools[, c("schoolID", "name_full", "city", "state")]
 
 schoolCount <- ddply(CollegePlaying, .(schoolID), summarise,
                        players = length(schoolID))
@@ -46,9 +49,9 @@ schoolCount <- arrange(schoolCount, desc(players))
 head(schoolCount, 20)
 
 # sum counts by state
-schoolStates <- ddply(schoolCount, .(schoolState), summarise,
+schoolStates <- ddply(schoolCount, .(state), summarise,
                        players = sum(players),
-                       schools = length(schoolState))
+                       schools = length(state))
 str(schoolStates)
 summary(schoolStates)
 
@@ -58,18 +61,18 @@ if(require(zipcode)) {
   # find lat/long of Schools from zipcode file
   zips <- ddply(zipcode, .(city, state), summarize,
                 latitude=mean(latitude), longitude=mean(longitude))
-  colnames(zips)[1:2] <- c("schoolCity", "schoolState")
+  colnames(zips)[1:2] <- c("city", "state")
   str(zips)
 
   # merge lat/long from zips
-  schoolsXY <- merge(Schools, zips, by=c("schoolCity", "schoolState"), all.x=TRUE)
+  schoolsXY <- merge(Schools, zips, by=c("city", "state"), all.x=TRUE)
   str(schoolsXY)
 
   # plot school locations
   with(subset(schoolsXY, schoolState != 'HI'),
     plot(jitter(longitude), jitter(latitude))
-    )
-  }
+  )
+}
 }
 
 }
