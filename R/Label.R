@@ -1,6 +1,6 @@
 ## function for accessing variable labels
 
-Label <- function(var, labels=rbind(battingLabels, pitchingLabels, fieldingLabels)) {
+Label <- function(var, labels=rbind(Lahman::battingLabels, Lahman::pitchingLabels, Lahman::fieldingLabels)) {
 	wanted <- which(labels[,1]==var)
 	if (length(wanted)) labels[wanted[1],2] else var
 }
