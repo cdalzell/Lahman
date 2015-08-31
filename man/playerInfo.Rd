@@ -12,9 +12,9 @@ and teams (from the \code{\link{Teams}} file).
 }
 \usage{
 
-playerInfo(playerID, nameFirst, nameLast, data = Master, extra = NULL, ...)
+playerInfo(playerID, nameFirst, nameLast, data = Lahman::Master, extra = NULL, ...)
 
-teamInfo(teamID, name, data = Teams, extra = NULL, ...)
+teamInfo(teamID, name, data = Lahman::Teams, extra = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

@@ -18,7 +18,8 @@ for each record in a Batting-like data.frame.
 
 }
 \usage{
-battingStats(data = Batting, idvars = c("playerID", "yearID", "stint", "teamID", "lgID"), 
+battingStats(data = Lahman::Batting, 
+             idvars = c("playerID", "yearID", "stint", "teamID", "lgID"), 
              cbind = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.

@@ -11,10 +11,10 @@
 #
 
 
-battingStats <- function(data=Batting, 
+battingStats <- function(data=Lahman::Batting, 
 	idvars=c("playerID","yearID","stint","teamID","lgID"),
 	cbind=TRUE) {
-    require('plyr')
+#    require('plyr')
     NA2zero <- function(x) {
     # Takes a column vector and replaces NAs by zeros
         x[is.na(x)] <- 0
@@ -29,7 +29,7 @@ battingStats <- function(data=Batting,
     d2 <- apply(data[, vars], 2, NA2zero)
     d2 <- if(is.vector(d2)) {as.data.frame(as.list(d2)) } else {
                 as.data.frame(d2) }
-    d2 <- mutate(d2,
+    d2 <- plyr::mutate(d2,
       BA = ifelse(AB > 0, round(H/AB, 3), NA),
       PA = AB + BB + HBP + SH + SF,
       TB = H + X2B + 2 * X3B + 3 * HR,
