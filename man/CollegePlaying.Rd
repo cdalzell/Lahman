@@ -16,9 +16,19 @@ Information on schools players attended, by player
     \item{\code{yearID}}{Year player attended school}
   }
 }
-%\details{
-%%%  ~~ If necessary, more details than the __description__ above ~~
-%}
+\details{
+This data set reflects a change in the Lahman schema for the 2015 version.
+The old \code{SchoolsPlayers} table was replaced with
+this new table called \code{CollegePlaying}.
+
+According to the documentation,
+this change reflects advances in the compilation of this data, largely led by
+Ted Turocy. The old table reported college attendance for major league
+players by listing a start date and end date.  The new version has a 
+separate record for each year that a player attended.  This allows
+us to better account for players who attended multiple colleges or
+skipped a season, as well as to identify teammates.
+}
 \source{
 Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
 }
