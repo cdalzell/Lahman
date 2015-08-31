@@ -8,7 +8,7 @@ ldata
 # get table dimensions
 dims <- t(matrix(as.numeric(unlist(strsplit(ldata$dim, "x"))), 2, nrow(ldata)))
 title <- sub(" -.*", "", ldata$Title)
-ldata <- data.frame(file=ldata$Item, class=ldata$class, nobs=dims[,1], nvar=dims[,2], title=title )
+ldata <- data.frame(file=ldata$Item, class=ldata$class, nobs=dims[,1], nvar=dims[,2], title=title, stringsAsFactors = FALSE )
 
 LahmanData <- ldata
 
