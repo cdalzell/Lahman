@@ -2,7 +2,7 @@
 \alias{Teams}
 \docType{data}
 \title{
-Teams table - Yearly Stats and Standings
+Teams table
 }
 \description{
 Yearly statistics and standings for teams
