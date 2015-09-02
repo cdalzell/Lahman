@@ -7,6 +7,7 @@ Version: 4.0-0
 Date: 2015-08-26
 
 Authors:
+
 * Chris Dalzell
 * Michael Friendly
 * Dennis Murphy
@@ -21,3 +22,23 @@ Suggests: lattice, ggplot2, googleVis, data.table, vcd, plyr, reshape2, zipcode
 License: GPL
 
 URL: http://lahman.r-forge.r-project.org/
+
+This is an R, pre-CRAN-release version of the 2014 edition of Sean Lahman's Baseball Database,
+http://www.seanlahman.com/baseball-archive/statistics/
+
+For testing purposes, this version can be installed in your R library via
+
+    library(devtools)
+    install_github("cdalzell/Lahman", ref="feature/v4.0-0")
+
+If you wish to preserve your original version of `Lahman_3.0-1`, use `dev_mode()`.
+
+    dev_mode()
+    install_github("cdalzell/Lahman", ref="feature/v4.0-0")
+    #  ...test ...
+    dev_mode()  # revert to previous
+
+
+Please report any problems or issues with this new version as an issue on this site.
+
+
