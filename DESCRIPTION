@@ -8,7 +8,7 @@ Authors@R: c(person(given = "Michael", family = "Friendly",
         person(given ="Chris", family = "Dalzell", role="ctb", email="cdalzell@gmail.com"),
         person(given= "Dennis", family = "Murphy", role="ctb"), 
         person(given ="Martin", family = "Monkman", role="ctb"))
-Author: Chris Dalzell, Michael Friendly, Dennis Murphy, and Martin Monkman
+Author: Michael Friendly, Chris Dalzell, Dennis Murphy, and Martin Monkman
 Maintainer: Chris Dalzell <cdalzell@gmail.com>
 Description: This package provides the tables from Sean Lahman's
         Baseball Database as a set of R data.frames.  It uses the data
