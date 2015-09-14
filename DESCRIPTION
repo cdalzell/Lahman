@@ -3,12 +3,11 @@ Type: Package
 Title: Sean Lahman's Baseball Database
 Version: 4.0-0
 Date: 2015-09-04
-Authors@R: c(person(given = "Michael", family = "Friendly",
-        role=c("aut", "cre"), email="friendly@yorku.ca"),
-        person(given ="Chris", family = "Dalzell", role="ctb", email="cdalzell@gmail.com"),
+Authors@R: c(person(given = "Michael", family = "Friendly", role="aut"), 
         person(given= "Dennis", family = "Murphy", role="ctb"), 
-        person(given ="Martin", family = "Monkman", role="ctb"))
-Author: Michael Friendly, Chris Dalzell, Dennis Murphy, and Martin Monkman
+        person(given ="Martin", family = "Monkman", role="ctb"),
+        person(given ="Chris", family = "Dalzell", role=c("cre","ctb"), email="cdalzell@gmail.com"))
+Author:  Michael Friendly [aut], Dennis Murphy [ctb],  Martin Monkman [ctb], Chris Dalzell [cre, ctb]
 Maintainer: Chris Dalzell <cdalzell@gmail.com>
 Description: Provides the tables from Sean Lahman's Baseball Database as a set of R data.frames.
         It uses the data on pitching, hitting and fielding performance and other tables
