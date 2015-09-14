@@ -10,11 +10,9 @@ Authors@R: c(person(given = "Michael", family = "Friendly",
         person(given ="Martin", family = "Monkman", role="ctb"))
 Author: Michael Friendly, Chris Dalzell, Dennis Murphy, and Martin Monkman
 Maintainer: Chris Dalzell <cdalzell@gmail.com>
-Description: This package provides the tables from Sean Lahman's
-        Baseball Database as a set of R data.frames.  It uses the data
-        on pitching, hitting and fielding performance and other tables
-        from 1871 through 2014, as recorded in the 2015 version of the
-        database.
+Description: Provides the tables from Sean Lahman's Baseball Database as a set of R data.frames.
+        It uses the data on pitching, hitting and fielding performance and other tables
+        from 1871 through 2014, as recorded in the 2015 version of the database.
 Depends: R (>= 2.10)
 Suggests: lattice, ggplot2, googleVis, data.table, vcd, plyr, reshape2,
         zipcode
