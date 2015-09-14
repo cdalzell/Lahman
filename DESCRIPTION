@@ -1,7 +1,7 @@
 Package: Lahman
 Type: Package
 Title: Sean Lahman's Baseball Database
-Version: 4.0-0
+Version: 4.0-1
 Date: 2015-09-04
 Authors@R: c(person(given = "Michael", family = "Friendly", role="aut"), 
         person(given= "Dennis", family = "Murphy", role="ctb"), 
