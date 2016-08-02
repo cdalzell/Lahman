@@ -7,22 +7,25 @@ indir <- "D:/Dev/R/Lahman/data"
 #outdir <- paste0(indir, "RData")
 outdir <- indir
 
+setwd(indir)
+
 # local data location
-dataFile <- "./lahman-csv_2015-01-24.zip"
+dataFile <- "../source-data/baseballdatabank-master_2016-03-02.zip"
 
 # no need to download if we already have the file
 if (!file.exists(dataFile)) {
-  zipfile <- "http://seanlahman.com/files/database/lahman-csv_2015-01-24.zip"
+  zipfile <- "http://seanlahman.com/files/database/baseballdatabank-master_2016-03-02.zip"
   download.file(zipfile, dataFile)
 }
 
 unzip(dataFile, exdir=indir)
 
-setwd(indir)
-
 # Read the Lahman MLB .csv files and create .RData and .Rd files
 #Batting <- read.csv(file="Batting.csv", header=TRUE, stringsAsFactors=FALSE, na.strings="")
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
+
+# set indir to the directories the csv are extracted to
+indir <- paste0(indir, "/baseballdatabank-master/core")
 
 (files <- list.files(path=indir, pattern="*.csv$"))
 
