@@ -3,8 +3,8 @@
 R Library for Sean Lahman's Baseball Database
 ========================================================
 
-Version: 4.0-1
-Date: 2015-09-04
+Version: 5.0-0
+Date: 2016-08-08
 
 Authors:
 
