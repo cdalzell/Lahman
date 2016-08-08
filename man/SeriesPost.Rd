@@ -26,7 +26,7 @@ Post season series information
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -38,7 +38,7 @@ data(SeriesPost)
 
 # Notes: 
 # - the SeriesPost table includes an identifier for the team (teamID), but not
-# the franchise (e.g. the Brooklyn Dodgers and Los Angeles Dodgers are counted 
+# the franchise (e.g. the Brooklyn Dodgers [BRO] and Los Angeles Dodgers [LAN] are counted 
 # separately)
 # - the World Series was first played in 1903, but the Lahman data tables have
 # the final round of the earlier playoffs labelled "WS", so it is necessary to
@@ -48,7 +48,6 @@ data(SeriesPost)
 library(dplyr)
 
 ws_winner_table <- SeriesPost \%>\%
-  mutate(teamIDwinner = as.character(teamIDwinner)) \%>\%
   filter(yearID > "1902", round == "WS") \%>\%
   group_by(teamIDwinner) \%>\%
   summarise(wincount = n()) \%>\%
