@@ -1,4 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 source-data/
+README.md
+cran-comments.md
+
 
