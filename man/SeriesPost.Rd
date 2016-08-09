@@ -26,9 +26,33 @@ Post season series information
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
 %}
+\examples{
+data(SeriesPost)
+
+# How many times has each team won the World Series?
+
+# Notes: 
+# - the SeriesPost table includes an identifier for the team (teamID), but not
+# the franchise (e.g. the Brooklyn Dodgers [BRO] and Los Angeles Dodgers [LAN] are counted 
+# separately)
+# - the World Series was first played in 1903, but the Lahman data tables have
+# the final round of the earlier playoffs labelled "WS", so it is necessary to
+# filter the SeriesPost table to exclude years prior to 1903. 
+
+# using the dplyr data manipulation package
+library(dplyr)
+
+ws_winner_table <- SeriesPost \%>\%
+  filter(yearID > "1902", round == "WS") \%>\%
+  group_by(teamIDwinner) \%>\%
+  summarise(wincount = n()) \%>\%
+  arrange(desc(wincount))
+ws_winner_table
+
+
 \keyword{datasets}
