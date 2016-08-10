@@ -23,18 +23,18 @@ License: GPL
 
 URL: http://lahman.r-forge.r-project.org/
 
-This is an R, pre-CRAN-release version of the 2015 edition of Sean Lahman's Baseball Database,
+This is an R version of the 2015 edition of Sean Lahman's Baseball Database,
 http://www.seanlahman.com/baseball-archive/statistics/
 
-For testing purposes, this version can be installed in your R library via
+For testing purposes, the pre-CRAN release version can be installed in your R library via:
 
     library(devtools)
-    install_github("cdalzell/Lahman", ref="feature/2015-data-update")
+    install_github("cdalzell/Lahman", ref="release/5.0-0")
 
 If you wish to preserve your original version of `Lahman_4.0-1`, use `dev_mode()`.
 
     dev_mode()
-    install_github("cdalzell/Lahman", ref="feature/2015-data-update")
+    install_github("cdalzell/Lahman", ref="release/5.0-0")
     #  ...test ...
     dev_mode()  # revert to previous
 
