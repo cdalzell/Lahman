@@ -9,7 +9,7 @@ Information on schools players attended, by school
 }
 \usage{data(Schools)}
 \format{
-  A data frame with 749 observations on the following 5 variables.
+  A data frame with 1207 observations on the following 5 variables.
   \describe{
     \item{\code{schoolID}}{school ID code}
     \item{\code{name_full}}{school name}
@@ -22,7 +22,7 @@ Information on schools players attended, by school
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
