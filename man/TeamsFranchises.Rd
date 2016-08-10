@@ -45,7 +45,7 @@ NatAssoc_active_table <- TeamsFranchises \%>\%
   filter(active == "Y") \%>\%
   filter(!is.na(NAassoc))
 NatAssoc_active_table
-
+}
 
 
 \keyword{datasets}

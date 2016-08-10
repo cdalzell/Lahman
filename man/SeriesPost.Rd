@@ -31,6 +31,8 @@ Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
 %}
+\keyword{datasets}
+
 \examples{
 data(SeriesPost)
 
@@ -54,5 +56,4 @@ ws_winner_table <- SeriesPost \%>\%
   arrange(desc(wincount))
 ws_winner_table
 
-
-\keyword{datasets}
+}

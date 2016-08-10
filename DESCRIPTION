@@ -13,7 +13,7 @@ Description: Provides the tables from the 'Sean Lahman Baseball Database' as a s
         It uses the data on pitching, hitting and fielding performance and other tables
         from 1871 through 2015, as recorded in the 2016 version of the database.
 Depends: R (>= 2.10)
-Suggests: lattice, ggplot2, googleVis, data.table, vcd, plyr, reshape2,
+Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, plyr, reshape2,
         zipcode
 License: GPL
 URL: http://lahman.r-forge.r-project.org/
