@@ -1,1 +1,2 @@
 batting-summstats	Calculate summary statistics for the Batting data frame
+lahman-dplyr      Some examples using dplyr with Lahman
