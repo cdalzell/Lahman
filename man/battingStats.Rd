@@ -2,7 +2,7 @@
 \alias{battingStats}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Calculcate additional batting statistics
+Calculate additional batting statistics
 }
 \description{
 The \code{\link{Batting}} does not contain batting statistics derived from those
