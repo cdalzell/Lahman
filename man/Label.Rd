@@ -55,9 +55,9 @@ Michael Friendly
 \examples{
 require("dplyr")
 # find and plot maximum number of homers per year
-batHR <- Batting %>%
-           filter(!is.na(HR)) %>%
-           group_by(yearID) %>%
+batHR <- Batting \%>\%
+           filter(!is.na(HR)) \%>\%
+           group_by(yearID) \%>\%
            summarise(max = max(HR))
 		
 with(batHR, {
