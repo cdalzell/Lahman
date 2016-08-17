@@ -46,43 +46,51 @@ Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http
 data(Fielding)
 # Basic fielding data
 
-require(plyr)
+require("dplyr")
 
 
 # Roberto Clemente's fielding profile
 # pitching and catching related data removed
-subset(Fielding, playerID == "clemero01")[, 1:13]
-
+# subset(Fielding, playerID == "clemero01")[, 1:13]
+Fielding \%>\% 
+   filter(playerID == "clemero01") \%>\%
+   select(1:13)
+   
 # Yadier Molina's fielding profile
 # PB, WP, SP and CS apply to catchers
-subset(Fielding, playerID == "molinya01")
+Fielding \%>\% 
+  subset(playerID == "molinya01") \%>\%
+  select(-WP, -ZR)
 
 # Pedro Martinez's fielding profile
-# Notice what pitchers get away with in this data frame :)
-subset(Fielding, playerID == "martipe02")
+Fielding \%>\% subset(playerID == "martipe02")
 
 # Table of games played by Pete Rose at different positions
 with(subset(Fielding, playerID == "rosepe01"), xtabs(G ~ POS))
 
 # Career total G/PO/A/E/DP for Luis Aparicio
-luis <- subset(Fielding, playerID == "aparilu01", 
-                  select = c("G", "PO", "A", "E", "DP"))
-colwise(sum)(luis)
+Fielding \%>\%
+    filter(playerID == "aparilu01") \%>\% 
+    select(G, PO, A, E, DP) \%>\%
+    summarise_each(funs(sum))
 
 
 # Top ten 2B/SS in turning DPs
-dpkey <- ddply(subset(Fielding, POS \%in\% c("2B", "SS")), "playerID", summarise, 
-                        TDP = sum(DP, na.rm = TRUE))
-head(arrange(dpkey, desc(TDP)), 10)
+Fielding \%>\%
+    subset(POS %in% c("2B", "SS")) \%>\%
+    group_by(playerID) \%>\%
+    summarise(TDP = sum(DP, na.rm = TRUE)) \%>\%
+    arrange(desc(TDP)) \%>\%
+    head(., 10)
 
 # League average fielding statistics, 1961-present
+Fielding \%>\% 
+   filter(yearID >= 1961 & POS != "DH") \%>\%
+   select(yearID, lgID, POS, InnOuts, PO, A, E) \%>\%
+   group_by(yearID, lgID) \%>\%
+   summarise_at(vars(InnOuts, PO, A, E), funs(sum), na.rm = TRUE) \%>\%
+   mutate(fpct = round( (PO + A)/(PO + A + E), 3), 
+          OPE = round(InnOuts/E, 3))
 
-fldg <- subset(Fielding, yearID >= 1961 & POS != "DH",
-                  select = c("yearID", "lgID", "POS", "InnOuts", 
-                             "PO", "A", "E"))
-lgTotalsF <- ddply(fldg, .(yearID, lgID), numcolwise(sum, na.rm = TRUE))
-(lgTotalsF <- mutate(lgTotalsF,
-                      fpct = round( (PO + A)/(PO + A + E), 3), 
-                      OPE = round(InnOuts/E, 3) ))
 
 }
