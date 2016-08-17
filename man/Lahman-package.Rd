@@ -42,7 +42,7 @@ is tagged with his \code{playerID}.  The \code{playerID}s are linked to names an
 birthdates in the \code{\link{Master}} table.  Similar links exist among other tables
 via analogous \code{*ID} variables.
 
-The database is comprised of the following main tables:
+The database is composed of the following main tables:
 
 \describe{
 	\item{\code{\link{Master}}}{Player names, dates of birth, death and other biographical info}
@@ -88,7 +88,7 @@ Hall of Fame:  links to Master via \code{hofID}
 }
 
 
-Others tables:
+Other tables:
 
 %\preformatted{
   \code{\link{AllstarFull}} - All-Star games appearances;
@@ -110,7 +110,7 @@ Variable label tables are provided for some of the tables:
 }
 
 \author{
-Michael Friendly and Dennis Murphy
+Michael Friendly, Dennis Murphy, Chris Dalzell, Martin Monkman
 
 Maintainer: Michael Friendly <friendly@yorku.ca>
 }
