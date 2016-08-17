@@ -67,7 +67,7 @@ subset(AllstarFull, teamID == "WAS")
 rare <- names(which(table(AllstarFull$teamID) < 10))
 
 # Records associated with the 'rare' teams:
-# (There are two teamID typos: can you spot them?)
+# (There are a few teamID typos: can you spot them?)
 subset(AllstarFull, teamID \%in\% rare)
 }
 
