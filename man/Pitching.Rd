@@ -139,7 +139,7 @@ ggplot(winp, aes(x = yearID, y = W)) +
     geom_smooth(method = "lm", se=FALSE, color="black", 
                  formula = y ~ poly(x,2)) +
     ylab("League maximum Wins") + xlab("Year") +
-    ggtitle(""Maximum pitcher wins by year"")
+    ggtitle("Maximum pitcher wins by year")
     
 ## To reinforce this, plot the mean IPouts by year and league,
 ## which gives some idea of pitcher usage. Restrict pitcher
