@@ -56,5 +56,6 @@ TeamsFranchises \%>\%
     filter(active == "Y") \%>\%
     select(-active, -NAassoc) \%>\%
     left_join(currentTeams, by = "franchID")
+}
 
 \keyword{datasets}
