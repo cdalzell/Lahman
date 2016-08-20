@@ -77,7 +77,7 @@ Fielding \%>\%
 
 # Top ten 2B/SS in turning DPs
 Fielding \%>\%
-    subset(POS %in% c("2B", "SS")) \%>\%
+    subset(POS \%in\% c("2B", "SS")) \%>\%
     group_by(playerID) \%>\%
     summarise(TDP = sum(DP, na.rm = TRUE)) \%>\%
     arrange(desc(TDP)) \%>\%
