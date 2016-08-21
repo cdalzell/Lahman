@@ -77,7 +77,7 @@ playerOutcomes <- HallOfFame \%>\%
 
 ############################################################
 # How many voting years until election?
-inducted <- subset(playerOutcomesHOF,induct == "Y")
+inducted <- subset(playerOutcomes, inducted == "Y")
 table(inducted$nyears)
 
 # Bar chart of years to induction for inductees
@@ -110,7 +110,7 @@ playerOutcomes \%>\%
 
 # Identify players on the BBWAA ballot for at least 10 years
 # Returns a character vector of playerIDs
-longTimers <- as.character(unlist(subset(playerOutcomesHOF,
+longTimers <- as.character(unlist(subset(playerOutcomes,
                                          nyears >= 10, select = "playerID")))
 
 # Extract their information from the HallOfFame data
