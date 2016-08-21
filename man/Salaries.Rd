@@ -42,18 +42,18 @@ require("dplyr")
 require("ggplot2")
 
 # Total team salaries by league, team and year
-teamSalaries <- Salaries \%<\%
-                  group_by(lgID, teamID, yearID) \%<\%
-                  summarise(Salary = sum(as.numeric(salary))) \%<\%
-                  group_by(yearID, lgID) \%<\%
+teamSalaries <- Salaries \%>\%
+                  group_by(lgID, teamID, yearID) \%>\%
+                  summarise(Salary = sum(as.numeric(salary))) \%>\%
+                  group_by(yearID, lgID) \%>\%
                   arrange(desc(Salary))
 
 #######################################
 # Highest paid players each year:
-maxSal <- Salaries \%<\%
-            group_by(yearID) \%<\%
+maxSal <- Salaries \%>\%
+            group_by(yearID) \%>\%
             filter(salary == max(salary)) 
-maxPlayers <- bind_rows(lapply(maxSal$playerID, playerInfo)) \%<\%
+maxPlayers <- bind_rows(lapply(maxSal$playerID, playerInfo)) \%>\%
                   select(-playerID)
 maxSal <- bind_cols(maxPlayers, maxSal)
 
@@ -70,17 +70,17 @@ ggplot(Salaries, aes(x = factor(yearID), y = salary/1e5)) +
    coord_flip()
 
 # Plot median MLB salary per year
-Salaries \%<\%
-   group_by(yearID) \%<\%
-   summarise(medsal = median(salary)) \%<\%
+Salaries \%>\%
+   group_by(yearID) \%>\%
+   summarise(medsal = median(salary)) \%>\%
    ggplot(., aes(x = yearID, y = medsal/1e6)) +
    geom_point() +
    geom_smooth() +
    labs(x = "Year", y = "Median MLB salary (millions)")
 
 # add salary to Batting data
-batting <- Batting \%<\%
-              filter(yearID >= 1985) \%<\%
+batting <- Batting \%>\%
+              filter(yearID >= 1985) \%>\%
               left_join(select(Salaries, playerID, yearID, teamID, salary), 
                          by=c("playerID", "yearID", "teamID"))
 str(batting)
@@ -109,9 +109,9 @@ franchise <- c(`ANA` = "LAA", `ARI` = "ARI", `ATL` = "ATL",
 Salaries$franchise <- unname(franchise[Salaries$teamID])
 
 # Average salaries annual salaries by team, in millions USD
-avg_team_salaries <- Salaries \%<\%
-    group_by(yearID, franchise, lgID) \%<\%
-    summarise(salary= mean(salary)/1e6) \%<\%
+avg_team_salaries <- Salaries \%>\%
+    group_by(yearID, franchise, lgID) \%>\%
+    summarise(salary= mean(salary)/1e6) \%>\%
     filter(!(franchise == "CLE" & lgID == "NL"))
 
 # Spaghetti plot of team salary over time by team

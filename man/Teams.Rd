@@ -97,7 +97,7 @@ yrPlot <- function(yvar, label)
     require("ggplot2")
     ggplot(teams, aes_string(x = "yearID", y = yvar)) +
        geom_point(size = 0.5) +
-       geom_smooth() +
+       geom_smooth(method="loess") +
        labs(x = "Year", y = paste(label, "per game"))
 }
 
@@ -116,7 +116,7 @@ yrPlot("kpg", "Strikeouts")
 ## Plot win percentage vs. run differential (R - RA)
 ggplot(teams, aes(x = R - RA, y = WinPct)) +
    geom_point(size = 0.5) +
-   geom_smooth() + 
+   geom_smooth(method="loess") + 
    geom_hline(yintercept = 0.5, color = "orange") +
    geom_vline(xintercept = 0, color = "orange") +
    labs(x = "Run differential", y = "Win percentage")
@@ -125,7 +125,7 @@ ggplot(teams, aes(x = R - RA, y = WinPct)) +
 teams \%>\%  filter(yearID >= 1980) \%>\%
 ggplot(., aes(x = WinPct, y = attendance/1000)) +
    geom_point(size = 0.5) +
-   geom_smooth(se = FALSE) +
+   geom_smooth(method="loess", se = FALSE) +
    facet_wrap(~ lgID) +
    labs(x = "Win percentage", y = "Attendance (1000s)")
 

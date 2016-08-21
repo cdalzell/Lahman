@@ -48,6 +48,7 @@ data(SeriesPost)
 
 # using the dplyr data manipulation package
 library("dplyr")
+library("tidyr")
 library("ggplot2")
 
 ## WS winners, arranged in descending order of titles won
