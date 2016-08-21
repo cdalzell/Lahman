@@ -147,7 +147,7 @@ ggplot(winp, aes(x = yearID, y = W)) +
 
 pitching \%>\% filter(IPouts >= 300) \%>\%  # >= 100 IP
 ggplot(., aes(x = yearID, y = IPouts, color = lgID)) +
-  geom_smooth() +
+  geom_smooth(method="loess") +
   labs(x = "Year", y = "IPouts")
 
 ## Another indicator: total number of complete games pitched
