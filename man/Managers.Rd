@@ -62,6 +62,10 @@ MgrInfo <- Master \%>\%
 # Merge names into the table
 mgrTotals <- right_join(MgrInfo, mgrSumm, by = "playerID")
 
+# add total games managed
+mgrTotals <- mgrTotals \%>\%
+              mutate(games = W + L)
+
 ##########################
 # Some basic queries
 ##########################
