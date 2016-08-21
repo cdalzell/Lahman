@@ -3,3 +3,5 @@ export(battingStats,
 	playerInfo,teamInfo,
 	Label
 	)
+
+importFrom(dplyr, mutate)
