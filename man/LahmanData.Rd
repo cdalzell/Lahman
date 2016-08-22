@@ -5,7 +5,7 @@
 Lahman Datasets
 }
 \description{
-This dataset gives a consise description of the data files in the Lahman package.
+This dataset gives a concise description of the data files in the Lahman package.
 It may be useful for computing on the various files.
 }
 \usage{data(LahmanData)}

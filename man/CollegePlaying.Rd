@@ -45,7 +45,7 @@ head(CollegePlaying)
 SPcount <- table(CollegePlaying$schoolID)
 SPcount[SPcount>50]
 
-library('lattice')
+library("lattice")
 dotplot(SPcount[SPcount>50])
 dotplot(sort(SPcount[SPcount>50]))
 
@@ -53,6 +53,7 @@ dotplot(sort(SPcount[SPcount>50]))
 length(table(CollegePlaying$schoolID))
 
 # Histogram of the number of players from each school who played in MLB:
-with(CollegePlaying, hist(table(schoolID), xlab = 'Number of players',
+with(CollegePlaying, 
+     hist(table(schoolID), xlab = "Number of players",
                            main = ""))
 }
