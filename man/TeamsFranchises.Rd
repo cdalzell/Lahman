@@ -39,13 +39,23 @@ data(TeamsFranchises)
 # - where appropriate, the `NAassoc` field has the `franchID` of the successor National League team
 
 # using the dplyr data manipulation package
-library(dplyr)
+library("dplyr")
 
 NatAssoc_active_table <- TeamsFranchises \%>\%
   filter(active == "Y") \%>\%
   filter(!is.na(NAassoc))
 NatAssoc_active_table
 }
+# Merge current team IDs with franchise IDs
+currentTeams <- Teams \%>\% 
+                  filter(yearID == 2014) \%>\%
+                  select(teamID, franchID, lgID, park)
 
+# Merge TeamsFranchises with currentTeams
+TeamsFranchises \%>\%
+    filter(active == "Y") \%>\%
+    select(-active, -NAassoc) \%>\%
+    left_join(currentTeams, by = "franchID")
+}
 
 \keyword{datasets}

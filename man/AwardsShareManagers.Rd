@@ -32,19 +32,26 @@ Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http
 \examples{
 # Voting for the BBWAA Manager of the Year award by year and league
 
-require(plyr)
+require("dplyr")
 
 # Sort in decreasing order of points by year and league
-MOYsort <- ddply(AwardsShareManagers, .(yearID, lgID), arrange, desc(pointsWon))
+AwardsShareManagers \%>\%
+   group_by(yearID, lgID) \%>\%
+   arrange(desc(pointsWon))
 
 # Any unanimous winners?
-subset(AwardsShareManagers, pointsWon == pointsMax)
+AwardsShareManagers \%>\%
+  filter(pointsWon == pointsMax)
 
-# OK, how about highest proportion of possible points?
-AwardsShareManagers[with(AwardsShareManagers, which.max(pointsWon/pointsMax)), ]
+# Manager with highest proportion of possible points
+AwardsShareManagers \%>\%
+   mutate(propWon = pointsWon/pointsMax) \%>\%
+   arrange(desc(propWon)) \%>\%
+   head(., 1)
 
 # Bobby Cox's MOY vote tallies
-subset(AwardsShareManagers, playerID == "coxbo01")
+AwardsShareManagers \%>\%
+  filter(playerID == "coxbo01")
 
 }
 
