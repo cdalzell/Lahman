@@ -1,10 +1,23 @@
+Version 5.0-0 (2016-08-08)
+
+o Updated with data for the 2015 season, plus numerous corrections of errors
+  and inconsistencies discovered in previous tables.
+
+o Documentation examples are now provided for all data tables [Martin Monkman]
+
+o Documentation examples were rewrittten to make extensive use of dplyr for data manipulation
+  and ggplot2 for graphics [Denis Murphy]
+
+
 Version 4.0-1 (2015-09-04)
+
 o Updated with data for the 2014 season
 o Changes to reflect alterations in the 2014 schema:
   o Removed from Batting: G_batting, G_old
   o Replaced SchoolsPlayers with CollegePlaying
 
 Version 3.0-0 (2014-07-20)
+
 o Updated with data for the 2013 season
 o Changes to reflect alterations in the 2013 schema:
   o HallOfFame$hofID is now HallOfFame$playerID
@@ -12,6 +25,7 @@ o Changes to reflect alterations in the 2013 schema:
   o Removed from Master: managerID, hofID, holtzID, lahmanID, lahman40ID, lahman45ID, nameNote, nameNick, and college
 
 Version 2.0-3 (2013-05-29)
+
 o largest RData files are now compressed via R CMD build --resave-data
 
 Version 2.0-2 (2013-05-23)
@@ -19,12 +33,14 @@ o Fixed problems with the Teams*.RData files not having been updated to the 2012
 o The project for this package now has a web page at http://lahman.r-forge.r-project.org/
 
 Version 2.0-1 (2013-04-18)
+
 o Added Label() and data frames for variable labels
 o Added more examples and plots to Salaries, Pitching, etc. from Dennis Murphy
 o Master$bats, Master$throws made into factors
 o Added some examples to Schools.Rd
 
 Version 2.0-0 (2013-04-08)
+
 o New major version, now reflecting the 2012 Lahman database.  Some deprecated or defunct
   tables were dropped.
 o readLahman.R added to inst/scripts for documentation of how the data files were created.
@@ -32,6 +48,7 @@ o readLahman.R added to inst/scripts for documentation of how the data files wer
 o More examples added to various datasets
 
 Version 1.0-10 (2012-10-04)
+
 o Fixed deprecated warnings stemming from changes in ggplot2
 
 Version 1.0-8 (2011-10-02)
