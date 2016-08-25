@@ -1,4 +1,5 @@
 [![](http://www.r-pkg.org/badges/version/Lahman)](https://cran.r-project.org/package=Lahman) [![](http://cranlogs.r-pkg.org/badges/grand-total/Lahman)](https://cran.r-project.org/package=Lahman)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 R Library for Sean Lahman's Baseball Database
 ========================================================
