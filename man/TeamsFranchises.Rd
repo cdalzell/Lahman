@@ -45,7 +45,7 @@ NatAssoc_active_table <- TeamsFranchises \%>\%
   filter(active == "Y") \%>\%
   filter(!is.na(NAassoc))
 NatAssoc_active_table
-}
+
 # Merge current team IDs with franchise IDs
 currentTeams <- Teams \%>\% 
                   filter(yearID == 2014) \%>\%
