@@ -1,6 +1,5 @@
 .Rhistory
 *.csv
-*.zip
 data/readme*.txt
 data/lahman-csv*.zip
 data/*.Rd
@@ -9,3 +8,4 @@ data/.Rhistory
 .RData
 .Rproj.user
 Lahman.Rproj
+source-data/baseballdatabank-master

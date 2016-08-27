@@ -9,7 +9,7 @@ Award voting for managers awards
 }
 \usage{data(AwardsShareManagers)}
 \format{
-  A data frame with 401 observations on the following 7 variables.
+  A data frame with 414 observations on the following 7 variables.
   \describe{
     \item{\code{awardID}}{name of award votes were received for}
     \item{\code{yearID}}{Year}
@@ -24,7 +24,7 @@ Award voting for managers awards
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -32,19 +32,26 @@ Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http
 \examples{
 # Voting for the BBWAA Manager of the Year award by year and league
 
-require(plyr)
+require("dplyr")
 
 # Sort in decreasing order of points by year and league
-MOYsort <- ddply(AwardsShareManagers, .(yearID, lgID), arrange, desc(pointsWon))
+AwardsShareManagers \%>\%
+   group_by(yearID, lgID) \%>\%
+   arrange(desc(pointsWon))
 
 # Any unanimous winners?
-subset(AwardsShareManagers, pointsWon == pointsMax)
+AwardsShareManagers \%>\%
+  filter(pointsWon == pointsMax)
 
-# OK, how about highest proportion of possible points?
-AwardsShareManagers[with(AwardsShareManagers, which.max(pointsWon/pointsMax)), ]
+# Manager with highest proportion of possible points
+AwardsShareManagers \%>\%
+   mutate(propWon = pointsWon/pointsMax) \%>\%
+   arrange(desc(propWon)) \%>\%
+   head(., 1)
 
 # Bobby Cox's MOY vote tallies
-subset(AwardsShareManagers, playerID == "coxbo01")
+AwardsShareManagers \%>\%
+  filter(playerID == "coxbo01")
 
 }
 

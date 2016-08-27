@@ -7,7 +7,7 @@ Sean Lahman's Baseball Database
 }
 \description{
 This database contains pitching, hitting, and fielding statistics for
-Major League Baseball from 1871 through 2012.  It includes data from
+Major League Baseball from 1871 through 2015.  It includes data from
 the two current leagues (American and National), the four other "major" 
 leagues (American Association, Union Association, Players League, and
 Federal League), and the National Association of 1871-1875. 
@@ -21,6 +21,11 @@ anywhere.
 
 This database, in the form of an R package offers a variety of interesting
 challenges and opportunities for data processing and visualization in R.
+
+In the current version, the examples make extensive use of the \code{dplyr}
+package for data manipulation (tabulation, queries, summaries, merging, etc.),
+reflecting the original relational database design
+and \code{ggplot2} for graphics.
 }
 
 \details{
@@ -28,21 +33,21 @@ challenges and opportunities for data processing and visualization in R.
 \tabular{ll}{
 Package: \tab Lahman\cr
 Type: \tab Package\cr
-Version: \tab 2.0-3\cr
-Date: \tab 2013-05-29\cr
+Version: \tab 5.0-0\cr
+Date: \tab 2016-08-08\cr
 License: \tab GPL version 2 or newer\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr
 }
 
 The main form of this database is a relational database in Microsoft Access format.
-The design follows these general principles.  Each player is assigned a
+The design follows these general principles:  Each player is assigned a
 unique code (\code{playerID}).  All of the information in different tables relating to that player
 is tagged with his \code{playerID}.  The \code{playerID}s are linked to names and 
 birthdates in the \code{\link{Master}} table.  Similar links exist among other tables
 via analogous \code{*ID} variables.
 
-The database is comprised of the following main tables:
+The database is composed of the following main tables:
 
 \describe{
 	\item{\code{\link{Master}}}{Player names, dates of birth, death and other biographical info}
@@ -88,7 +93,7 @@ Hall of Fame:  links to Master via \code{hofID}
 }
 
 
-Others tables:
+Other tables:
 
 %\preformatted{
   \code{\link{AllstarFull}} - All-Star games appearances;
@@ -110,20 +115,15 @@ Variable label tables are provided for some of the tables:
 }
 
 \author{
-Michael Friendly and Dennis Murphy
+Michael Friendly, Dennis Murphy, Chris Dalzell, Martin Monkman
 
-Maintainer: Michael Friendly <friendly@yorku.ca>
+Maintainer: Chris Dalzell <cdalzell@gmail.com>
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
 %}
 \source{
-Lahman, S. (2012) Lahman's Baseball Database, 1871-2012, Main page, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, Main page, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 
-Lahman, S. (2012) Lahman's Baseball Database, 1871-2012, v. 2012, Comma-delimited version,
-\url{http://seanlahman.com/files/database/lahman2012-csv.zip}
-
-Lahman, S. (2012) Lahman's Baseball Database, 1871-2012, MS Access version,
-\url{http://seanlahman.com/files/database/lahman2012-ms.zip}
 
 }

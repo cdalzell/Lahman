@@ -9,7 +9,7 @@ All Star appearances by players
 }
 \usage{data(AllstarFull)}
 \format{
-  A data frame with 4993 observations on the following 8 variables.
+  A data frame with 5069 observations on the following 8 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -25,7 +25,7 @@ All Star appearances by players
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -67,7 +67,7 @@ subset(AllstarFull, teamID == "WAS")
 rare <- names(which(table(AllstarFull$teamID) < 10))
 
 # Records associated with the 'rare' teams:
-# (There are two teamID typos: can you spot them?)
+# (There are a few teamID typos: can you spot them?)
 subset(AllstarFull, teamID \%in\% rare)
 }
 

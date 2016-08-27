@@ -7,22 +7,26 @@ indir <- "D:/Dev/R/Lahman/data"
 #outdir <- paste0(indir, "RData")
 outdir <- indir
 
+setwd(indir)
+
 # local data location
-dataFile <- "./lahman-csv_2015-01-24.zip"
+dataFile <- "../source-data/baseballdatabank-master_2016-03-02.zip"
 
 # no need to download if we already have the file
 if (!file.exists(dataFile)) {
-  zipfile <- "http://seanlahman.com/files/database/lahman-csv_2015-01-24.zip"
+  zipfile <- "http://seanlahman.com/files/database/baseballdatabank-master_2016-03-02.zip"
   download.file(zipfile, dataFile)
 }
 
 unzip(dataFile, exdir=indir)
 
-setwd(indir)
-
 # Read the Lahman MLB .csv files and create .RData and .Rd files
 #Batting <- read.csv(file="Batting.csv", header=TRUE, stringsAsFactors=FALSE, na.strings="")
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
+
+# set indir to the directories the csv are extracted to
+indir <- paste0(indir, "/baseballdatabank-master/core")
+setwd(indir)
 
 (files <- list.files(path=indir, pattern="*.csv$"))
 
@@ -45,8 +49,9 @@ for (i in 1:length(files)) {
 	cname <- name <- sub(".csv", "", files[i])
 	assign( name, inp)
   
-	save(inp, file=paste(cname, ".RData", sep=""))
-#	promptData(inp, name=cname)
+	# these will be saved below after being compressed
+	#save(inp, file=paste(cname, ".RData", sep=""))
+  #promptData(inp, name=cname)
 }
 
 # fix a few problems
@@ -123,32 +128,32 @@ save(TeamsHalf,           file="TeamsHalf.RData")
 
 # only ran this once, since all .Rd files were extensively edited
 if (FALSE) {
-promptData(Allstar,             filename="Allstar.Rd")            
-promptData(AllstarFull,         filename="AllstarFull.Rd")        
-promptData(Appearances,         filename="Appearances.Rd")        
-promptData(AwardsManagers,      filename="AwardsManagers.Rd")     
-promptData(AwardsPlayers,       filename="AwardsPlayers.Rd")      
-promptData(AwardsShareManagers, filename="AwardsShareManagers.Rd")
-promptData(AwardsSharePlayers,  filename="AwardsSharePlayers.Rd") 
-promptData(Batting,             filename="Batting.Rd")            
-promptData(BattingPost,         filename="BattingPost.Rd")
-promptData(CollegePlaying,      filename="CollegePlaying.Rd") 
-promptData(Fielding,            filename="Fielding.Rd")           
-promptData(FieldingOF,          filename="FieldingOF.Rd")         
-promptData(FieldingPost,        filename="FieldingPost.Rd")       
-promptData(HallOfFame,          filename="HallOfFame.Rd")         
-promptData(HOFold,              filename="HOFold.Rd")             
-promptData(Managers,            filename="Managers.Rd")           
-promptData(ManagersHalf,        filename="ManagersHalf.Rd")       
-promptData(Master,              filename="Master.Rd")             
-promptData(Pitching,            filename="Pitching.Rd")           
-promptData(PitchingPost,        filename="PitchingPost.Rd")       
-promptData(Salaries,            filename="Salaries.Rd")           
-promptData(Schools,             filename="Schools.Rd")
-promptData(SeriesPost,          filename="SeriesPost.Rd")         
-promptData(Teams,               filename="Teams.Rd")              
-promptData(TeamsFranchises,     filename="TeamsFranchises.Rd")    
-promptData(TeamsHalf,           filename="TeamsHalf.Rd")          
-promptData(Xref_Stats,          filename="Xref_Stats.Rd")         
+  promptData(Allstar,             filename="Allstar.Rd")            
+  promptData(AllstarFull,         filename="AllstarFull.Rd")        
+  promptData(Appearances,         filename="Appearances.Rd")        
+  promptData(AwardsManagers,      filename="AwardsManagers.Rd")     
+  promptData(AwardsPlayers,       filename="AwardsPlayers.Rd")      
+  promptData(AwardsShareManagers, filename="AwardsShareManagers.Rd")
+  promptData(AwardsSharePlayers,  filename="AwardsSharePlayers.Rd") 
+  promptData(Batting,             filename="Batting.Rd")            
+  promptData(BattingPost,         filename="BattingPost.Rd")
+  promptData(CollegePlaying,      filename="CollegePlaying.Rd") 
+  promptData(Fielding,            filename="Fielding.Rd")           
+  promptData(FieldingOF,          filename="FieldingOF.Rd")         
+  promptData(FieldingPost,        filename="FieldingPost.Rd")       
+  promptData(HallOfFame,          filename="HallOfFame.Rd")         
+  promptData(HOFold,              filename="HOFold.Rd")             
+  promptData(Managers,            filename="Managers.Rd")           
+  promptData(ManagersHalf,        filename="ManagersHalf.Rd")       
+  promptData(Master,              filename="Master.Rd")             
+  promptData(Pitching,            filename="Pitching.Rd")           
+  promptData(PitchingPost,        filename="PitchingPost.Rd")       
+  promptData(Salaries,            filename="Salaries.Rd")           
+  promptData(Schools,             filename="Schools.Rd")
+  promptData(SeriesPost,          filename="SeriesPost.Rd")         
+  promptData(Teams,               filename="Teams.Rd")              
+  promptData(TeamsFranchises,     filename="TeamsFranchises.Rd")    
+  promptData(TeamsHalf,           filename="TeamsHalf.Rd")          
+  promptData(Xref_Stats,          filename="Xref_Stats.Rd")         
 }
 

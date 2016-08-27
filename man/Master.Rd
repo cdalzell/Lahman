@@ -12,7 +12,7 @@ where players are identified only by \code{playerID}.
 
 \usage{data(Master)}
 \format{
-  A data frame with 18589 observations on the following 26 variables.
+  A data frame with 18846 observations on the following 26 variables.
   \describe{
 %    \item{\code{lahmanID}}{Unique number assigned to each player}
     \item{\code{playerID}}{A unique code asssigned to each player.  The \code{playerID} links
@@ -51,7 +51,7 @@ where players are identified only by \code{playerID}.
 \code{debut}, \code{finalGame} were converted from character strings with \code{as.Date}.
 }
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -62,7 +62,7 @@ Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http
 data(Master); data(Batting)
 
 ## add player's name to Batting data
-Master$name <- paste(Master$nameFirst, Master$nameLast, sep=' ')
+Master$name <- paste(Master$nameFirst, Master$nameLast, sep=" ")
 batting <- merge(Batting, 
                  Master[,c("playerID","name")], 
                  by="playerID", all.x=TRUE)

@@ -1,4 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 source-data/
-
+data/baseballdatabank-master/
+README.md
+cran-comments.md

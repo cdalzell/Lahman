@@ -9,7 +9,7 @@ Player salary data.
 }
 \usage{data(Salaries)}
 \format{
-  A data frame with 23956 observations on the following 5 variables.
+  A data frame with 25575 observations on the following 5 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{teamID}}{Team; a factor}
@@ -22,7 +22,7 @@ Player salary data.
 There is no real coverage of player's salaries until 1985.
 }
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -32,51 +32,93 @@ Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http
 \examples{
 # what years are included?
 summary(Salaries$yearID)
+
 # how many players included each year?
 table(Salaries$yearID)
 
 # Team salary data
 
-require(plyr)
+require("dplyr")
+require("ggplot2")
 
 # Total team salaries by league, team and year
-teamSalaries <- ddply(Salaries, .(lgID, teamID, yearID), summarise,
-                       Salary = sum(as.numeric(salary)))
-
-# Arrange in decreasing order within year and league:
-teamSalaries <- ddply(teamSalaries, .(yearID, lgID), arrange, desc(Salary))
+teamSalaries <- Salaries \%>\%
+                  group_by(lgID, teamID, yearID) \%>\%
+                  summarise(Salary = sum(as.numeric(salary))) \%>\%
+                  group_by(yearID, lgID) \%>\%
+                  arrange(desc(Salary))
 
 #######################################
 # Highest paid players each year:
-maxSal <- ddply(Salaries, .(yearID), subset, salary == max(salary))
-names <- apply(t(sapply(maxSal$playerID, playerInfo))[,2:3], 2, paste)
-maxSal <- cbind(maxSal, names)
-maxSal
-plot(salary/100000 ~ yearID, data=maxSal, type='b', ylab='Salary (100,000$)')
-# see the whole distribution
-boxplot(salary/100000 ~ yearID, data=Salaries, col="lightblue")
+maxSal <- Salaries \%>\%
+            group_by(yearID) \%>\%
+            filter(salary == max(salary)) 
+maxPlayers <- bind_rows(lapply(maxSal$playerID, playerInfo)) \%>\%
+                  select(-playerID)
+maxSal <- bind_cols(maxPlayers, maxSal)
+
+# Plot maximum MLB salary by year (1985-present)           
+ggplot(maxSal, aes(x = yearID, y = salary/1e6)) +
+   geom_point() +
+   geom_smooth(se = FALSE) +
+   labs(x = "Year", y = "Salary (millions)")
+
+# Plot salary distributions by year for all players
+ggplot(Salaries, aes(x = factor(yearID), y = salary/1e5)) +
+   geom_boxplot(fill = "lightblue", outlier.size = 1) +
+   labs(x = "Year", y = "Salary ($100,000)") +
+   coord_flip()
+
+# Plot median MLB salary per year
+Salaries \%>\%
+   group_by(yearID) \%>\%
+   summarise(medsal = median(salary)) \%>\%
+   ggplot(., aes(x = yearID, y = medsal/1e6)) +
+   geom_point() +
+   geom_smooth() +
+   labs(x = "Year", y = "Median MLB salary (millions)")
 
 # add salary to Batting data
-batting <- merge(Batting, 
-                 Salaries[,c("playerID", "yearID", "teamID", "salary")], 
-                 by=c("playerID", "yearID", "teamID"), all.x=TRUE)
+batting <- Batting \%>\%
+              filter(yearID >= 1985) \%>\%
+              left_join(select(Salaries, playerID, yearID, teamID, salary), 
+                         by=c("playerID", "yearID", "teamID"))
 str(batting)
 
 #######################################
 # Average salaries by teams, over years
 #######################################
 
-require(plyr)
-avesal <- ddply(Salaries, .(yearID, teamID, lgID), summarise, 
-	salary= mean(salary)/100000)
+# Some franchises are multiply named, so add a new variable
+# 'franchise' to the Salaries data as a lookup table
 
-# remove infrequent teams
-tcount <- table(avesal$teamID)
-avesal <- subset(avesal, avesal$teamID \%in\% names(tcount)[tcount>=15], drop=TRUE)
-avesal$teamID <- factor(avesal$teamID, levels=names(tcount)[tcount>=15])
+franchise <- c(`ANA` = "LAA", `ARI` = "ARI", `ATL` = "ATL", 
+               `BAL` = "BAL", `BOS` = "BOS", `CAL` = "LAA",
+               `CHA` = "CHA", `CHN` = "CHN", `CIN` = "CIN", 
+               `CLE` = "CLE", `COL` = "COL", `DET` = "DET", 
+               `FLO` = "MIA", `HOU` = "HOU", `KCA` = "KCA", 
+               `LAA` = "LAA", `LAN` = "LAN", `MIA` = "MIA", 
+               `MIL` = "MIL", `MIN` = "MIN", `ML4` = "MIL", 
+               `MON` = "WAS", `NYA` = "NYA", `NYM` = "NYN", 
+               `NYN` = "NYN", `OAK` = "OAK", `PHI` = "PHI", 
+               `PIT` = "PIT", `SDN` = "SDN", `SEA` = "SEA",
+               `SFG` = "SFN", `SFN` = "SFN", `SLN` = "SLN", 
+               `TBA` = "TBA", `TEX` = "TEX", `TOR` = "TOR",
+               `WAS` = "WAS")
 
-require(lattice)
-xyplot(salary ~ yearID | teamID, data=avesal, ylab="Salary (100,000$)")
+Salaries$franchise <- unname(franchise[Salaries$teamID])
 
+# Average salaries annual salaries by team, in millions USD
+avg_team_salaries <- Salaries \%>\%
+    group_by(yearID, franchise, lgID) \%>\%
+    summarise(salary= mean(salary)/1e6) \%>\%
+    filter(!(franchise == "CLE" & lgID == "NL"))
+
+# Spaghetti plot of team salary over time by team
+# Yankees have largest average team salary since 2003
+ggplot(avg_team_salaries, 
+       aes(x = yearID, y = salary, group = factor(franchise))) +
+       geom_path() +
+       labs(x = "Year", y = "Average team salary (millions USD)")
 }
 

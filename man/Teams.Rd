@@ -9,7 +9,7 @@ Yearly statistics and standings for teams
 }
 \usage{data(Teams)}
 \format{
-  A data frame with 2775 observations on the following 48 variables.
+  A data frame with 2805 observations on the following 48 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{lgID}}{League; a factor with levels \code{AA} \code{AL} \code{FL} \code{NL} \code{PL} \code{UA}}
@@ -66,58 +66,128 @@ Yearly statistics and standings for teams
 Variables \code{X2B} and \code{X3B} are named \code{2B} and \code{3B} in the original database
 }
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
 %}
 \examples{
 data(Teams)
+library("dplyr")
+library("tidyr")
 
-# subset on a few variables
-teams <- subset(Teams, lgID \%in\% c("AL", "NL"))
-teams <- subset(teams, yearID>1900)
-# drop some variables
-teams <- subset(teams, select=-c(Ghome,divID,DivWin:WSWin,name,park,teamIDBR:teamIDretro))
-teams <- subset(teams, select=-c(HBP,CS,BPF,PPF))
+# Add some selected measures to the Teams data frame
+# Restrict to AL and NL in modern era
+teams <- Teams \%>\% 
+  filter(yearID >= 1901 & lgID \%in\% c("AL", "NL")) \%>\%
+  group_by(yearID, teamID) \%>\%
+  mutate(TB = H + X2B + 2 * X3B + 3 * HR,
+         WinPct = W/G,
+         rpg = R/G,
+         hrpg = HR/G,
+         tbpg = TB/G,
+         kpg = SO/G,
+         k2bb = SO/BB,
+         whip = 3 * (H + BB)/IPouts)
 
-# subset to remove infrequent teams
-tcount <- table(teams$teamID)
-teams <- subset(teams, teams$teamID \%in\% names(tcount)[tcount>15], drop=TRUE)
-teams$teamID <- factor(teams$teamID, levels=names(tcount)[tcount>15])
+# Function to create a ggplot by year for selected team stats
+# Both arguments are character strings
+yrPlot <- function(yvar, label)
+{
+    require("ggplot2")
+    ggplot(teams, aes_string(x = "yearID", y = yvar)) +
+       geom_point(size = 0.5) +
+       geom_smooth(method="loess") +
+       labs(x = "Year", y = paste(label, "per game"))
+}
 
-# relevel lgID
-teams$lgID <- factor(teams$lgID, levels= c("AL", "NL"))
-# create new variables
+## Run scoring in the modern era by year
+yrPlot("rpg", "Runs")
 
-teams <- within(teams, {
-   WinPct = W / G    ## Winning percentage
-   })
+## Home runs per game by year
+yrPlot("hrpg", "Home runs")
 
-library(lattice)
-xyplot(attendance/1000 ~ WinPct|yearID, groups=lgID, data=subset(teams, yearID>1980), 
-	type=c("p", "r"), col=c("red","blue"))
+## Total bases per game by year
+yrPlot("tbpg", "Total bases")
+
+## Strikeouts per game by year
+yrPlot("kpg", "Strikeouts")
+
+## Plot win percentage vs. run differential (R - RA)
+ggplot(teams, aes(x = R - RA, y = WinPct)) +
+   geom_point(size = 0.5) +
+   geom_smooth(method="loess") + 
+   geom_hline(yintercept = 0.5, color = "orange") +
+   geom_vline(xintercept = 0, color = "orange") +
+   labs(x = "Run differential", y = "Win percentage")
+
+## Plot attendance vs. win percentage by league, post-1980
+teams \%>\%  filter(yearID >= 1980) \%>\%
+ggplot(., aes(x = WinPct, y = attendance/1000)) +
+   geom_point(size = 0.5) +
+   geom_smooth(method="loess", se = FALSE) +
+   facet_wrap(~ lgID) +
+   labs(x = "Win percentage", y = "Attendance (1000s)")
+
+## Teams with over 4 million attendance in a season
+teams \%>\% 
+  filter(attendance >= 4e6) \%>\%
+  select(yearID, lgID, teamID, Rank, attendance) \%>\%
+  arrange(desc(attendance))
+
+## Average season HRs by park, post-1980
+teams \%>\% 
+   filter(yearID >= 1980) \%>\%
+   group_by(park) \%>\%
+     summarise(meanHRpg = mean((HR + HRA)/Ghome), nyears = n()) \%>\%
+     filter(nyears >= 10) \%>\%
+     arrange(desc(meanHRpg)) \%>\%
+     head(., 10)
+
+## Home runs per game at Fenway Park and Wrigley Field,
+## the two oldest MLB parks, by year. Fenway opened in 1912.
+teams \%>\% 
+  filter(yearID >= 1912 & teamID \%in\% c("BOS", "CHN")) \%>\%
+  mutate(hrpg = (HR + HRA)/Ghome) \%>\%
+  ggplot(., aes(x = yearID, y = hrpg, color = teamID)) +
+    geom_line(size = 1) +
+    geom_point() +
+    labs(x = "Year", y = "Home runs per game", color = "Team") +
+    scale_color_manual(values = c("red", "blue"))
+
+## Ditto for total strikeouts per game
+teams \%>\% 
+  filter(yearID >= 1912 & teamID \%in\% c("BOS", "CHN")) \%>\%
+  mutate(kpg = (SO + SOA)/Ghome) \%>\%
+  ggplot(., aes(x = yearID, y = kpg, color = teamID)) +
+  geom_line(size = 1) +
+  geom_point() +
+  labs(x = "Year", y = "Strikeouts per game", color = "Team") +
+  scale_color_manual(values = c("red", "blue"))  
+
 
 \dontrun{
 if(require(googleVis)) {
-motion1 <- gvisMotionChart(teams, idvar='teamID', timevar='yearID',
-	chartid="gvisTeams", options=list(width=700, height=600))
+motion1 <- gvisMotionChart(as.data.frame(teams), 
+             idvar="teamID", timevar="yearID", chartid="gvisTeams",
+	           options=list(width=700, height=600))
 plot(motion1)
 #print(motion1, file="gvisTeams.html")
 
-#### merge with ave salary, for those years where salary is available
+# Merge with avg salary for years where salary is available
 
-avesal <- aggregate(salary ~ yearID + teamID, data=Salaries, FUN=mean)
+teamsal <- Salaries \%>\%
+                group_by(yearID, teamID) \%>\%
+                summarise(Salary = sum(salary, na.rm = TRUE)) \%>\%
+                select(yearID, teamID, Salary)
 
-# salary data just starts after 1980
-teamsSal <- subset(teams, yearID>=1980)
+teamsSal <- teams \%>\%
+                filter(yearID >= 1985) \%>\%
+                left_join(teamsal, by = c("yearID", "teamID")) \%>\%
+                select(yearID, teamID, attendance, Salary, WinPct) \%>\%
+                as.data.frame(.)
 
-# add salary to team data
-teamsSal <- merge(teamsSal, 
-                 avesal[,c("yearID", "teamID", "salary")], 
-                 by=c("yearID", "teamID"), all.x=TRUE)
-
-motion2 <- gvisMotionChart(teamsSal, idvar='teamID', timevar='yearID',
+motion2 <- gvisMotionChart(teamsSal, idvar="teamID", timevar="yearID",
   xvar="attendance", yvar="salary", sizevar="WinPct",
 	chartid="gvisTeamsSal", options=list(width=700, height=600))
 plot(motion2)

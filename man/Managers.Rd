@@ -10,7 +10,7 @@ for those teams in each year.
 }
 \usage{data(Managers)}
 \format{
-  A data frame with 3370 observations on the following 10 variables.
+  A data frame with 3405 observations on the following 10 variables.
   \describe{
     \item{\code{playerID}}{Manager (player) ID code}
     \item{\code{yearID}}{Year}
@@ -31,7 +31,7 @@ for those teams in each year.
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -43,106 +43,137 @@ Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http
 # Basic career summaries by manager
 ####################################
 
-library('plyr')
-mgrsumm <- function(d) {
-    df <- data.frame(with(d,
-              nyear = length(unique(yearID)),
-              yearBegin = min(yearID),
-              yearEnd = max(yearID),
-              nTeams = length(unique(teamID)),
-              nfirst = sum(rank == 1L),
-              W = sum(W),
-              L = sum(L),
-              WinPct = round(W/(W + L), 3)))
-    df
-}
+library("dplyr")
+mgrSumm <- Managers \%>\%
+            group_by(playerID) \%>\%
+            summarise(nyear = length(unique(yearID)),
+                      yearBegin = min(yearID),
+                      yearEnd = max(yearID),
+                      nTeams = length(unique(teamID)),
+                      nfirst = sum(rank == 1L),
+                      W = sum(W),
+                      L = sum(L),
+                      WinPct = round(W/(W + L), 3))
 
-mgrTotals <- ddply(Managers, .(playerID), summarise,
-                  nyear = length(unique(yearID)),
-                  yearBegin = min(yearID),
-                  yearEnd = max(yearID),
-                  nTeams = length(unique(teamID)),
-                  nfirst = sum(rank == 1L),
-                  games = sum(W + L),
-                  W = sum(W),
-                  L = sum(L),
-                  WinPct = round(sum(W)/sum(W + L), 3))
-mgrTotals <- merge(mgrTotals,
-                   subset(Master, !is.na(playerID),
-                          select = c('playerID', 'nameLast', 'nameFirst')),
-                   by = 'playerID')
+MgrInfo <- Master \%>\%
+            filter(!is.na(playerID)) \%>\%
+            select(playerID, nameLast, nameFirst)
+
+# Merge names into the table
+mgrTotals <- right_join(MgrInfo, mgrSumm, by = "playerID")
+
+# add total games managed
+mgrTotals <- mgrTotals \%>\%
+              mutate(games = W + L)
 
 ##########################
 # Some basic queries
 ##########################
 
 # Top 20 managers in terms of years of service:
-head(arrange(mgrTotals, -nyear), 20)
+mgrTotals \%>\%
+   arrange(desc(nyear)) \%>\%
+   head(., 20)
 
 # Top 20 winningest managers (500 games minimum)
-head(arrange(subset(mgrTotals, games >= 500), -WinPct), 20)
+mgrTotals \%>\%
+   filter((W + L) >= 500) \%>\%
+   arrange(desc(WinPct)) \%>\%
+   head(., 20)
 
-# Hmm. Most of these are 19th century managers.
+# Most of these are 19th century managers.
 # How about the modern era?
-head(arrange(subset(mgrTotals, yearBegin >= 1900 & games >= 500), -WinPct), 20)
+mgrTotals \%>\%
+   filter(yearBegin >= 1901 & (W + L) >= 500) \%>\%
+   arrange(desc(WinPct)) \%>\%
+   head(., 20)
 
-# Top 10 managers in terms of percentage of titles (league or divisional) -
-# should bias toward managers post-1970 since more first place finishes
-# are available
-head(arrange(subset(mgrTotals, yearBegin >= 1900 & games >= 500),
-                -round(nfirst/nyear, 3)), 10)
+# Top 10 managers in terms of percentage of titles 
+# (league or divisional) - should bias toward managers
+#  post-1970 since more first place finishes are available
+mgrTotals \%>\%
+   filter(yearBegin >= 1901 & (W + L) >= 500) \%>\%
+   arrange(desc(round(nfirst/nyear, 3))) \%>\%
+   head(., 10)
 
 # How about pre-1969?
-head(arrange(subset(mgrTotals,
-                    yearBegin >= 1900 & yearEnd <= 1969 & games >= 500),
-                    -round(nfirst/nyear, 3)), 10)
+mgrTotals \%>\%
+  filter(yearBegin >= 1901 & yearEnd <= 1969 &
+          (W + L) >= 500) \%>\%
+  arrange(desc(round(nfirst/nyear, 3))) \%>\%
+  head(., 10)
+
+## Tony LaRussa's managerial record by team
+Managers \%>\%
+  filter(playerID == "larusto01") \%>\%
+  group_by(teamID) \%>\%
+  summarise(nyear = length(unique(yearID)),
+            yearBegin = min(yearID),
+            yearEnd = max(yearID),
+            games = sum(G),
+            nfirst = sum(rank == 1L),
+            W = sum(W),
+            L = sum(L),
+            WinPct = round(W/(W + L), 3))
 
 ##############################################
 # Density plot of the number of games managed:
 ##############################################
 
-library('ggplot2')
-ggplot(mgrTotals, aes(x = games)) + geom_density(fill = 'red', alpha = 0.3) +
-    labs(x = 'Number of games managed')
+library("ggplot2")
+
+ggplot(mgrTotals, aes(x = games)) + 
+    geom_density(fill = "red", alpha = 0.3) +
+    labs(x = "Number of games managed")
 
 # Who managed more than 4000 games?
-subset(mgrTotals, games >= 4000)
-# Connie Mack had an advantage: he owned the Philadelphia A's :)
+mgrTotals \%>\% 
+  filter(W + L >= 4000) \%>\%
+  arrange(desc(W + L))
+# Connie Mack's advantage: he owned the Philadelphia A's :)
 
-# Table of Tony LaRussa's team finishes:
-with(subset(Managers, playerID == 'larusto01'), table(rank))
+# Table of Tony LaRussa's team finishes (rank order):
+Managers \%>\%
+   filter(playerID == "larusto01") \%>\%
+   count(rank)
 
-# To include zero frequencies, one alternative is the tabulate() function:
-with(subset(Managers, playerID == 'larusto01'), tabulate(rank, 7))
 
 
 ##############################################
-# Scatterplot of winning percentage vs. number of games managed (min 100)
+# Scatterplot of winning percentage vs. number 
+# of games managed (min 100)
 ##############################################
 
 ggplot(subset(mgrTotals, yearBegin >= 1900 & games >= 100),
-       aes(x = games, y = WinPct)) + geom_point() + geom_smooth() +
-    labs(x = 'Number of games managed')
+       aes(x = games, y = WinPct)) + 
+  geom_point() + geom_smooth() +
+  labs(x = "Number of games managed")
 
 ############################################
 # Division titles
 ############################################
 
-# Plot of number of first place finishes by managers with at least 8 years
-# of experience in the divisional era (>= 1969):
+# Plot of number of first place finishes by managers who
+# started in the divisional era (>= 1969) with 
+# at least 8 years of experience
 
-divMgr <- subset(mgrTotals, yearBegin >= 1969 & nyear >= 8)
+mgrTotals \%>\% 
+  filter(yearBegin >= 1969 & nyear >= 8) \%>\%
+  ggplot(., aes(x = nyear, y = nfirst)) +
+     geom_point(position = position_jitter(width = 0.2)) +
+     labs(x = "Number of years", 
+          y = "Number of divisional titles") +
+     geom_smooth()
 
-# Response is the number of titles
-ggplot(divMgr, aes(x = nyear, y = nfirst)) +
-    geom_point(position = position_jitter(w = 0.2)) +
-    labs(x = 'Number of years', y = 'Number of divisional titles') +
-    geom_smooth()
 
-# Response is the proportion of titles
-ggplot(divMgr, aes(x = nyear, y = round(nfirst/nyear, 3))) +
-    geom_point(position = position_jitter(w = 0.2)) +
-    labs(x = 'Number of years', y = 'Proportion of divisional titles') +
-    geom_smooth()
+# Change response to proportion of titles relative
+# to years managed
+mgrTotals \%>\% 
+  filter(yearBegin >= 1969 & nyear >= 8) \%>\%
+  ggplot(., aes(x = nyear, y = round(nfirst/nyear, 3))) +
+     geom_point(position = position_jitter(width = 0.2)) +
+     labs(x = "Number of years", 
+          y = "Proportion of divisional titles") +
+     geom_smooth()
 
 }

@@ -9,7 +9,7 @@ Batting table - batting statistics
 }
 \usage{data(Batting)}
 \format{
-  A data frame with 99846 observations on the following 22 variables.
+  A data frame with 101332 observations on the following 22 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -39,7 +39,7 @@ Batting table - batting statistics
 Variables \code{X2B} and \code{X3B} are named \code{2B} and \code{3B} in the original database
 }
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -58,24 +58,30 @@ Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http
 \examples{
 data(Batting)
 head(Batting)
-require('plyr')
+require("dplyr")
 
-# calculate batting average and other stats
-batting <- battingStats()
+## Prelude: Extract information from Salaries and Master
+## to be merged with the batting data.
 
-# add salary to Batting data; need to match by player, year and team
-batting <- merge(batting, 
-                 Salaries[,c("playerID", "yearID", "teamID", "salary")], 
-                 by=c("playerID", "yearID", "teamID"), all.x=TRUE)
+# Subset of Salaries data
+salaries <- Salaries \%>\%
+              select(playerID, yearID, teamID, salary)
 
-# Add name, age and bat hand information:
-masterInfo <- Master[, c('playerID', 'birthYear', 'birthMonth',
-                          'nameLast', 'nameFirst', 'bats')]
-batting <- merge(batting, masterInfo, all.x = TRUE)
-batting$age <- with(batting, yearID - birthYear -
-                             ifelse(birthMonth < 10, 0, 1))
+# Subset of Master table (player metadata)
+masterInfo <- Master \%>\%
+              select(playerID, birthYear, birthMonth, nameLast,
+                     nameFirst, bats)
 
-batting <- arrange(batting, playerID, yearID, stint)
+# Left join salaries and masterInfo to batting data,
+# create an age variable and sort by playerID, yearID and stint
+# Returns an ignorable warning.
+batting <- battingStats() \%>\% 
+             left_join(salaries, 
+                       by =c("playerID", "yearID", "teamID")) \%>\%
+             left_join(masterInfo, by = "playerID") \%>\%
+             mutate(age = yearID - birthYear - 
+                            1L *(birthMonth >= 10)) \%>\%
+             arrange(playerID, yearID, stint)
 
 ## Generate a ggplot similar to the NYT graph in the story about Ted
 ## Williams and the last .400 MLB season 
@@ -85,63 +91,91 @@ batting <- arrange(batting, playerID, yearID, stint)
 # players with a minimum of 450 plate appearances (this covers the
 # strike year of 1994 when Tony Gwynn hit .394 before play was suspended
 # for the season - in a normal year, the minimum number of plate appearances is 502)
-eligibleHitters <- subset(batting, yearID >= 1900 & PA > 450)
+
+eligibleHitters <- batting \%>\%
+                     filter(yearID >= 1900 & PA > 450)
 
 # Find the hitters with the highest BA in MLB each year (there are a
-# few ties).  Include all players with BA > .400
-topHitters <- ddply(eligibleHitters, .(yearID), subset, (BA == max(BA))|BA > .400)
+# few ties).  Include all players with BA > .400, whether they
+# won a batting title or not, and add an indicator variable for
+# .400 average in a season.
 
-# Create a factor variable to distinguish the .400 hitters
-topHitters$ba400 <- with(topHitters, BA >= 0.400)
+topHitters <- eligibleHitters \%>\%
+                 group_by(yearID) \%>\%
+                 filter(BA == max(BA)| BA >= .400) \%>\%
+                 mutate(ba400 = BA >= 0.400) \%>\%
+                 select(playerID, yearID, nameLast, 
+                        nameFirst, BA, ba400)
 
 # Sub-data frame for the .400 hitters plus the outliers after 1950
 # (averages above .380) - used to produce labels in the plot below
-bignames <- rbind(subset(topHitters, ba400),
-                  subset(topHitters, yearID > 1950 & BA > 0.380))
-# Cut to the relevant set of variables
-bignames <- subset(bignames, select = c('playerID', 'yearID', 'nameLast',
-                                        'nameFirst', 'BA'))
+bignames <- topHitters \%>\%
+              filter(ba400 | (yearID > 1950 & BA > 0.380)) \%>\%
+              arrange(desc(BA))
 
-# Ditto for the original data frame
-topHitters <- subset(topHitters, select = c('playerID', 'yearID', 'BA', 'ba400'))
+# Variable to provide a vertical offset to certain
+# labels in the ggplot below
+bignames$yoffset <-  c(0, 0, 0, 0, 0.002, 0, 0, 0,
+                       0.001, -0.001, 0, -0.002, 0, 0,
+                       0.002, 0, 0)
 
-# Positional offsets to spread out certain labels
-#                     NL TC JJ TC GS TC RH GS HH RH RH BT TW TW  RC GB TG 
-bignames$xoffset <- c(0, 0, 0, 0, 0, 0, 0, 0, -8, 0, 3, 3, 0, 0, -2, 0, 0)
-bignames$yoffset <- c(0, 0, -0.003, 0, 0, 0, 0, 0, -0.004, 0, 0, 0, 0, 0, -0.003, 0, 0)  +  0.002
+# Produce the plot
 
-require('ggplot2')                               
+require("ggplot2")                               
 ggplot(topHitters, aes(x = yearID, y = BA)) +
-    geom_point(aes(colour = ba400), size = 2.5) +
-    geom_hline(yintercept = 0.400, size = 1) +
-    geom_text(data = bignames, aes(x = yearID + xoffset, y = BA + yoffset,
-                                   label = nameLast), size = 3) +
-    scale_colour_manual(values = c('FALSE' = 'black', 'TRUE' = 'red')) +
-    ylim(0.330, 0.430) +
-    xlab('Year') +
-    scale_y_continuous('Batting average',
-                       breaks = seq(0.34, 0.42, by = 0.02),
-                       labels = c('.340', '.360', '.380', '.400', '.420')) +
-    geom_smooth() +
-    theme(legend.position = 'none')
+  geom_point(aes(colour = ba400), size = 2.5) +
+  geom_hline(yintercept = 0.400, size = 1, colour = "gray70") +
+  geom_text(data = bignames, aes(y = BA + yoffset,
+                                 label = nameLast), 
+                             size = 3, hjust = 1.2) +
+  scale_colour_manual(values = c("FALSE" = "black", "TRUE" = "red")) +
+  xlim(1899, 2015) +
+  xlab("Year") +
+  scale_y_continuous("Batting average",
+                     limits = c(0.330, 0.430),
+                     breaks = seq(0.34, 0.42, by = 0.02),
+                     labels = c(".340", ".360", ".380", ".400", ".420")) +
+  geom_smooth() +
+  theme(legend.position = "none")
 
 ##########################################################
 # after Chris Green,
 # http://sabr.org/research/baseball-s-first-power-surge-home-runs-late-19th-century-major-leagues
 
 # Total home runs by year
-totalHR <- ddply(Batting, .(yearID), summarise,
-                       HomeRuns = sum(as.numeric(HR), na.rm=TRUE),
-                       Games = sum(as.numeric(G), na.rm=TRUE)
-                       )
+totalHR <- Batting \%>\%
+             group_by(yearID) \%>\%
+             summarise(HomeRuns = sum(as.numeric(HR), na.rm=TRUE),
+                       Games = sum(as.numeric(G), na.rm=TRUE))
 
-plot(HomeRuns ~ yearID, data=subset(totalHR, yearID<=1918))
-# take games into account?
-plot(HomeRuns/Games ~ yearID, data=subset(totalHR, yearID<=1918))
+# Plot HR by year, pre-1919 (dead ball era)
+totalHR \%>\% filter(yearID <= 1918) \%>\%
+            ggplot(., aes(x = yearID, y = HomeRuns)) +
+               geom_line() +
+               geom_point() +
+               labs(x = "Year", y = "Home runs hit")
 
-# long term trend?
-plot(HomeRuns ~ yearID, data=totalHR)
-plot(HomeRuns/Games ~ yearID, data=totalHR)
+# Take games into account
+totalHR \%>\% filter(yearID <= 1918) \%>\%
+  ggplot(., aes(x = yearID, y = HomeRuns/Games)) +
+     geom_line() +
+     geom_point() +
+     labs(x = "Year", y = "Home runs per game played")
+
+# Widen perspective to all years from 1871
+ggplot(totalHR, aes(x = yearID, y = HomeRuns)) +
+  geom_point() +
+  geom_path() +
+  geom_smooth() +
+  labs(x = "Year", y = "Home runs hit")
+
+# Similar plot for HR per game played by year -
+# shows several eras with spikes in HR hit
+ggplot(totalHR, aes(x = yearID, y = HomeRuns/Games)) +
+  geom_point() +
+  geom_path() +
+  geom_smooth(se = FALSE) +
+  labs(x = "Year", y = "Home runs per game played")
 
 
 }

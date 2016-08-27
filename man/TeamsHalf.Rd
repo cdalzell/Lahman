@@ -27,9 +27,23 @@ Split season data for teams
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
 %}
+\examples{
+# 1981 season team data split into half seasons
+data(TeamsHalf)
+library("dplyr")
+
+# List standings with winning percentages by
+# season half, league and division
+TeamsHalf \%>\%
+   group_by(Half, lgID, divID) \%>\%
+   mutate(WinPct = round(W/G, 3)) \%>\%
+   arrange(Half, lgID, divID, Rank) \%>\%
+   select(Half, lgID, divID, Rank, teamID, WinPct)
+
+}
 \keyword{datasets}

@@ -9,7 +9,7 @@ Post season batting statistics
 }
 \usage{data(BattingPost)}
 \format{
-  A data frame with 11294 observations on the following 22 variables.
+  A data frame with 11690 observations on the following 22 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{round}}{Level of playoffs }
@@ -39,7 +39,7 @@ Post season batting statistics
 Variables \code{X2B} and \code{X3B} are named \code{2B} and \code{3B} in the original database
 }
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -49,38 +49,52 @@ Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http
 # Requires care since intra-league playoffs have evolved since 1969
 # Simplest case: World Series
 
-require(plyr)
+require("dplyr")
 
 # Create a sub-data frame for modern World Series play
-ws <- subset(BattingPost, round == "WS" & yearID >= 1903)
-
-# Add some derived measures
-ws <- mutate(ws, BA = ifelse(AB == 0, 0, round(H/AB, 3)),
-                 TB = H + X2B + 2 * X3B + 3 * HR,
-                 SA = ifelse(AB == 0,  0, round(TB/AB, 3)),
-                 PA = AB + BB + IBB + HBP + SH + SF,
-                 OB = H + BB + IBB + HBP,
-                 OBP = ifelse(AB == 0, 0, round(OB/PA, 3)) )
+ws <- BattingPost \%>\%
+        filter(round == "WS" & yearID >= 1903) \%>\%
+        mutate(BA = 0 + (AB > 0) * round(H/AB, 3),
+               TB = H + X2B + 2 * X3B + 3 * HR,
+               SA = 0 + (AB > 0) * round(TB/AB, 3),
+               PA = AB + BB + IBB + HBP + SH + SF,
+               OB = H + BB + IBB + HBP,
+               OBP = 0 + (AB > 0) * round(OB/PA, 3) )
 
 # Players with most appearances in the WS:
-with(subset(BattingPost, round == "WS"), rev(sort(table(playerID))))[1:10]
+ws \%>\% group_by(playerID) \%>\%
+       summarise(appearances = n()) \%>\%
+       arrange(desc(appearances)) \%>\%
+       head(., 10)
 
-# OK, how about someone who is *not* a Yankee?
-with(subset(BattingPost, round == "WS" & teamID != "NYA"),
-       rev(sort(table(playerID))))[1:10]
+# Non-Yankees with most WS appearances
+ws \%>\% filter(teamID != "NYA") \%>\%
+       group_by(playerID) \%>\%
+       summarise(appearances = n()) \%>\%
+       arrange(desc(appearances)) \%>\%
+       head(., 10)
 
 
 # Top ten single WS batting averages ( >= 10 AB )
-head(arrange(subset(ws, AB > 10), desc(BA)), 10)
+ws \%>\% filter(AB > 10) \%>\%
+       arrange(desc(BA)) \%>\%
+       head(., 10)
 
 # Top ten slugging averages in a single WS 
-head(arrange(subset(ws, AB > 10), desc(SA)), 10)
+ws \%>\% filter(AB > 10) \%>\%
+  arrange(desc(SA)) \%>\%
+  head(., 10)
+
 
 # Hitting stats for the 1946 St. Louis Cardinals, ordered by BA
-arrange(subset(ws, teamID == "SLN" & yearID == 1946), desc(BA))
+ws \%>\% 
+  filter(teamID == "SLN" & yearID == 1946) \%>\%
+  arrange(desc(BA))
 
 # Babe Ruth's WS profile
-subset(ws, playerID == "ruthba01")
+ws \%>\% 
+  filter(playerID == "ruthba01") \%>\%
+  arrange(yearID)
 
 
 }

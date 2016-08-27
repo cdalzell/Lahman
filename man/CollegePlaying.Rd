@@ -30,7 +30,7 @@ us to better account for players who attended multiple colleges or
 skipped a season, as well as to identify teammates.
 }
 \source{
-Lahman, S. (2015) Lahman's Baseball Database, 1871-2014, 2015 version, \url{http://baseball1.com/statistics/}
+Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -45,7 +45,7 @@ head(CollegePlaying)
 SPcount <- table(CollegePlaying$schoolID)
 SPcount[SPcount>50]
 
-library('lattice')
+library("lattice")
 dotplot(SPcount[SPcount>50])
 dotplot(sort(SPcount[SPcount>50]))
 
@@ -53,6 +53,7 @@ dotplot(sort(SPcount[SPcount>50]))
 length(table(CollegePlaying$schoolID))
 
 # Histogram of the number of players from each school who played in MLB:
-with(CollegePlaying, hist(table(schoolID), xlab = 'Number of players',
+with(CollegePlaying, 
+     hist(table(schoolID), xlab = "Number of players",
                            main = ""))
 }
