@@ -1,5 +1,5 @@
 # lookup functions for players and teams
-
+#' @export
 playerInfo <- function(playerID, nameFirst, nameLast, data=Lahman::Master, extra=NULL, ...) {
 	wanted <- NULL
 	if(!missing(playerID)) wanted <- c(wanted, grep(playerID, data$playerID, ...))
@@ -8,6 +8,7 @@ playerInfo <- function(playerID, nameFirst, nameLast, data=Lahman::Master, extra
 	data[unique(wanted), c("playerID", "nameFirst", "nameLast", extra)]
 }
 
+#' @export
 teamInfo <- function(teamID, name, data=Lahman::Teams, extra=NULL, ...) {
 	wanted <- NULL
 	if(!missing(teamID)) wanted <- c(wanted, grep(teamID, data$teamID, ...))

@@ -10,7 +10,7 @@
 #   * batting average on balls in play (BABIP)
 #
 
-
+#' @export
 battingStats <- function(data=Lahman::Batting, 
 	idvars=c("playerID","yearID","stint","teamID","lgID"),
 	cbind=TRUE) {
