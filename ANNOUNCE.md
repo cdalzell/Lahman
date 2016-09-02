@@ -21,7 +21,7 @@ In this release,
 
 All development of the package takes place on Github, https://github.com/cdalzell/Lahman.
 Major versions of the R package are released only once a year, following the release of a
-new 20XX archive on Sean Lahman's site.  This release occurs after sufficient time has 
+new 20XX archive on Sean Lahman's site.  This R release occurs after sufficient time has 
 elapsed to correct errors in the source data for a new season. Minor versions may be 
 released from time to time to correct errors in the R version or add functionality.
 
