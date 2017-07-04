@@ -12,7 +12,5 @@ There was one NOTE, expected because this is a large data package:
 
 
 ## Comments
-This is a major release, bringing the Lahman R package up to the current 2015
+This is a major release, bringing the Lahman R package up to the current 2016
 version of the Lahman Database.
-
-
