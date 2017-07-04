@@ -23,7 +23,7 @@ Outfield position data: information about positions played in the outfield
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2017) Lahman's Baseball Database, 1871-2016, 2016 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

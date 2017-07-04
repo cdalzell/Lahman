@@ -12,7 +12,7 @@ where players are identified only by \code{playerID}.
 
 \usage{data(Master)}
 \format{
-  A data frame with 18846 observations on the following 26 variables.
+  A data frame with 19105 observations on the following 26 variables.
   \describe{
 %    \item{\code{lahmanID}}{Unique number assigned to each player}
     \item{\code{playerID}}{A unique code asssigned to each player.  The \code{playerID} links

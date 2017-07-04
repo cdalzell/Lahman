@@ -9,7 +9,7 @@ Award information for managers awards
 }
 \usage{data(AwardsManagers)}
 \format{
-  A data frame with 177 observations on the following 6 variables.
+  A data frame with 179 observations on the following 6 variables.
   \describe{
     \item{\code{playerID}}{Manager (player) ID code}
     \item{\code{awardID}}{Name of award won}
@@ -24,7 +24,7 @@ Award information for managers awards
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2017) Lahman's Baseball Database, 1871-2016, 2016 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

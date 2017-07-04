@@ -9,7 +9,7 @@ Post season batting statistics
 }
 \usage{data(BattingPost)}
 \format{
-  A data frame with 11690 observations on the following 22 variables.
+  A data frame with 13543 observations on the following 22 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{round}}{Level of playoffs }
@@ -39,7 +39,7 @@ Post season batting statistics
 Variables \code{X2B} and \code{X3B} are named \code{2B} and \code{3B} in the original database
 }
 \source{
-Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2017) Lahman's Baseball Database, 1871-2016, 2016 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
