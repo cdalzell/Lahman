@@ -4,8 +4,8 @@
 R Library for Sean Lahman's Baseball Database
 ========================================================
 
-Version: 5.0-0
-Date: 2016-08-08
+Version: 6.0-0
+Date: 2017-07-04
 
 Authors:
 
@@ -24,7 +24,7 @@ License: GPL
 
 URL: http://lahman.r-forge.r-project.org/
 
-This is an R version of the 2015 edition of Sean Lahman's Baseball Database,
+This is an R version of the 2016 edition of Sean Lahman's Baseball Database,
 http://www.seanlahman.com/baseball-archive/statistics/.  In addition, the documentation
 has been updated to use `dplyr` for database manipulation and `ggplot2` for plots.
 
@@ -33,10 +33,10 @@ For testing purposes, the pre-CRAN release version can be installed in your R li
     library(devtools)
     install_github("cdalzell/Lahman", ref="develop")
 
-If you wish to preserve your original version of `Lahman_4.0-1`, use `dev_mode()`.
+If you wish to use a non-release version of `Lahman`, use `dev_mode()`.
 
     dev_mode()
-    install_github("cdalzell/Lahman", ref="develop")
+    install_github("cdalzell/Lahman", ref="insert_branch_name_here")
     #  ...test ...
     dev_mode()  # revert to previous
 
