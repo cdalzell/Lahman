@@ -2,7 +2,7 @@ Package: Lahman
 Type: Package
 Title: Sean 'Lahman' Baseball Database
 Version: 6.0-0
-Date: 2017-07-04
+Date: 2017-08-07
 Authors@R: c(person(given = "Michael", family = "Friendly", role="aut", email="friendly@yorku.ca"), 
         person(given= "Dennis", family = "Murphy", role="ctb"), 
         person(given ="Martin", family = "Monkman", role="ctb"),
@@ -38,4 +38,4 @@ Repository/R-Forge/DateTimeStamp: 2013-06-01 03:33:30
 Date/Publication: 2013-06-01 22:19:12
 Packaged: 2013-06-01 09:50:10 UTC; rforge
 NeedsCompilation: no
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
