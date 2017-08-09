@@ -1,6 +1,5 @@
 ## Test environments
-* local Windows 7 x64 install, R version 3.2.5 (2016-04-14)
-* win-builder Under development (unstable) (2016-08-22 r71129)
+* local Windows 10 x64 install, R version 3.4.1 (2017-06-30)
 
 ## R CMD check results
 There were no ERRORs or WARNINGs
