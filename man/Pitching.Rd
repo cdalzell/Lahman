@@ -129,10 +129,10 @@ anova(lm(formula = W ~ yearID + I(yearID^2) + lgID + throws, data = winp))
 
 # Nature of managing pitching staffs has altered importance of
 # wins over time
-
+\dontrun{
 require("ggplot2") 
 
-# compare loess smooth with quadratic fit 
+# compare loess smooth with quadratic fit
 ggplot(winp, aes(x = yearID, y = W)) +
     geom_point(aes(colour = throws, shape=lgID), size = 2) +
     geom_smooth(method="loess", size=1.5, color="blue") +
@@ -146,13 +146,13 @@ ggplot(winp, aes(x = yearID, y = W)) +
 ## pool to those who pitched at least 100 innings in a year.
 
 pitching \%>\% filter(IPouts >= 300) \%>\%  # >= 100 IP
+
 ggplot(., aes(x = yearID, y = IPouts, color = lgID)) +
   geom_smooth(method="loess") +
   labs(x = "Year", y = "IPouts")
 
 ## Another indicator: total number of complete games pitched
 ## (Mirrors the trend from the preceding plot.)
-
 pitching \%>\% 
    group_by(yearID, lgID) \%>\%
    summarise(totalCG = sum(CG, na.rm = TRUE)) \%>\%
@@ -160,7 +160,7 @@ pitching \%>\%
       geom_point() +
       geom_path() +
       labs(x = "Year", y = "Number of complete games")
-
+}
 
 }
 
