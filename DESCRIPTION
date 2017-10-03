@@ -24,13 +24,16 @@ Suggests:
     vcd,
     reshape2,
     tidyr,
-    zipcode
+    zipcode,
+    knitr,
+    rmarkdown
 Imports:
     dplyr
 License: GPL
 URL: http://lahman.r-forge.r-project.org/
 LazyLoad: yes
 LazyData: yes
+BugReports: https://github.com/cdalzell/Lahman/issues
 Repository: CRAN
 Repository/R-Forge/Project: lahman
 Repository/R-Forge/Revision: 39
@@ -39,3 +42,4 @@ Date/Publication: 2013-06-01 22:19:12
 Packaged: 2013-06-01 09:50:10 UTC; rforge
 NeedsCompilation: no
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr
