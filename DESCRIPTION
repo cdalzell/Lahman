@@ -24,7 +24,9 @@ Suggests:
     vcd,
     reshape2,
     tidyr,
-    zipcode
+    zipcode,
+    knitr,
+    rmarkdown
 Imports:
     dplyr
 License: GPL
@@ -39,3 +41,4 @@ Date/Publication: 2013-06-01 22:19:12
 Packaged: 2013-06-01 09:50:10 UTC; rforge
 NeedsCompilation: no
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr
