@@ -33,6 +33,7 @@ License: GPL
 URL: http://lahman.r-forge.r-project.org/
 LazyLoad: yes
 LazyData: yes
+BugReports: https://github.com/cdalzell/Lahman/issues
 Repository: CRAN
 Repository/R-Forge/Project: lahman
 Repository/R-Forge/Revision: 39
