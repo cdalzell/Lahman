@@ -71,15 +71,23 @@ View(Pitching_2016)
 
 #### Further reading:
 
+* [tidyeval resource roundup](https://maraaverick.rbind.io/2017/08/tidyeval-resource-roundup/) (2017-08-26)
+
 * [Tidy evaluation](https://cran.r-project.org/web/packages/rlang/vignettes/tidy-evaluation.html)
 
 * [dplyr 0.7.0](https://blog.rstudio.com/2017/06/13/dplyr-0-7-0/) (2017-06-13)
 
 * [Programming with dplyr](http://dplyr.tidyverse.org/articles/programming.html)
 
+* [Non-standard evaluation, how tidy eval builds on base R](https://edwinth.github.io/blog/nse/)
+
+
+Bruno Rodrigues:
+
+* [Functional programming and unit testing for data munging with R](https://b-rodrigues.github.io/fput/) (2017-08-25)
+
 * [Why I find tidyeval useful](http://www.brodrigues.co/blog/2017-08-27-why_tidyeval/) (2017-08-27)
 
 * [Lesser known dplyr 0.7* tricks](http://www.brodrigues.co/blog/2017-06-19-dplyr-0-70-tutorial/)
 
-* [Non-standard evaluation, how tidy eval builds on base R](https://edwinth.github.io/blog/nse/)
 
