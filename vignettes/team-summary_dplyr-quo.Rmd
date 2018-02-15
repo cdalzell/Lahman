@@ -9,10 +9,10 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-## Team summaries: Tidy evaluation
+## Team summaries: applying the principles of tidy evaluation
 
 
-This vignette demonstrates how to call a function from within a `dplyr` pipe (using quasiquotation and quosures (`quo`)) to count the number of pitchers used by each team in a single season.
+This vignette demonstrates how to call a function from within a `dplyr` pipe (using quasiquotation and quosures using `quo`) to count the number of pitchers used by each team in a single season.
 
 First, we load the necessary packages: `Lahman` (containing the baseball data) and the data carpentry package `dplyr` (version 0.7.0 or higher):
 
@@ -33,7 +33,7 @@ Once it's loaded, the data are filtered and summarized using dplyr.
 
  - filters to select 2016,
 
-Once filtered, a new variable indicating the number of relief appearances is calculated.
+Once filtered, a new variable indicating the number of relief appearances is calculated by subtracting the number of games started by the pitcher (GS) from the total number of games they appeared in (G).
 
 
 
@@ -71,13 +71,20 @@ View(Pitching_2016)
 
 #### Further reading:
 
-* [tidyeval resource roundup](https://maraaverick.rbind.io/2017/08/tidyeval-resource-roundup/) (2017-08-26)
-
-* [Tidy evaluation](https://cran.r-project.org/web/packages/rlang/vignettes/tidy-evaluation.html)
-
 * [dplyr 0.7.0](https://blog.rstudio.com/2017/06/13/dplyr-0-7-0/) (2017-06-13)
 
 * [Programming with dplyr](http://dplyr.tidyverse.org/articles/programming.html)
+
+
+**tidy evaluation**
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Tidy eval in ~5 minutes: <a href="https://t.co/mKBA7288jn">https://t.co/mKBA7288jn</a> — my latest attempt to cover the big ideas of tidy evaluation before you dive into the details <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a></p>&mdash; Hadley Wickham (@hadleywickham) <a href="https://twitter.com/hadleywickham/status/963147362410508288?ref_src=twsrc%5Etfw">February 12, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+* [tidyeval resource roundup](https://maraaverick.rbind.io/2017/08/tidyeval-resource-roundup/) (2017-08-26)
+
+* [Tidy evaluation](https://cran.r-project.org/web/packages/rlang/vignettes/tidy-evaluation.html)
 
 * [Non-standard evaluation, how tidy eval builds on base R](https://edwinth.github.io/blog/nse/)
 

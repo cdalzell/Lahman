@@ -14,10 +14,10 @@ vignette: >
 
 This vignette demonstrates how to create a plot (using `ggplot2`) showing Major League Baseball runscoring trends since the 1901 season.
 
-First, we load the necessary packages: `Lahman` (containing the baseball data), `ggplot2` to create the plots, and the data carpentry package `dplyr`:
+First, we load the necessary packages: `Lahman` (containing the baseball data), `ggplot2` to create the plots, and the data carpentry package `dplyr` (note that `ggplot2` and `dplyr` are included in the `tidyverse` package):
 
 
-```{r, message=FALSE}
+```{r Setup, message=FALSE}
 
 # package load 
 library(Lahman)
@@ -32,7 +32,7 @@ For this example, we'll use the data table `Teams` in the Lahman database.
 
 Once it's loaded, the data are filtered and summarized using dplyr.
 
- - filters from 1901 [the establishment of the American League] to the most recent year,
+ - filters from 1901 (the establishment of the American League) to the most recent year,
 
  - filters out (using `!=`) the Federal League
 
@@ -59,7 +59,7 @@ MLB_RPG <- Teams %>%
 
 You may have heard that run scoring in Major League Baseball has been down in recent years--or is it going back up? This is a perfect opportunity to visualize the date; what can we see in a plot?
 
-For the first version of the plot, we'll make a basic X-Y plot, where the X axis has the years and the Y axis has the average number of runs scored.  With ggplot2, it's easy to add a trend line (using the `geom_smooth` option).
+For the first version of the plot, we'll make a basic X-Y plot, where the X axis has the years and the Y axis has the average number of runs scored.  With `ggplot2`, it's easy to add a trend line (using the `geom_smooth` option).
 
 The `scale_x_continuous` options set the limits and breaks of the axes.
 
