@@ -39,12 +39,23 @@ Max Marchi and Jim Albert (2014) _Analyzing Baseball Data with R_ (CRC Press)
 * the authors make a fleeting mention to the `Lahman` package (it was relatively new when the book was published), and the book makes frequent reference to the raw Lahman database files in CSV form.
 
 
+David Robinson (2017) [_Introduction to Empirical Bayes_](https://gumroad.com/l/empirical-bayes) (published at [gumroad.com])
+
+* the book makes extensive use of the package to explain "the empirical Bayesian approach to estimation, credible intervals, A/B testing, mixture models, and other methods, all through the example of baseball batting averages." 
+
+* the [blog introduction to the book](http://varianceexplained.org/r/empirical-bayes-book/)
+
+
 Hadley Wickham and Garrett Grolemund (2017) [_R for Data Science: Import, Tidy, Transform, Visualize, and Model Data_](http://r4ds.had.co.nz/) (O'Reilly)
 
 * [Section 5.6.3, "Counts"](http://r4ds.had.co.nz/transform.html#counts)
 
 
-### Blog entries
+### Blog entries and course materials
 
 Kris Eberwein (2015-09-30) ["Hacking The New Lahman Package 4.0-1 with R-Studio"](https://www.r-bloggers.com/hacking-the-new-lahman-package-4-0-1-with-r-studio/) (via [r-bloggers.com])
 
+
+Michael Lopez (2016) [Lab materials for Skidmore College MA 276, “Sports and Statistics”](https://statsbylopez.com/276labs/)
+
+*[course reference page](https://statsbylopez.com/stats-sports-class/) 
