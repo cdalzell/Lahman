@@ -1,0 +1,50 @@
+---
+title: "Vignette introduction"
+author: "Martin Monkman"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Introduction
+
+
+These vignettes serve a dual purpose:
+
+* to introduce users of the `Lahman` package to the breadth and depth of the data, and a range of analysis and statistical methods that can be undertaken using the data in the package, and
+
+* to introduce users to the statistical software **R**.
+
+
+## Contents
+
+(a list of the vignettes completed to-date)
+
+
+
+## Further reading
+
+A number of books and on-line resources use the `Lahman` package as material for the examples. These include:
+
+### Books
+
+Michael Friendly and David Meyer (2016) _Discrete Data Analysis with R: Visualization and Modeling Techniques for Categorical and Count Data_ (CRC Press)
+
+
+Max Marchi and Jim Albert (2014) _Analyzing Baseball Data with R_ (CRC Press)
+
+* the authors make a fleeting mention to the `Lahman` package (it was relatively new when the book was published), and the book makes frequent reference to the raw Lahman database files in CSV form.
+
+
+Hadley Wickham and Garrett Grolemund (2017) [_R for Data Science: Import, Tidy, Transform, Visualize, and Model Data_](http://r4ds.had.co.nz/) (O'Reilly)
+
+* [Section 5.6.3, "Counts"](http://r4ds.had.co.nz/transform.html#counts)
+
+
+### Blog entries
+
+Kris Eberwein (2015-09-30) ["Hacking The New Lahman Package 4.0-1 with R-Studio"](https://www.r-bloggers.com/hacking-the-new-lahman-package-4-0-1-with-r-studio/) (via [r-bloggers.com])
+
