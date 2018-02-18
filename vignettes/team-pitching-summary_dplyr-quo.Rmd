@@ -1,5 +1,5 @@
 ---
-title: "Team summaries"
+title: "Team pitching summaries"
 author: "Martin Monkman"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-## Team summaries: applying the principles of tidy evaluation
+## Team pitching summaries: applying the principles of tidy evaluation
 
 
 This vignette demonstrates how to call a function from within a `dplyr` pipe (using quasiquotation and quosures using `quo`) to count the number of pitchers used by each team in a single season.
@@ -17,7 +17,7 @@ This vignette demonstrates how to call a function from within a `dplyr` pipe (us
 First, we load the necessary packages: `Lahman` (containing the baseball data) and the data carpentry package `dplyr` (version 0.7.0 or higher):
 
 
-```{r, message=FALSE}
+```{r Setup, message=FALSE}
 
 # package load 
 library(Lahman)

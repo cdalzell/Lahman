@@ -24,6 +24,17 @@ These vignettes serve a dual purpose:
 (a list of the vignettes completed to-date)
 
 
+* [payroll](payroll.Rmd) -- examines whether there is a relationship between total team salaries (payroll) and World Series success.
+
+* [run scoring trends](run-scoring-trends.Rmd) -- Major League Baseball average per-game run scoring for each season since 1901.
+
+* [team pitching summary](team-pitching-summary_dplyr-quo.Rmd) -- count the number of pitchers used by each team in a single season.
+
+
+
+
+
+***
 
 ## Further reading
 
@@ -36,7 +47,7 @@ Michael Friendly and David Meyer (2016) _Discrete Data Analysis with R: Visualiz
 
 Max Marchi and Jim Albert (2014) _Analyzing Baseball Data with R_ (CRC Press)
 
-* the authors make a fleeting mention to the `Lahman` package (it was relatively new when the book was published), and the book makes frequent reference to the raw Lahman database files in CSV form.
+* the book makes frequent reference to the raw Lahman database files in CSV form; the `Lahman` package was relatively recent when the book was published, and authors make a brief mention.
 
 
 David Robinson (2017) [_Introduction to Empirical Bayes_](https://gumroad.com/l/empirical-bayes) (published at [gumroad.com])
@@ -59,3 +70,6 @@ Kris Eberwein (2015-09-30) ["Hacking The New Lahman Package 4.0-1 with R-Studio"
 Michael Lopez (2016) [Lab materials for Skidmore College MA 276, “Sports and Statistics”](https://statsbylopez.com/276labs/)
 
 *[course reference page](https://statsbylopez.com/stats-sports-class/) 
+
+
+-30-
