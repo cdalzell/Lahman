@@ -46,14 +46,14 @@ For the 2016 season, there were a total of 824 records.
 
 data("Pitching")
 
-Pitching_2016 <- Pitching %>%
+Pitching_season <- Pitching %>%
   filter(yearID == "2016")
 
-Pitching_2016 <- Pitching_2016 %>%
+Pitching_season <- Pitching_season %>%
   mutate(GR = (G - GS))
 
 
-View(Pitching_2016)
+View(Pitching_season)
 
 
 ```
@@ -64,13 +64,15 @@ The next step is to create a summary table that shows the number of pitchers use
 
 ```{r, message=FALSE}
 
-Pitching_2016 %>%
+team_pitching <- Pitching_season %>%
   group_by(teamID) %>%
   summarise(GS_total = sum(GS), 
             GR_total = sum(GR))
 
+View(team_pitching)
 
 ```
+
 
 
 
