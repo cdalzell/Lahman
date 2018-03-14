@@ -64,6 +64,11 @@ Hadley Wickham and Garrett Grolemund (2017) [_R for Data Science: Import, Tidy, 
 
 ### Articles, blog entries, and course materials
 
+Steven Buechler (2014-2015) [Analysis of career performance in top home run hitters](https://www3.nd.edu/~steve/computing_with_data/16_Baseball_example/baseball_example.html)
+
+* This is lecture 16 from [Computing with Data Seminar](https://www3.nd.edu/~steve/computing_with_data/)
+
+
 Kris Eberwein (2015-09-30) ["Hacking The New Lahman Package 4.0-1 with R-Studio"](https://www.r-bloggers.com/hacking-the-new-lahman-package-4-0-1-with-r-studio/) (via [r-bloggers.com])
 
 
