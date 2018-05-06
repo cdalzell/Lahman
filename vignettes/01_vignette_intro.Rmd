@@ -47,7 +47,7 @@ Michael Friendly and David Meyer (2016) _Discrete Data Analysis with R: Visualiz
 
 Max Marchi and Jim Albert (2014) _Analyzing Baseball Data with R_ (CRC Press)
 
-* the book makes frequent reference to the raw Lahman database files in CSV form; the `Lahman` package was relatively recent when the book was published, and authors make a brief mention.
+* the book makes frequent reference to the raw Lahman database files in CSV form; the `Lahman` package was relatively recent when the book was published, and authors make a brief mention of the package.
 
 
 David Robinson (2017) [_Introduction to Empirical Bayes_](https://gumroad.com/l/empirical-bayes) (published at [gumroad.com])
