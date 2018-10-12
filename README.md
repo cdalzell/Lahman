@@ -1,4 +1,4 @@
-Lahman <img src="hex/Lahman_hex.PNG" align="right" />
+Lahman <img src="../hex/Lahman_hex.PNG" align="right" />
 ==========================================================
 
 
