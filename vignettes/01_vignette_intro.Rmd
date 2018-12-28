@@ -31,8 +31,6 @@ Vignettes completed to-date:
 
 * [run scoring trends](run-scoring-trends.Rmd) -- Major League Baseball average per-game run scoring for each season since 1901.
 
-* [team pitching summary](team-pitching-summary_dplyr-quo.Rmd) -- count the number of pitchers used by each team in a single season.
-
 
 
 
