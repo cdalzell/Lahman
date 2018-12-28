@@ -21,10 +21,13 @@ These vignettes serve a dual purpose:
 
 ## Contents
 
-(a list of the vignettes completed to-date)
+Vignettes completed to-date:
 
 
-* [payroll](payroll.Rmd) -- examines whether there is a relationship between total team salaries (payroll) and World Series success.
+* [payroll](payroll.Rmd) -- This vignette examines whether there is a relationship between total team salaries (payroll) and World Series success.
+
+* [Relationship Between Strikeouts and Home Runs](strikeoutsandhr.Rmd) -- This vignette looks at the relationship between rate of strikeouts and home runs from the year 1950+. This question was inspired by Marchi and Albert (2014), _Analyzing Baseball Data in R_. 
+
 
 * [run scoring trends](run-scoring-trends.Rmd) -- Major League Baseball average per-game run scoring for each season since 1901.
 
