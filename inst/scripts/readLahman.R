@@ -10,11 +10,11 @@ outdir <- indir
 setwd(indir)
 
 # local data location
-dataFile <- "../source-data/baseballdatabank-2017.1.zip"
+dataFile <- "../source-data/baseballdatabank-master_2018-03-28.zip"
 
 # no need to download if we already have the file
 if (!file.exists(dataFile)) {
-  zipfile <- "http://seanlahman.com/files/database/baseballdatabank-2017.1.zip"
+  zipfile <- "http://seanlahman.com/files/database/baseballdatabank-master_2018-03-28.zip"
   download.file(zipfile, dataFile)
 }
 
@@ -25,7 +25,7 @@ unzip(dataFile, exdir=indir)
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
 
 # set indir to the directories the csv are extracted to
-indir <- paste0(indir, "/baseballdatabank-2017.1/core")
+indir <- paste0(indir, "/baseballdatabank-master/core")
 setwd(indir)
 
 (files <- list.files(path=indir, pattern="*.csv$"))
@@ -68,7 +68,7 @@ colnames(HallOfFame)[2] <- 'yearID'
 # The format in the as.Date() function is the 'informat', 
 # in SASspeak; the output format is a calendar date in 
 # yyyy-mm-dd format.
-Master <- within(Master, {
+People <- within(People, {
 #    debut = as.Date(debut, 
 #                    format = '%m/%d/%Y %H:%M:%s',
 #                    origin = '1970-01-01')
@@ -81,7 +81,7 @@ Master <- within(Master, {
                        format = '%Y-%m-%d')
    bats = factor(bats)
    throws = factor(throws)
-}  )
+})
 
 #* checking data for non-ASCII characters ... WARNING
 #  Warning: found non-ASCII string(s)
@@ -114,7 +114,7 @@ save(HallOfFame,          file="HallOfFame.RData")
 #save(HOFold,              file="HOFold.RData")             
 save(Managers,            file="Managers.RData")           
 save(ManagersHalf,        file="ManagersHalf.RData")       
-save(Master,              file="Master.RData")       ## Master.csv fixed for non ASCII strings   
+save(People,              file="People.RData")
 save(Pitching,            file="Pitching.RData")           
 save(PitchingPost,        file="PitchingPost.RData")       
 save(Salaries,            file="Salaries.RData")           
