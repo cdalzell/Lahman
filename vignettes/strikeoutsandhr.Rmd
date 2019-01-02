@@ -25,8 +25,8 @@ par(mar=c(3,3,1,1)+.1)
 set.seed(1234)       # reproducibility
 ```
 
-```{r load-packages, echo=FALSE}
-library(Lahman)   # load additional packages here 
+```{r load-packages}
+library(Lahman) 
 library(ggplot2) 
 library(dplyr)
 library(car)
