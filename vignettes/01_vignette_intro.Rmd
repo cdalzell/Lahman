@@ -16,9 +16,9 @@ These vignettes serve a dual purpose:
 
 * to introduce users of the `Lahman` package to the breadth and depth of the data, and a range of analysis and statistical methods that can be undertaken using the data in the package, 
 
-* to introduce users to the statistical software **R**, with an emphasis on the packages within the [tidyverse](https://www.tidyverse.org/), notably data wrangling with `dplyr` and `tidyr`, and data visualization and plotting with `ggplot2`, and
-
-* to introduce statistical methods such as regression and time series analysis.
+* to introduce users to the statistical software **R**, but particularly to the modern use
+in statistics and data science encapsulated in the `tidyverse` of R packages designed to
+facilitate data input and manipulation and graphics.
 
 
 ## Contents
@@ -49,7 +49,7 @@ A number of books and on-line resources use the `Lahman` package as material for
 
 ### Books
 
-Michael Friendly and David Meyer (2016) _Discrete Data Analysis with R: Visualization and Modeling Techniques for Categorical and Count Data_ (CRC Press)
+Michael Friendly and David Meyer (2016) _Discrete Data Analysis with R: Visualization and Modeling Techniques for Categorical and Count Data_ (CRC Press). [DDAR Web Site](http://ddar.datavis.yorku.ca)
 
 
 Max Marchi and Jim Albert (2014) _Analyzing Baseball Data with R_ (CRC Press)

@@ -35,9 +35,10 @@ library(dplyr)
 
 This vignette examines whether there is a relationship between total team salaries (payroll) and World Series success.
 It was inspired by Nolan & Lang (2015), "Baseball: Exploring Data in a Relational Database", 
-Chapter 10 in *Data Science in R*. They use `SQL` on the raw Lahman files `.csv`, rather
+Chapter 10 in [*Data Science in R*](http://www.rdatasciencecases.org/). They use `SQL` on the raw Lahman files `.csv`, rather
 than the Lahman package.
-We largely use `dplyr` for data munging and `ggplot2` for plotting.
+
+Here, We largely use `dplyr` for data munging and `ggplot2` for plotting.
 In the process, we discover a few errors in the data sets.
 
 ## The data files
@@ -66,7 +67,7 @@ dim(Teams)
 names(Teams)
 ```
 
-We are only going to use the observations from 1985, and a few variables, so we filter and select them now.
+We are only going to use the observations from 1985 on, and a few variables, so we filter and select them now.
 Keep only the levels of `teamID` in the data.
 
 ```{r Teams-filter}
@@ -80,7 +81,8 @@ sample_n(Teams, 10)
 
 ### The `SeriesPost` data
 
-Post season records go back to 1884. There are `r nrow(Lahman::SeriesPost)` observations.
+Post season records go back to 1884. There are `r nrow(Lahman::SeriesPost)` observations
+covering all aspects of post-season play.
 
 ```{r SeriesPost-names}
 data("SeriesPost", package="Lahman")
@@ -152,6 +154,7 @@ Salaries <- Salaries %>%
 ### Get team payrolls
 
 We want to sum the `salary` for each team for each year. We might as well make it in millions.
+All those zeros hurt my eyes.
 
 
 ```{r summarise-salaries}
@@ -168,7 +171,8 @@ The `Teams` data frame also contains the `Y/N` indicator `WSWin` for World Serie
 so we might as well include this too.
 
 ```{r merge-teams}
-payroll <- merge(payroll, Teams[,c("yearID", "teamID","name", "WSWin")], by=c("yearID", "teamID")) 
+payroll <- merge(payroll, Teams[,c("yearID", "teamID","name", "WSWin")], 
+                 by=c("yearID", "teamID")) 
 sample_n(payroll, 10)
 ```
 
@@ -196,7 +200,7 @@ table(payroll$WSWin, useNA="ifany")
 There is something wrong here! There shouldn't be any `NA`s.  We leave this for further study, and another
 **Reminder** to file an issue if we figure out what the problem is.
 
-### Boxplots of payroll
+## Boxplots of payroll
 
 Let's look at the distributions of payroll by year.  The observations are teams.
 ```{r payroll-boxplot, fig.width=7}
@@ -208,8 +212,8 @@ We don't load the `car` package, because `car` also contains a `Salary` dataset.
 
 ```{r, payroll-Boxplot, fig.width=7}
 out <- car::Boxplot(payroll ~ yearID, data=payroll,
-             id.n=1, 
-             label=as.character(teamID), 
+             id=list(n=1, 
+                     labels=as.character(payroll$teamID)), 
              ylab="Payroll ($ millions)")
 ```
 
@@ -220,7 +224,7 @@ table(out)
 
 
 Payroll has obviously increased dramatically over time.  So has the variabilty across teams. For any modelling,
-we would probably want to use $\log(salary)$.  We might also want to look separarately at the
+we would probably want to use `\log(payroll)`.  We might also want to look separarately at the
 American and National leagues.
 
 ### Correcting for inflation
@@ -266,7 +270,7 @@ large.
 
 ```{r, payroll-Boxplot2, fig.width=7}
 car::Boxplot(payrollStd ~ yearID, data=payroll,
-             label=as.character(teamID), 
+             id = list(labels=as.character(payroll$teamID)), 
              ylab="Payroll (1985-adjusted $ millions)")
 ```
 
@@ -297,6 +301,19 @@ with(payroll[payroll$WSWin == 'Y',],
 By and large, the World Series winners tend to be in the upper portion of the payrolls for each year.
 
 
-## Further analyses
+## Further analyses: Your turn
 
-[TODO]
+Here are some questions to provoke further analyses of these data sets.  If you find something interesting, post it in a [Github Gist](https://gist.github.com/) or forward it to Team Lahman as in a [Lahman issue](https://github.com/cdalzell/Lahman/issues).
+
+* Our boxplots used total payroll in millions.  Would the plots be clearer if we plotted payroll on a log scale?
+
+* Follow-up the suggestion to fit a linear model predicting `log(payroll)` from
+some of the available predictors.
+
+* Examine the trend of team salaries over time for World Series losers. Does it look the same or different than that for the winning teams?
+
+* What kind of analysis would you do to address this statement: "For teams that make it to the World series, the one with the larger payroll is more likely to win."
+
+* Is there any relationship between the number of team wins in a season and winning the World series?
+
+
