@@ -14,7 +14,7 @@ vignette: >
 
 These vignettes serve a dual purpose:
 
-* to introduce users of the `Lahman` package to the breadth and depth of the data, and a range of analysis and statistical methods that can be undertaken using the data in the package, and
+* to introduce users of the `Lahman` package to the breadth and depth of the data, and a range of analysis and statistical methods that can be undertaken using the data in the package, 
 
 * to introduce users to the statistical software **R**, but particularly to the modern use
 in statistics and data science encapsulated in the `tidyverse` of R packages designed to
@@ -26,12 +26,16 @@ facilitate data input and manipulation and graphics.
 Vignettes completed to-date:
 
 
-* [payroll](payroll.Rmd) -- This vignette examines whether there is a relationship between total team salaries (payroll) and World Series success.
+1. [Relationship Between Strikeouts and Home Runs](strikeoutsandhr.Rmd) -- This vignette looks at the relationship between rate of strikeouts and home runs from the year 1950+. This question was inspired by Marchi and Albert (2014), _Analyzing Baseball Data in R_. 
 
-* [Relationship Between Strikeouts and Home Runs](strikeoutsandhr.Rmd) -- This vignette looks at the relationship between rate of strikeouts and home runs from the year 1950+. This question was inspired by Marchi and Albert (2014), _Analyzing Baseball Data in R_. 
+    + R packages demonstrated: [`car` (Companion to Applied Regression)](https://cran.r-project.org/web/packages/car/index.html)
 
 
-* [run scoring trends](run-scoring-trends.Rmd) -- Major League Baseball average per-game run scoring for each season since 1901.
+2. [Run Scoring Trends](run-scoring-trends.Rmd) -- Major League Baseball average per-game run scoring for each season since 1901.
+
+
+3. [Team Payroll and the World Series](payroll.Rmd) -- This vignette examines whether there is a relationship between total team salaries (payroll) and World Series success.
+
 
 
 
