@@ -81,10 +81,20 @@ Kris Eberwein (2015-09-30) ["Hacking The New Lahman Package 4.0-1 with R-Studio"
 
 Michael Lopez (2016) [Lab materials for Skidmore College MA 276, “Sports and Statistics”](https://statsbylopez.com/276labs/)
 
-*[course reference page](https://statsbylopez.com/stats-sports-class/) 
+* [course reference page](https://statsbylopez.com/stats-sports-class/) 
 
 
 Bill Petti (2015-09-21) [A Short(-ish) Introduction to Using R Packages for Baseball Research](https://www.fangraphs.com/tht/a-short-ish-introduction-to-using-r-for-baseball-research/)
+
+
+
+**_Exploring Baseball Data with R_ blog**
+
+Jim Albert (2018-12-24) [The Vanishing 300 Batting Average](https://baseballwithr.wordpress.com/2018/12/24/the-vanishing-300-batting-average/)
+
+Jim Albert (2015-01-05) [A Graph of a Batting Average](https://baseballwithr.wordpress.com/2015/01/05/a-graph-of-a-batting-average/) 
+
+Brian Mills (2014-09-30) [Using ggmap and Lahman to Find the Hometown College Rosters](https://baseballwithr.wordpress.com/2014/09/30/using-ggmap-and-lahman-to-find-the-hometown-college-rosters/)
 
 
 -30-
