@@ -124,7 +124,12 @@ save(SeriesPost,          file="SeriesPost.RData")
 save(Teams,               file="Teams.RData")              
 save(TeamsFranchises,     file="TeamsFranchises.RData")    
 save(TeamsHalf,           file="TeamsHalf.RData")          
-#save(Xref_Stats,          file="Xref_Stats.RData")         
+#save(Xref_Stats,          file="Xref_Stats.RData")
+
+# Master table was changed to People in the 2017 data
+# We will maintain Master as part of the package for now as it's likely to be a breaking change
+Master <- People
+save(Master,              file="Master.RData")
 
 # only ran this once, since all .Rd files were extensively edited
 if (FALSE) {
