@@ -24,7 +24,7 @@ Baseball Hall of Fame.
   }
 }
 \details{
-This table links to the \code{\link{Master}} table via the \code{playerID}.
+This table links to the \code{\link{People}} table via the \code{playerID}.
 
 \code{votedBy}: Most Hall of Fame inductees have been elected by the 
 Baseball Writers Association of America (\code{BBWAA}).  Rules for election are

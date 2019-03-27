@@ -55,7 +55,7 @@ mgrSumm <- Managers \%>\%
                       L = sum(L),
                       WinPct = round(W/(W + L), 3))
 
-MgrInfo <- Master \%>\%
+MgrInfo <- People \%>\%
             filter(!is.na(playerID)) \%>\%
             select(playerID, nameLast, nameFirst)
 

@@ -137,7 +137,7 @@ Hmm, there is a `salary==0` in 1993, maybe there are others.
 ```{r}
 which(Salaries$salary==0)
 ```
-Who are they? (We could also look up their `playerID`s in `Lahman::Master`.)
+Who are they? (We could also look up their `playerID`s in `Lahman::People`.)
 ```{r which-zero}
 Salaries[which(Salaries$salary==0),]
 ```

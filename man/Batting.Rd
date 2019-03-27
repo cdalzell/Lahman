@@ -60,25 +60,25 @@ data(Batting)
 head(Batting)
 require("dplyr")
 
-## Prelude: Extract information from Salaries and Master
+## Prelude: Extract information from Salaries and People
 ## to be merged with the batting data.
 
 # Subset of Salaries data
 salaries <- Salaries \%>\%
               select(playerID, yearID, teamID, salary)
 
-# Subset of Master table (player metadata)
-masterInfo <- Master \%>\%
+# Subset of People table (player metadata)
+peopleInfo <- People \%>\%
               select(playerID, birthYear, birthMonth, nameLast,
                      nameFirst, bats)
 
-# Left join salaries and masterInfo to batting data,
+# Left join salaries and peopleInfo to batting data,
 # create an age variable and sort by playerID, yearID and stint
 # Returns an ignorable warning.
 batting <- battingStats() \%>\% 
              left_join(salaries, 
                        by =c("playerID", "yearID", "teamID")) \%>\%
-             left_join(masterInfo, by = "playerID") \%>\%
+             left_join(peopleInfo, by = "playerID") \%>\%
              mutate(age = yearID - birthYear - 
                             1L *(birthMonth >= 10)) \%>\%
              arrange(playerID, yearID, stint)

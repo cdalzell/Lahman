@@ -86,7 +86,7 @@ Awards:
   \code{\link{AwardsSharePlayers}} \tab award voting for player awards\cr
 }
 
-Hall of Fame:  links to Master via \code{hofID}
+Hall of Fame:  links to People via \code{hofID}
 
 \tabular{rl}{
   \code{\link{HallOfFame}} \tab Hall of Fame voting data\cr

@@ -111,11 +111,11 @@ pitching \%>\%
 ###############################################
 
 # Add name & throws information:
-masterInfo <- Master \%>\%
+peopleInfo <- People \%>\%
                 select(playerID, nameLast, nameFirst, throws)
                 
-# Merge masterInfo into the pitching data
-pitching1 <- right_join(masterInfo, pitching, by = "playerID")
+# Merge peopleInfo into the pitching data
+pitching1 <- right_join(peopleInfo, pitching, by = "playerID")
 
 # Extract the pitcher with the maximum number of wins 
 # each year, by league
