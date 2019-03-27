@@ -7,7 +7,7 @@ Sean Lahman's Baseball Database
 }
 \description{
 This database contains pitching, hitting, and fielding statistics for
-Major League Baseball from 1871 through 2016.  It includes data from
+Major League Baseball from 1871 through 2018.  It includes data from
 the two current leagues (American and National), the four other "major" 
 leagues (American Association, Union Association, Players League, and
 Federal League), and the National Association of 1871-1875. 
@@ -44,13 +44,13 @@ The main form of this database is a relational database in Microsoft Access form
 The design follows these general principles:  Each player is assigned a
 unique code (\code{playerID}).  All of the information in different tables relating to that player
 is tagged with his \code{playerID}.  The \code{playerID}s are linked to names and 
-birthdates in the \code{\link{Master}} table.  Similar links exist among other tables
+birthdates in the \code{\link{People}} table.  Similar links exist among other tables
 via analogous \code{*ID} variables.
 
 The database is composed of the following main tables:
 
 \describe{
-	\item{\code{\link{Master}}}{Player names, dates of birth, death and other biographical info}
+	\item{\code{\link{People}}}{Player names, dates of birth, death and other biographical info}
 	\item{\code{\link{Batting}}}{batting statistics}
 	\item{\code{\link{Pitching}}}{pitching statistics}
 	\item{\code{\link{Fielding}}}{fielding statistics}
@@ -123,7 +123,7 @@ Maintainer: Chris Dalzell <cdalzell@gmail.com>
 %%  ~~ possibly secondary sources and usages ~~
 %}
 \source{
-Lahman, S. (2017) Lahman's Baseball Database, 1871-2016, Main page, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, Main page, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 
 
 }
