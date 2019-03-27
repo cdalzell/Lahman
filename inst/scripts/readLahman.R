@@ -1,7 +1,7 @@
 # Script to read the Lahman data base .csv files & create Rdata files
 
 # directory where the .csv files will be created
-indir <- "../../data"
+indir <- "../data"
 
 # directory where the .RData files will be created
 #outdir <- paste0(indir, "RData")
