@@ -1,8 +1,8 @@
 Package: Lahman
 Type: Package
 Title: Sean 'Lahman' Baseball Database
-Version: 6.0-0
-Date: 2017-08-07
+Version: 7.0-0
+Date: 2019-04-01
 Authors@R: c(person(given = "Michael", family = "Friendly", role="aut", email="friendly@yorku.ca"), 
         person(given= "Dennis", family = "Murphy", role="ctb"), 
         person(given ="Martin", family = "Monkman", role="ctb"),
@@ -12,8 +12,9 @@ Author: Michael Friendly [aut], Dennis Murphy [ctb], Martin Monkman [ctb], Chris
 Maintainer: Chris Dalzell <cdalzell@gmail.com>
 Description: Provides the tables from the 'Sean Lahman Baseball Database' as
     a set of R data.frames. It uses the data on pitching, hitting and fielding
-    performance and other tables from 1871 through 2015, as recorded in the 2016
-    version of the database.
+    performance and other tables from 1871 through 2018, as recorded in the 2019
+    version of the database. Documentation examples show how many baseball
+    questions can be investigated.
 Depends:
     R (>= 2.10)
 Suggests:
@@ -26,7 +27,8 @@ Suggests:
     tidyr,
     zipcode,
     knitr,
-    rmarkdown
+    rmarkdown,
+    car
 Imports:
     dplyr
 License: GPL

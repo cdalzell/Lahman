@@ -1,16 +1,14 @@
 Lahman <img src="hex/Lahman_hex.png" align="right" />
 ==========================================================
 
-
-
-[![](http://www.r-pkg.org/badges/version/Lahman)](https://cran.r-project.org/package=Lahman) [![](http://cranlogs.r-pkg.org/badges/grand-total/Lahman)](https://cran.r-project.org/package=Lahman)
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![](https://www.r-pkg.org/badges/version/Lahman)](https://cran.r-project.org/package=Lahman) [![](https://cranlogs.r-pkg.org/badges/grand-total/Lahman)](https://cran.r-project.org/package=Lahman)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 R Library for Sean Lahman's Baseball Database
 ========================================================
 
-Version: 7.0-0
-Date: 2019-03-27
+Version: 7.0-0  
+Date: 2019-04-01
 
 Authors:
 
@@ -29,7 +27,7 @@ License: GPL
 
 URL: http://lahman.r-forge.r-project.org/
 
-This is an R version of the 2016 edition of Sean Lahman's Baseball Database,
+This is an R version of the 2018 edition of Sean Lahman's Baseball Database,
 http://www.seanlahman.com/baseball-archive/statistics/.  In addition, the documentation
 has been updated to use `dplyr` for database manipulation and `ggplot2` for plots.
 

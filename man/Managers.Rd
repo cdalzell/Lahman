@@ -10,7 +10,7 @@ for those teams in each year.
 }
 \usage{data(Managers)}
 \format{
-  A data frame with 3436 observations on the following 10 variables.
+  A data frame with 3504 observations on the following 10 variables.
   \describe{
     \item{\code{playerID}}{Manager (player) ID code}
     \item{\code{yearID}}{Year}
@@ -31,7 +31,7 @@ for those teams in each year.
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2017) Lahman's Baseball Database, 1871-2016, 2016 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -55,7 +55,7 @@ mgrSumm <- Managers \%>\%
                       L = sum(L),
                       WinPct = round(W/(W + L), 3))
 
-MgrInfo <- Master \%>\%
+MgrInfo <- People \%>\%
             filter(!is.na(playerID)) \%>\%
             select(playerID, nameLast, nameFirst)
 

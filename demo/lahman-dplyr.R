@@ -22,8 +22,8 @@ batting2 <- merge(batting,
                  by=c("playerID", "yearID", "teamID"), all.x=TRUE)
 
 
-# Add name, age and bat hand information from Master
-master <- select(tbl_df(Master), playerID, birthYear, birthMonth, 
+# Add name, age and bat hand information from People
+master <- select(tbl_df(People), playerID, birthYear, birthMonth, 
                                  nameLast, nameFirst, bats)
 batting <- batting %>%
 	left_join(master) %>%
@@ -31,7 +31,7 @@ batting <- batting %>%
 	select(-(birthYear:birthMonth))
 
 # same with base R	                                 
-Master[, c('playerID', 'birthYear', 'birthMonth',
+People[, c('playerID', 'birthYear', 'birthMonth',
                           'nameLast', 'nameFirst', 'bats')]
 batting2 <- merge(batting, masterInfo, all.x = TRUE)
 batting2$age <- with(batting, yearID - birthYear -

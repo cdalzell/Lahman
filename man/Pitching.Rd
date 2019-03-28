@@ -9,7 +9,7 @@ Pitching table
 }
 \usage{data(Pitching)}
 \format{
-  A data frame with 44963 observations on the following 30 variables.
+  A data frame with 46699 observations on the following 30 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -47,7 +47,7 @@ Pitching table
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2017) Lahman's Baseball Database, 1871-2016, 2016 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -111,11 +111,11 @@ pitching \%>\%
 ###############################################
 
 # Add name & throws information:
-masterInfo <- Master \%>\%
+peopleInfo <- People \%>\%
                 select(playerID, nameLast, nameFirst, throws)
                 
-# Merge masterInfo into the pitching data
-pitching1 <- right_join(masterInfo, pitching, by = "playerID")
+# Merge peopleInfo into the pitching data
+pitching1 <- right_join(peopleInfo, pitching, by = "playerID")
 
 # Extract the pitcher with the maximum number of wins 
 # each year, by league

@@ -10,7 +10,7 @@ Baseball Hall of Fame.
 }
 \usage{data(HallOfFame)}
 \format{
-  A data frame with 4156 observations on the following 9 variables.
+  A data frame with 4191 observations on the following 9 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year of ballot}
@@ -24,7 +24,7 @@ Baseball Hall of Fame.
   }
 }
 \details{
-This table links to the \code{\link{Master}} table via the \code{playerID}.
+This table links to the \code{\link{People}} table via the \code{playerID}.
 
 \code{votedBy}: Most Hall of Fame inductees have been elected by the 
 Baseball Writers Association of America (\code{BBWAA}).  Rules for election are
@@ -32,7 +32,7 @@ described in \url{http://en.wikipedia.org/wiki/National_Baseball_Hall_of_Fame_an
 
 }
 \source{
-Lahman, S. (2017) Lahman's Baseball Database, 1871-2016, 2016 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

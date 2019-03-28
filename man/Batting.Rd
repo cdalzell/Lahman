@@ -9,7 +9,7 @@ Batting table - batting statistics
 }
 \usage{data(Batting)}
 \format{
-  A data frame with 102816 observations on the following 22 variables.
+  A data frame with 105861 observations on the following 22 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -39,7 +39,7 @@ Batting table - batting statistics
 Variables \code{X2B} and \code{X3B} are named \code{2B} and \code{3B} in the original database
 }
 \source{
-Lahman, S. (2017) Lahman's Baseball Database, 1871-2016, 2016 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -60,25 +60,25 @@ data(Batting)
 head(Batting)
 require("dplyr")
 
-## Prelude: Extract information from Salaries and Master
+## Prelude: Extract information from Salaries and People
 ## to be merged with the batting data.
 
 # Subset of Salaries data
 salaries <- Salaries \%>\%
               select(playerID, yearID, teamID, salary)
 
-# Subset of Master table (player metadata)
-masterInfo <- Master \%>\%
+# Subset of People table (player metadata)
+peopleInfo <- People \%>\%
               select(playerID, birthYear, birthMonth, nameLast,
                      nameFirst, bats)
 
-# Left join salaries and masterInfo to batting data,
+# Left join salaries and peopleInfo to batting data,
 # create an age variable and sort by playerID, yearID and stint
 # Returns an ignorable warning.
 batting <- battingStats() \%>\% 
              left_join(salaries, 
                        by =c("playerID", "yearID", "teamID")) \%>\%
-             left_join(masterInfo, by = "playerID") \%>\%
+             left_join(peopleInfo, by = "playerID") \%>\%
              mutate(age = yearID - birthYear - 
                             1L *(birthMonth >= 10)) \%>\%
              arrange(playerID, yearID, stint)
