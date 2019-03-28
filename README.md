@@ -1,4 +1,4 @@
-Lahman <img src="hex/Lahman_hex.png" align="right" />
+Lahman <img src="inst/hex/Lahman_hex.png" align="right" />
 ==========================================================
 
 [![](https://www.r-pkg.org/badges/version/Lahman)](https://cran.r-project.org/package=Lahman) [![](https://cranlogs.r-pkg.org/badges/grand-total/Lahman)](https://cran.r-project.org/package=Lahman)
