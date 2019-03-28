@@ -16,6 +16,7 @@ Authors:
 * Michael Friendly
 * Dennis Murphy
 * Martin Monkman
+* Vanessa Foot & Justeena Zaki-Azat [vignettes]
     
 Maintainer: Chris Dalzell
 

@@ -6,7 +6,10 @@ Date: 2019-04-01
 Authors@R: c(person(given = "Michael", family = "Friendly", role="aut", email="friendly@yorku.ca"), 
         person(given= "Dennis", family = "Murphy", role="ctb"), 
         person(given ="Martin", family = "Monkman", role="ctb"),
-        person(given ="Chris", family = "Dalzell", role=c("cre","ctb"), email="cdalzell@gmail.com"))
+        person(given ="Chris", family = "Dalzell", role=c("cre","ctb"), email="cdalzell@gmail.com"),
+        person(given ="Vanessa", family = "Foot", role="ctb"),
+        person(given = "Justeena", family = "Zaki-Azat", role="ctb")
+        )
 Author: Michael Friendly [aut], Dennis Murphy [ctb], Martin Monkman [ctb], Chris
     Dalzell [cre, ctb]
 Maintainer: Chris Dalzell <cdalzell@gmail.com>
