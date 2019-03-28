@@ -23,6 +23,9 @@ Name and location data for baseball stadiums
 Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 \examples{
+data(Parks)
+# how many parks in each state?
+table(Parks$state)
 }
 
 \keyword{datasets}
