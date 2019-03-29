@@ -49,7 +49,7 @@ A number of books and on-line resources use the `Lahman` package as material for
 
 ### Books
 
-Michael Friendly and David Meyer (2016) _Discrete Data Analysis with R: Visualization and Modeling Techniques for Categorical and Count Data_ (CRC Press). [DDAR Web Site](http://ddar.datavis.yorku.ca)
+Michael Friendly and David Meyer (2016) _Discrete Data Analysis with R: Visualization and Modeling Techniques for Categorical and Count Data_ (CRC Press). [DDAR Web Site](http://ddar.datavis.ca/)
 
 
 Max Marchi and Jim Albert (2014) _Analyzing Baseball Data with R_ (CRC Press)
