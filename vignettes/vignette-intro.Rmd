@@ -28,7 +28,7 @@ Vignettes completed to-date:
 
 1. [Relationship Between Strikeouts and Home Runs](strikeoutsandhr.Rmd) -- This vignette looks at the relationship between rate of strikeouts and home runs from the year 1950+. This question was inspired by Marchi and Albert (2014), _Analyzing Baseball Data in R_. 
 
-    + R packages demonstrated: [`car` (Companion to Applied Regression)](https://cran.r-project.org/web/packages/car/index.html)
+    + R packages demonstrated: [`car` (Companion to Applied Regression)](https://CRAN.R-project.org/package=car)
 
 
 2. [Run Scoring Trends](run-scoring-trends.Rmd) -- Major League Baseball average per-game run scoring for each season since 1901.
