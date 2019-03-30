@@ -28,9 +28,31 @@ License: GPL
 
 URL: http://lahman.r-forge.r-project.org/
 
-This is an R version of the 2018 edition of Sean Lahman's Baseball Database,
-http://www.seanlahman.com/baseball-archive/statistics/.  In addition, the documentation
-has been updated to use `dplyr` for database manipulation and `ggplot2` for plots.
+## This version
+
+This is the pre-CRAN R version of the 2018 edition of Sean Lahman's Baseball Database,
+http://www.seanlahman.com/baseball-archive/statistics/.  
+
+* A notable change is that the old `Master` table, has been renamed `People` in the
+Lahman Database. To avoid breaking old scripts or examples, the `People` table
+has been copied to `Master`. In the next annual release, it is likely that `Master`
+will be removed.
+
+* A collection of vignettes has been added, illustrating various data manipulation
+tasks and analyses to explore some baseball questions.  Try:
+
+    browseVignettes("Lahman")
+
+
+* In addition, the documentation
+has been updated to use `dplyr` and `tidyr` tools for database manipulation and `ggplot2` for plots.
+
+## Installation
+
+For the current CRAN version, simply use
+
+    install.packages("Lahman")
+    
 
 For testing purposes, the pre-CRAN release version can be installed in your R library via:
 
