@@ -13,3 +13,6 @@ rev_pkgs <- revdep("Lahman")
 
 source("https://install-github.me/r-lib/revdepcheck")
 revdepcheck::revdep_check()
+
+# or maybe
+usethis::use_revdep()
