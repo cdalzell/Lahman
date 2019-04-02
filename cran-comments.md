@@ -9,7 +9,7 @@ There was one NOTE; this is expected because Lahman is a large data package:
     installed size is  9.0Mb
     sub-directories of 1Mb or more:
       data   8.4Mb
-
+[All data files were compressed using `tools::resaveRdaFiles("data", compress="bzip2")`]
 
 ## Comments
 This is a major release, bringing the Lahman R package up to the current 2018
