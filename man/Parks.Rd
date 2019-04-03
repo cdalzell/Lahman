@@ -21,7 +21,7 @@ Name and location data for baseball stadiums.
   }
 }
 \details{
-This dataset apparently includes all ballparks that were ever used in babeball. There is no
+This dataset apparently includes all ballparks that were ever used in baseball. There is no
 indication of the years they were used, nor the teams that played there.
 
 The ballparks can be associated with teams through the \code{park} variable in the 
