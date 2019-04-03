@@ -5,7 +5,8 @@
 Parks table
 }
 \description{
-Name and location data for baseball stadiums
+Name and location data for baseball stadiums. 
+
 }
 \usage{data(Parks)}
 \format{
@@ -19,13 +20,42 @@ Name and location data for baseball stadiums
     \item{\code{country}}{country where the ballpark is located}
   }
 }
+\details{
+This dataset apparently includes all ballparks that were ever used in babeball. There is no
+indication of the years they were used, nor the teams that played there.
+
+The ballparks can be associated with teams through the \code{park} variable in the 
+\code{\link{Teams}} table.
+ 
+}
+\seealso{\code{\link{Teams}}}
 \source{
 Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 \examples{
 data(Parks)
-# how many parks in each state?
-table(Parks$state)
+library(dplyr)
+# how many parks in each country?
+table(Parks$country)
+
+# how many parks in each US state?
+Parks \%>\% 
+  filter(country=="US") \%>\% 
+  count(state, sort=TRUE)
+
+# ballparks in NYC
+Parks \%>\% 
+  filter(state=="NY") \%>\% 
+  filter(city \%in\% c("New York", "Brooklyn", "Queens"))
+
+# ballparks in Canada
+Parks \%>\% 
+  filter(country=="CA") \%>\% 
+  count(state, sort=TRUE)
+
+# what are the Canadian parks?
+Parks \%>\% 
+  dplyr::filter(country=="CA")
 }
 
 \keyword{datasets}
