@@ -10,8 +10,8 @@ Authors@R: c(person(given = "Michael", family = "Friendly", role="aut", email="f
         person(given ="Vanessa", family = "Foot", role="ctb"),
         person(given = "Justeena", family = "Zaki-Azat", role="ctb")
         )
-Author: Michael Friendly [aut], Dennis Murphy [ctb], Martin Monkman [aut], Chris
-    Dalzell [cre, aut], Vanessa Foot [ctb], Justeena Zaki-Azat [ctb]
+Author: Michael Friendly [aut], Chris Dalzell [cre, aut], Martin Monkman [aut], Dennis Murphy [ctb], 
+    Vanessa Foot [ctb], Justeena Zaki-Azat [ctb]
 Maintainer: Chris Dalzell <cdalzell@gmail.com>
 Description: Provides the tables from the 'Sean Lahman Baseball Database' as
     a set of R data.frames. It uses the data on pitching, hitting and fielding
