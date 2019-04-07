@@ -10,7 +10,7 @@ Authors@R: c(person(given = "Michael", family = "Friendly", role="aut", email="f
         person(given ="Vanessa", family = "Foot", role="ctb"),
         person(given = "Justeena", family = "Zaki-Azat", role="ctb")
         )
-Author: Michael Friendly [aut], Chris Dalzell [cre, aut], Martin Monkman [aut], Dennis Murphy [ctb], 
+Author: Michael Friendly [aut], Chris Dalzell [cre, aut], Martin Monkman [aut], Dennis Murphy [aut], 
     Vanessa Foot [ctb], Justeena Zaki-Azat [ctb]
 Maintainer: Chris Dalzell <cdalzell@gmail.com>
 Description: Provides the tables from the 'Sean Lahman Baseball Database' as
