@@ -17,7 +17,7 @@ where players are identified only by \code{playerID}.
   A data frame with 19617 observations on the following 26 variables.
   \describe{
 %    \item{\code{lahmanID}}{Unique number assigned to each player}
-    \item{\code{playerID}}{A unique code asssigned to each player.  The \code{playerID} links
+    \item{\code{playerID}}{A unique code assigned to each player.  The \code{playerID} links
                  the data in this file with records on players in the other files.}
     \item{\code{birthYear}}{Year player was born}
     \item{\code{birthMonth}}{Month player was born}

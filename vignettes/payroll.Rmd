@@ -223,8 +223,8 @@ table(out)
 ```
 
 
-Payroll has obviously increased dramatically over time.  So has the variabilty across teams. For any modelling,
-we would probably want to use `\log(payroll)`.  We might also want to look separarately at the
+Payroll has obviously increased dramatically over time.  So has the variability across teams. For any modelling,
+we would probably want to use `\log(payroll)`.  We might also want to look separately at the
 American and National leagues.
 
 ### Correcting for inflation
