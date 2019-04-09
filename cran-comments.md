@@ -1,6 +1,6 @@
 ## Test environments
 * local Windows 10 x64 install, R version 3.5.2 (2018-12-20)
-* Win builder, R version 3.5.3 (2019-03-11)
+* Win builder, R version 3.5.3 (2019-04-08)
 
 ## R CMD check results
 There were no ERRORs or WARNINGs
