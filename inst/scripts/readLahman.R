@@ -95,7 +95,7 @@ tools:::showNonASCII(paste0(indir, 'People.csv'))
 setwd(outdir)
 
 # compress mightily on save
-options(save.defaults=list(compress="bzip2", compression_level=9))
+options(save.defaults=list(compress="xz", compression_level=9))
 
 #save(Allstar,             file="Allstar.RData")            
 save(AllstarFull,         file="AllstarFull.RData")        
