@@ -1,6 +1,6 @@
 ## Test environments
-* local Windows 10 x64 install, R version 3.5.2 (2018-12-20)
-* Win builder, R version 3.5.3 (2019-04-08)
+* local Windows 10 x64 install, R version 3.6.0 (2019-05-01)
+* Win builder, R version 3.6.0 (2019-05-01)
 
 ## R CMD check results
 There were no ERRORs or WARNINGs
@@ -9,7 +9,7 @@ There was one NOTE; this is expected because Lahman is a large data package:
     installed size is  9.0Mb
     sub-directories of 1Mb or more:
       data   8.4Mb
-[All data files were compressed using `tools::resaveRdaFiles("data", compress="bzip2")`]
+[All data files were compressed using `tools::resaveRdaFiles("data", compress="xz")`]
 
 ## Reverse dependencies
 
