@@ -30,10 +30,7 @@ URL: http://lahman.r-forge.r-project.org/
 
 ## This version
 
-This is the **pre-CRAN R** version of the 2018 edition of Sean Lahman's Baseball Database,
-http://www.seanlahman.com/baseball-archive/statistics/. Please see the installation section below
-for intstructions on how to install this up to date version as we continue work towards an official
-CRAN release.
+This is the R version of the 2019 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
 
 * A notable change is that the old `Master` table, has been renamed `People` in the
 Lahman Database. To avoid breaking old scripts or examples, the `People` table
@@ -45,20 +42,19 @@ tasks and analyses to explore some baseball questions.  Try:
 
     browseVignettes("Lahman")
 
-
 * In addition, the documentation
 has been updated to use `dplyr` and `tidyr` tools for database manipulation and `ggplot2` for plots.
 
 ## Installation
 
+For the current CRAN version, simply use:
+
+    install.packages("Lahman")
+
 The current up to date pre-CRAN release version can be installed in your R library via:
 
     library(devtools)
     install_github("cdalzell/Lahman", ref="master")
-
-For the current CRAN version, simply use:
-
-    install.packages("Lahman")
 
 If you wish to use a non-release version of `Lahman`, use `dev_mode()`.
 
