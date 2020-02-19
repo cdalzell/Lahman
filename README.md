@@ -9,8 +9,8 @@ Lahman <img src="hex/Lahman_hex.png" align="right" />
 R Library for Sean Lahman's Baseball Database
 ========================================================
 
-Version: 6.0-0
-Date: 2017-08-07
+Version: 7.0-1  
+Date: 2019-05-02
 
 Authors:
 
@@ -29,7 +29,7 @@ License: GPL
 
 URL: http://lahman.r-forge.r-project.org/
 
-This is an R version of the 2016 edition of Sean Lahman's Baseball Database,
+This is an R version of the 2018 edition of Sean Lahman's Baseball Database,
 http://www.seanlahman.com/baseball-archive/statistics/.  In addition, the documentation
 has been updated to use `dplyr` for database manipulation and `ggplot2` for plots.
 
