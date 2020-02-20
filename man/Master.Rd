@@ -5,6 +5,8 @@
 Master table
 }
 \description{
+\strong{Deprecation Notice}: The Master table is now the People table in the Lahman dataset. Master is now a copy of People and is being retained for backward compatibility. Please change your code to use the People table.
+
 Master table - Player names, DOB, and biographical info.  This file is to be used to get details
 about players listed in the \code{\link{Batting}}, \code{\link{Pitching}}, and other files
 where players are identified only by \code{playerID}.
@@ -12,10 +14,10 @@ where players are identified only by \code{playerID}.
 
 \usage{data(Master)}
 \format{
-  A data frame with 19105 observations on the following 26 variables.
+  A data frame with 19617 observations on the following 26 variables.
   \describe{
 %    \item{\code{lahmanID}}{Unique number assigned to each player}
-    \item{\code{playerID}}{A unique code asssigned to each player.  The \code{playerID} links
+    \item{\code{playerID}}{A unique code assigned to each player.  The \code{playerID} links
                  the data in this file with records on players in the other files.}
     \item{\code{birthYear}}{Year player was born}
     \item{\code{birthMonth}}{Month player was born}
@@ -51,7 +53,7 @@ where players are identified only by \code{playerID}.
 \code{debut}, \code{finalGame} were converted from character strings with \code{as.Date}.
 }
 \source{
-Lahman, S. (2016) Lahman's Baseball Database, 1871-2015, 2015 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

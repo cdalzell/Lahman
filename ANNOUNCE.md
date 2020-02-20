@@ -1,20 +1,20 @@
-## Lahman package v. 6.0.0 released to CRAN
+## Lahman package v. 7.0.0 released to CRAN
 
-Team Lahman is pleased to announce that v. 6.0.0 of the Lahamn package is now
+Team Lahman is pleased to announce that v. 7.0.0 of the Lahamn package is now
 on CRAN.  It contains the data from Sean Lahman's Baseball Database,
 http://www.seanlahman.com/baseball-archive/statistics/
 as a collection of data frames covering nearly all aspects of baseball
-statistics from 1871--2016.
+statistics from 1871--2018.
 
 In this release,
 
-* All data sets have veen updated with data for the 2016 baseball season.  In
+* All data sets have veen updated with data for the 2018 baseball season.  In
   addition, numerous corrections of data errors and inconsistencies discovered
   in previous year tables were applied.
 
 * Documentation examples are now provided for all data tables.
 
-*  Documentation examples were rewrittten to make extensive use of dplyr for data manipulation
+* Documentation examples were rewrittten to make extensive use of dplyr for data manipulation
   and ggplot2 for graphics.
 
 ### Development

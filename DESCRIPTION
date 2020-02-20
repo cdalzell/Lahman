@@ -1,19 +1,23 @@
 Package: Lahman
 Type: Package
 Title: Sean 'Lahman' Baseball Database
-Version: 6.0-0
-Date: 2017-08-07
+Version: 7.0-1
+Date: 2019-05-01
 Authors@R: c(person(given = "Michael", family = "Friendly", role="aut", email="friendly@yorku.ca"), 
-        person(given= "Dennis", family = "Murphy", role="ctb"), 
-        person(given ="Martin", family = "Monkman", role="ctb"),
-        person(given ="Chris", family = "Dalzell", role=c("cre","ctb"), email="cdalzell@gmail.com"))
-Author: Michael Friendly [aut], Dennis Murphy [ctb], Martin Monkman [ctb], Chris
-    Dalzell [cre, ctb]
+        person(given ="Chris", family = "Dalzell", role=c("cre","aut"), email="cdalzell@gmail.com"),
+        person(given ="Martin", family = "Monkman", role="aut"),
+        person(given= "Dennis", family = "Murphy", role="aut"), 
+        person(given ="Vanessa", family = "Foot", role="ctb"),
+        person(given = "Justeena", family = "Zaki-Azat", role="ctb")
+        )
+Author: Michael Friendly [aut], Chris Dalzell [cre, aut], Martin Monkman [aut], Dennis Murphy [aut], 
+    Vanessa Foot [ctb], Justeena Zaki-Azat [ctb]
 Maintainer: Chris Dalzell <cdalzell@gmail.com>
 Description: Provides the tables from the 'Sean Lahman Baseball Database' as
     a set of R data.frames. It uses the data on pitching, hitting and fielding
-    performance and other tables from 1871 through 2015, as recorded in the 2016
-    version of the database.
+    performance and other tables from 1871 through 2018, as recorded in the 2019
+    version of the database. Documentation examples show how many baseball
+    questions can be investigated.
 Depends:
     R (>= 2.10)
 Suggests:
@@ -26,7 +30,8 @@ Suggests:
     tidyr,
     zipcode,
     knitr,
-    rmarkdown
+    rmarkdown,
+    car
 Imports:
     dplyr
 License: GPL
@@ -41,5 +46,5 @@ Repository/R-Forge/DateTimeStamp: 2013-06-01 03:33:30
 Date/Publication: 2013-06-01 22:19:12
 Packaged: 2013-06-01 09:50:10 UTC; rforge
 NeedsCompilation: no
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr

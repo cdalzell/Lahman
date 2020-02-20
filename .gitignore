@@ -11,8 +11,7 @@ data/.Rhistory
 Lahman.Rproj
 source-data/baseballdatabank-master
 source-data/baseballdatabank
+data/baseballdatabank*
 README.html
-data/baseballdatabank-2017.1/
-source-data/baseballdatabank-2017.1/
 inst/doc
-
+.DS_Store
