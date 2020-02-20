@@ -7,12 +7,12 @@ Lookup Information for Players and Teams
 }
 \description{
 These functions use \code{grep} to lookup information about players
-(from the \code{\link{Master}} file)
+(from the \code{\link{People}} file)
 and teams (from the \code{\link{Teams}} file).
 }
 \usage{
 
-playerInfo(playerID, nameFirst, nameLast, data = Lahman::Master, extra = NULL, ...)
+playerInfo(playerID, nameFirst, nameLast, data = Lahman::People, extra = NULL, ...)
 
 teamInfo(teamID, name, data = Lahman::Teams, extra = NULL, ...)
 }

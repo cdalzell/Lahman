@@ -27,7 +27,7 @@ unzip(dataFile, exdir=indir)
 indir <- paste0(indir, "/baseballdatabank-master/core")
 setwd(indir)
 
-(files <- list.files(path=indir, pattern="*.csv$"))
+(files <- list.files(path=getwd(), pattern="*.csv$"))
 
 for (i in 1:length(files)) {
 	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="")
@@ -67,7 +67,7 @@ colnames(HallOfFame)[2] <- 'yearID'
 # The format in the as.Date() function is the 'informat', 
 # in SASspeak; the output format is a calendar date in 
 # yyyy-mm-dd format.
-Master <- within(Master, {
+People <- within(People, {
 #    debut = as.Date(debut, 
 #                    format = '%m/%d/%Y %H:%M:%s',
 #                    origin = '1970-01-01')
@@ -80,21 +80,21 @@ Master <- within(Master, {
                        format = '%Y-%m-%d')
    bats = factor(bats)
    throws = factor(throws)
-}  )
+})
 
 #* checking data for non-ASCII characters ... WARNING
 #  Warning: found non-ASCII string(s)
 #  'named Guillermo VelC!zquez' in object 'Master'
 #  'Martmn Magdaleno Dihigo (Llanos)' in object 'Master'
 
-tools:::showNonASCII(paste0(indir, 'Master.csv'))
+tools:::showNonASCII(paste0(indir, 'People.csv'))
 
 # then, fix manually, because I don't know an R way ...
 
 setwd(outdir)
 
 # compress mightily on save
-options(save.defaults=list(compress="bzip2", compression_level=9))
+options(save.defaults=list(compress="xz", compression_level=9))
 
 #save(Allstar,             file="Allstar.RData")            
 save(AllstarFull,         file="AllstarFull.RData")        
@@ -112,8 +112,9 @@ save(FieldingPost,        file="FieldingPost.RData")
 save(HallOfFame,          file="HallOfFame.RData")         
 #save(HOFold,              file="HOFold.RData")             
 save(Managers,            file="Managers.RData")           
-save(ManagersHalf,        file="ManagersHalf.RData")       
-save(Master,              file="Master.RData")       ## Master.csv fixed for non ASCII strings   
+save(ManagersHalf,        file="ManagersHalf.RData")
+save(Parks,               file="Parks.RData")
+save(People,              file="People.RData")
 save(Pitching,            file="Pitching.RData")           
 save(PitchingPost,        file="PitchingPost.RData")       
 save(Salaries,            file="Salaries.RData")           
@@ -123,7 +124,12 @@ save(SeriesPost,          file="SeriesPost.RData")
 save(Teams,               file="Teams.RData")              
 save(TeamsFranchises,     file="TeamsFranchises.RData")    
 save(TeamsHalf,           file="TeamsHalf.RData")          
-#save(Xref_Stats,          file="Xref_Stats.RData")         
+#save(Xref_Stats,          file="Xref_Stats.RData")
+
+# Master table was changed to People in the 2017 data
+# We will maintain Master as part of the package for now as it's likely to be a breaking change
+Master <- People
+save(Master,              file="Master.RData")
 
 # only ran this once, since all .Rd files were extensively edited
 if (FALSE) {

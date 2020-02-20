@@ -1,3 +1,11 @@
+Version 7.0-1 (2019-05-01)
+
+o Updated with data for the 2017 and 2018 seasons
+o Added the People table. The Master table is now the People table in the Lahman dataset. Master is now a copy of People and is being retained for backward compatibility
+o Added the Parks table
+o Added introductory and example vignettes
+o Added ability to check reverse dependencies
+
 Version 6.0-0 (2017-08-07)
 
 o Updated with data for the 2016 season

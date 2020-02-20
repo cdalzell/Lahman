@@ -16,7 +16,7 @@ Award voting for managers awards
     \item{\code{lgID}}{League; a factor with levels \code{AL} \code{ML} \code{NL}}
     \item{\code{playerID}}{Player ID code}
     \item{\code{pointsWon}}{Number of points received}
-    \item{\code{pointsMax}}{Maximum numner of points possible}
+    \item{\code{pointsMax}}{Maximum number of points possible}
     \item{\code{votesFirst}}{Number of first place votes}
   }
 }
