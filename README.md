@@ -26,7 +26,7 @@ Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, tidyr, reshape2, 
 
 License: GPL
 
-URL: http://lahman.r-forge.r-project.org/
+URL: https://cran.r-project.org/web/packages/Lahman/Lahman.pdf
 
 ## This version
 
