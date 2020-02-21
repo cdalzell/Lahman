@@ -35,7 +35,7 @@ Suggests:
 Imports:
     dplyr
 License: GPL
-URL: http://lahman.r-forge.r-project.org/
+URL: https://cran.r-project.org/web/packages/Lahman/Lahman.pdf
 LazyLoad: yes
 LazyData: yes
 BugReports: https://github.com/cdalzell/Lahman/issues
