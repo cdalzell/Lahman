@@ -94,7 +94,7 @@ tools:::showNonASCII(paste0(indir, 'People.csv'))
 setwd(outdir)
 
 # compress mightily on save
-options(save.defaults=list(compress="xz", compression_level=9))
+#options(save.defaults=list(compress="xz", compression_level=9))
 
 save(AllstarFull,         file="AllstarFull.RData")        
 save(Appearances,         file="Appearances.RData")        
@@ -128,6 +128,8 @@ save(TeamsHalf,           file="TeamsHalf.RData")
 # We will maintain Master as part of the package for now as it's likely to be a breaking change
 Master <- People
 save(Master,              file="Master.RData")
+
+tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)
 
 # only ran this once, since all .Rd files were extensively edited
 # TODO: come up with a better way to automatically update Rd files with count/year/etc updates
