@@ -13,7 +13,7 @@ dataFile <- "../source-data/baseballdatabank-master.zip"
 
 # no need to download if we already have the file
 if (!file.exists(dataFile)) {
-  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/master.zip"
+  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/v2020.1.zip"
   download.file(zipfile, dataFile)
 }
 
