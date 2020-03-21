@@ -22,7 +22,7 @@ Maintainer: Chris Dalzell
 
 Required: R (>= 2.10)
 
-Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, tidyr, reshape2, zipcode
+Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, tidyr, reshape2
 
 License: GPL
 
