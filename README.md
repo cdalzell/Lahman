@@ -7,8 +7,8 @@ Lahman <img src="inst/hex/Lahman_hex.png" align="right" />
 R Library for Sean Lahman's Baseball Database
 ========================================================
 
-Version: 7.0-1  
-Date: 2019-05-01
+Version: 8.0-0  
+Date: 2020-03-26
 
 Authors:
 
@@ -30,7 +30,7 @@ URL: https://cran.r-project.org/web/packages/Lahman/Lahman.pdf
 
 ## This version
 
-This is the R version of the 2019 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
+This is the R version of the 2020 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
 
 * A notable change is that the old `Master` table, has been renamed `People` in the
 Lahman Database. To avoid breaking old scripts or examples, the `People` table
