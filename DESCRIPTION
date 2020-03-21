@@ -28,7 +28,6 @@ Suggests:
     vcd,
     reshape2,
     tidyr,
-    zipcode,
     knitr,
     rmarkdown,
     car
