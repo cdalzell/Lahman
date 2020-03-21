@@ -46,5 +46,5 @@ Repository/R-Forge/DateTimeStamp: 2013-06-01 03:33:30
 Date/Publication: 2013-06-01 22:19:12
 Packaged: 2013-06-01 09:50:10 UTC; rforge
 NeedsCompilation: no
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 VignetteBuilder: knitr
