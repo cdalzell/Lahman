@@ -33,17 +33,13 @@ Suggests:
     car
 Imports:
     dplyr
+Encoding: UTF-8
 License: GPL
 URL: https://cran.r-project.org/web/packages/Lahman/Lahman.pdf
 LazyLoad: yes
 LazyData: yes
 BugReports: https://github.com/cdalzell/Lahman/issues
 Repository: CRAN
-Repository/R-Forge/Project: lahman
-Repository/R-Forge/Revision: 39
-Repository/R-Forge/DateTimeStamp: 2013-06-01 03:33:30
-Date/Publication: 2013-06-01 22:19:12
-Packaged: 2013-06-01 09:50:10 UTC; rforge
 NeedsCompilation: no
 RoxygenNote: 7.1.0
 VignetteBuilder: knitr
