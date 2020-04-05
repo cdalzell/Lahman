@@ -5,7 +5,7 @@
 HomeGames table
 }
 \description{
-Data mapping teams to the baseball stadiums they played in as the home team.
+Data mapping teams to the stadiums they played regular season games in as the home team.
 }
 \usage{data(HomeGames)}
 \format{
@@ -27,5 +27,28 @@ Lahman, S. (2020) Lahman's Baseball Database, 1871-2019, 2019 version, \url{http
 }
 \keyword{datasets}
 \examples{
+data(HomeGames)
+library(dplyr)
 
+# How many parks has every team played as the home team for even a single game?
+HomeGames \%>\%
+  count(team.key) \%>\%
+  arrange(team.key)
+
+# What parks have the Toronto Blue Jays played in as the home team?
+HomeGames \%>\%
+  filter(team.key == "TOR") \%>\%
+  arrange(span.last)
+  
+# What parks have the Boston Red Sox played in as the home team?
+HomeGames \%>\%
+  filter(team.key == "BOS") \%>\%
+  arrange(span.last)
+  
+# What is the Toronto Blue Jays annual total home attendance?
+HomeGames \%>\%
+  filter(team.key == "TOR") \%>\%
+  group_by(year.key) \%>\%
+  summarize(total.attendance = sum(attendance)) \%>\%
+  arrange(year.key)
 }
