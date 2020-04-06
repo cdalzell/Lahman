@@ -30,7 +30,7 @@ Lahman, S. (2020) Lahman's Baseball Database, 1871-2019, 2019 version, \url{http
 data(HomeGames)
 library(dplyr)
 
-# How many parks has every team played as the home team for even a single game?
+# How many parks has every team played in as the home team for even a single game?
 HomeGames \%>\%
   count(team.key) \%>\%
   arrange(team.key)
@@ -45,7 +45,7 @@ HomeGames \%>\%
   filter(team.key == "BOS") \%>\%
   arrange(span.last)
   
-# What is the Toronto Blue Jays annual total home attendance?
+# What is the Toronto Blue Jays annual total home attendance by year?
 HomeGames \%>\%
   filter(team.key == "TOR") \%>\%
   group_by(year.key) \%>\%
