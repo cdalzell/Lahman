@@ -1,20 +1,19 @@
 # Script to read the Lahman data base .csv files & create Rdata files
 
 # directory where the .csv files will be created
-indir <- "../data"
+indir <- "D:/Dev/R/Lahman/source-data"
 
 # directory where the .RData files will be created
-#outdir <- paste0(indir, "RData")
-outdir <- indir
+outdir <- "D:/Dev/R/Lahman/data"
 
 setwd(indir)
 
 # local data location
-dataFile <- "../source-data/baseballdatabank-2019.2.zip"
+dataFile <- "../source-data/baseballdatabank-master.zip"
 
 # no need to download if we already have the file
 if (!file.exists(dataFile)) {
-  zipfile <- "http://seanlahman.com/files/database/baseballdatabank-2019.2.zip"
+  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/v2020.1.zip"
   download.file(zipfile, dataFile)
 }
 
@@ -25,7 +24,7 @@ unzip(dataFile, exdir=indir)
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
 
 # set indir to the directories the csv are extracted to
-indir <- paste0(indir, "/baseballdatabank-2019.2/core")
+indir <- paste0(indir, "/baseballdatabank-master/core")
 setwd(indir)
 
 (files <- list.files(path=getwd(), pattern="*.csv$"))
@@ -54,8 +53,8 @@ for (i in 1:length(files)) {
   #promptData(inp, name=cname)
 }
 
-# fix a few problems
-colnames(HallOfFame)[2] <- 'yearID'
+# fix column names or perform any needed data cleanup here
+#colnames(HallOfFame)[2] <- 'yearID'
 
 
 # Date variables
@@ -95,9 +94,8 @@ tools:::showNonASCII(paste0(indir, 'People.csv'))
 setwd(outdir)
 
 # compress mightily on save
-options(save.defaults=list(compress="xz", compression_level=9))
+#options(save.defaults=list(compress="xz", compression_level=9))
 
-#save(Allstar,             file="Allstar.RData")            
 save(AllstarFull,         file="AllstarFull.RData")        
 save(Appearances,         file="Appearances.RData")        
 save(AwardsManagers,      file="AwardsManagers.RData")     
@@ -108,10 +106,11 @@ save(Batting,             file="Batting.RData")
 save(BattingPost,         file="BattingPost.RData")
 save(CollegePlaying,      file="CollegePlaying.RData")
 save(Fielding,            file="Fielding.RData")           
-save(FieldingOF,          file="FieldingOF.RData")         
+save(FieldingOF,          file="FieldingOF.RData")
+save(FieldingOFsplit,     file="FieldingOFsplit.RData")
 save(FieldingPost,        file="FieldingPost.RData")       
 save(HallOfFame,          file="HallOfFame.RData")         
-#save(HOFold,              file="HOFold.RData")             
+save(HomeGames,           file="HomeGames.RData")             
 save(Managers,            file="Managers.RData")           
 save(ManagersHalf,        file="ManagersHalf.RData")
 save(Parks,               file="Parks.RData")
@@ -119,20 +118,21 @@ save(People,              file="People.RData")
 save(Pitching,            file="Pitching.RData")           
 save(PitchingPost,        file="PitchingPost.RData")       
 save(Salaries,            file="Salaries.RData")           
-save(Schools,             file="Schools.RData")            
-#save(SchoolsPlayers,      file="SchoolsPlayers.RData")
+save(Schools,             file="Schools.RData")
 save(SeriesPost,          file="SeriesPost.RData")         
 save(Teams,               file="Teams.RData")              
 save(TeamsFranchises,     file="TeamsFranchises.RData")    
-save(TeamsHalf,           file="TeamsHalf.RData")          
-#save(Xref_Stats,          file="Xref_Stats.RData")
+save(TeamsHalf,           file="TeamsHalf.RData")
 
 # Master table was changed to People in the 2017 data
 # We will maintain Master as part of the package for now as it's likely to be a breaking change
 Master <- People
 save(Master,              file="Master.RData")
 
+tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)
+
 # only ran this once, since all .Rd files were extensively edited
+# TODO: come up with a better way to automatically update Rd files with count/year/etc updates
 if (FALSE) {
   promptData(Allstar,             filename="Allstar.Rd")            
   promptData(AllstarFull,         filename="AllstarFull.Rd")        

@@ -22,7 +22,7 @@ Player salary data.
 There is no real coverage of player's salaries until 1985.
 }
 \source{
-Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2020) Lahman's Baseball Database, 1871-2019, 2019 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

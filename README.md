@@ -7,8 +7,8 @@ Lahman <img src="inst/hex/Lahman_hex.png" align="right" />
 R Library for Sean Lahman's Baseball Database
 ========================================================
 
-Version: 7.0-1  
-Date: 2019-05-01
+Version: 8.0-0  
+Date: 2020-03-26
 
 Authors:
 
@@ -22,11 +22,11 @@ Maintainer: Chris Dalzell
 
 Required: R (>= 2.10)
 
-Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, tidyr, reshape2, zipcode
+Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, tidyr, reshape2
 
 License: GPL
 
-URL: http://lahman.r-forge.r-project.org/
+URL: https://cran.r-project.org/web/packages/Lahman/Lahman.pdf
 
 ## Notice
 The 2020 update that will be released as v8.x is currently under development. You can the following to load a pre-release (but potentially incomplete) version:
@@ -39,7 +39,7 @@ The 2020 update that will be released as v8.x is currently under development. Yo
 
 ## Current Version
 
-This is the R version of the 2019 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
+This is the R version of the 2020 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
 
 * A notable change is that the old `Master` table, has been renamed `People` in the
 Lahman Database. To avoid breaking old scripts or examples, the `People` table

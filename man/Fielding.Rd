@@ -9,7 +9,7 @@ Fielding table
 }
 \usage{data(Fielding)}
 \format{
-  A data frame with 140921 observations on the following 18 variables.
+  A data frame with 143046 observations on the following 18 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -35,7 +35,7 @@ Fielding table
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2020) Lahman's Baseball Database, 1871-2019, 2019 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
