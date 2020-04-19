@@ -21,13 +21,13 @@ Authors:
     
 Maintainer: Chris Dalzell
 
-Required: R (>= 2.10)
+Required: R (>= 3.5.0)
 
 Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, tidyr, reshape2
 
 License: GPL
 
-URL: https://cran.r-project.org/web/packages/Lahman/Lahman.pdf
+URL: https://CRAN.R-project.org/package=Lahman
 
 ## Current Version
 
