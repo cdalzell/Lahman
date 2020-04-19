@@ -35,7 +35,7 @@ Imports:
     dplyr
 Encoding: UTF-8
 License: GPL
-URL: https://cran.r-project.org/web/packages/Lahman/Lahman.pdf
+URL: https://CRAN.R-project.org/package=Lahman
 LazyLoad: yes
 LazyData: yes
 BugReports: https://github.com/cdalzell/Lahman/issues
