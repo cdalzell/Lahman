@@ -1,15 +1,16 @@
 ## Test environments
-* local Windows 10 x64 install, R version 3.6.3 (2020-03-26)
-* Win builder, R version 3.6.3 (2019-03-26)
+* local Windows 10 x64 install, R version 3.6.3 (2020-04-20)
+* ubuntu 16.04 (on travis-ci), R version 3.6.2 (2020-04-20)
+* win-builder, release (2020-04-20)
 
 ## R CMD check results
 There were no ERRORs or WARNINGs
 There was one NOTE; this is expected because Lahman is a large data package:
 > checking installed package size ... NOTE
-    installed size is  9.0Mb
+    installed size is  9.5Mb
     sub-directories of 1Mb or more:
-      data   8.4Mb
-[All data files were compressed using `tools::resaveRdaFiles("data", compress="xz")`]
+      data   8.9Mb
+[All data files were compressed using the maximum known compression `tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)`]
 
 ## Reverse dependencies
 
@@ -18,9 +19,8 @@ Lahman has reverse dependencies of the following packages:
 library(devtools)
 rev_pkgs <- revdep("Lahman")
 
-# [1] "baseballDBR"   "broom"         "dbplyr"        "dplyr"         "dtplyr"       
-# [6] "implyr"        "mdsr"          "pinnacle.data" "poplite"       "raw"          
-# [11] "sparklyr"      "teamcolors"   
+# [1] "baseballDBR"  "broom"  "dbplyr"  "dplyr"  "implyr"  "mdsr"  "pinnacle.data"  "poplite"  "raw"          
+#[10] "sparklyr"     "teamcolors"
 
 `revdepcheck::revdep_check()` reported all packages passed, except for `poplite` Version: 0.99.21
 which failed for some reason unrelated to Lahman.
