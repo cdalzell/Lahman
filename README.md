@@ -28,15 +28,6 @@ License: GPL
 
 URL: https://cran.r-project.org/web/packages/Lahman/Lahman.pdf
 
-## Notice
-The 2020 update that will be released as v8.x is currently under development. You can the following to load a pre-release (but potentially incomplete) version:
-
-    library(devtools)
-    dev_mode()
-    install_github("cdalzell/Lahman", ref="feature/2019-data-update")
-    #  ...test ...
-    dev_mode()  # revert to previous
-
 ## Current Version
 
 This is the R version of the 2020 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
