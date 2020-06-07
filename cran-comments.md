@@ -4,6 +4,8 @@
 * win-builder, release (2020-06-06)
 
 ## R CMD check results
+
+
 There were no ERRORs or WARNINGs
 There was one NOTE; this is expected because Lahman is a large data package:
 > checking installed package size ... NOTE
