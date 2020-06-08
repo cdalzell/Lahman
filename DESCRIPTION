@@ -1,8 +1,8 @@
 Package: Lahman
 Type: Package
 Title: Sean 'Lahman' Baseball Database
-Version: 7.0-1
-Date: 2019-05-01
+Version: 8.0-0
+Date: 2020-06-06
 Authors@R: c(person(given = "Michael", family = "Friendly", role="aut", email="friendly@yorku.ca"), 
         person(given ="Chris", family = "Dalzell", role=c("cre","aut"), email="cdalzell@gmail.com"),
         person(given ="Martin", family = "Monkman", role="aut"),
@@ -28,23 +28,18 @@ Suggests:
     vcd,
     reshape2,
     tidyr,
-    zipcode,
     knitr,
     rmarkdown,
     car
 Imports:
     dplyr
+Encoding: UTF-8
 License: GPL
-URL: http://lahman.r-forge.r-project.org/
+URL: https://CRAN.R-project.org/package=Lahman
 LazyLoad: yes
 LazyData: yes
 BugReports: https://github.com/cdalzell/Lahman/issues
 Repository: CRAN
-Repository/R-Forge/Project: lahman
-Repository/R-Forge/Revision: 39
-Repository/R-Forge/DateTimeStamp: 2013-06-01 03:33:30
-Date/Publication: 2013-06-01 22:19:12
-Packaged: 2013-06-01 09:50:10 UTC; rforge
 NeedsCompilation: no
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 VignetteBuilder: knitr

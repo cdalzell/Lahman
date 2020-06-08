@@ -22,7 +22,7 @@ Information on schools players attended, by school
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2019) Lahman's Baseball Database, 1871-2018, 2018 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2020) Lahman's Baseball Database, 1871-2019, 2019 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
@@ -54,29 +54,6 @@ schoolStates <- schoolCount \%>\%
                             schools = length(state))
 str(schoolStates)
 summary(schoolStates)
-
-\dontrun{
-if(require(zipcode)) {
-  # in lieu of more precise geocoding via schoolName, 
-  # find lat/long of Schools from zipcode file
-  zips <- zipcode \%>\%
-            group_by(city, state) \%>\%
-            summarise(latitude=mean(latitude), 
-                      longitude=mean(longitude))
-  names(zips)[1:2] <- c("city", "state")  
-  str(zips)
-
-  # merge lat/long from zips
-  schoolsXY <- merge(Schools, zips, by=c("city", "state"), all.x=TRUE)
-  str(schoolsXY)
-
-  # plot school locations
-  with(subset(schoolsXY, schoolState != 'HI'),
-    plot(jitter(longitude), jitter(latitude))
-  )
-}
-}
-
 }
 
 \keyword{datasets}

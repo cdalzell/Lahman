@@ -3,12 +3,13 @@ Lahman <img src="inst/hex/Lahman_hex.png" align="right" />
 
 [![](https://www.r-pkg.org/badges/version/Lahman)](https://cran.r-project.org/package=Lahman) [![](https://cranlogs.r-pkg.org/badges/grand-total/Lahman)](https://cran.r-project.org/package=Lahman)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Travis build status](https://travis-ci.com/cdalzell/Lahman.svg?branch=master)](https://travis-ci.com/cdalzell/Lahman)
 
 R Library for Sean Lahman's Baseball Database
 ========================================================
 
-Version: 7.0-1  
-Date: 2019-05-01
+Version: 8.0-0  
+Date: 2020-06-06
 
 Authors:
 
@@ -20,26 +21,17 @@ Authors:
     
 Maintainer: Chris Dalzell
 
-Required: R (>= 2.10)
+Required: R (>= 3.5.0)
 
-Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, tidyr, reshape2, zipcode
+Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, tidyr, reshape2
 
 License: GPL
 
-URL: http://lahman.r-forge.r-project.org/
-
-## Notice
-The 2020 update that will be released as v8.x is currently under development. You can the following to load a pre-release (but potentially incomplete) version:
-
-    library(devtools)
-    dev_mode()
-    install_github("cdalzell/Lahman", ref="feature/2019-data-update")
-    #  ...test ...
-    dev_mode()  # revert to previous
+URL: https://CRAN.R-project.org/package=Lahman
 
 ## Current Version
 
-This is the R version of the 2019 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
+This is the R version of the 2020 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
 
 * A notable change is that the old `Master` table, has been renamed `People` in the
 Lahman Database. To avoid breaking old scripts or examples, the `People` table
