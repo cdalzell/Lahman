@@ -39,9 +39,7 @@ has been copied to `Master`. In the next annual release, it is **very likely** t
 will be removed.
 
 * A collection of vignettes has been added, illustrating various data manipulation
-tasks and analyses to explore some baseball questions.  Try:
-
-`browseVignettes("Lahman")`
+tasks and analyses to explore some baseball questions.  Try: `browseVignettes("Lahman")`
 
 * In addition, the documentation
 has been updated to use `dplyr` and `tidyr` tools for database manipulation and `ggplot2` for plots.
