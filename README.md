@@ -35,13 +35,13 @@ This is the R version of the 2020 edition of Sean Lahman's Baseball Database, ht
 
 * A notable change is that the old `Master` table, has been renamed `People` in the
 Lahman Database. To avoid breaking old scripts or examples, the `People` table
-has been copied to `Master`. In the next annual release, it is likely that `Master`
+has been copied to `Master`. In the next annual release, it is **very likely** that `Master`
 will be removed.
 
 * A collection of vignettes has been added, illustrating various data manipulation
 tasks and analyses to explore some baseball questions.  Try:
 
-    browseVignettes("Lahman")
+`browseVignettes("Lahman")`
 
 * In addition, the documentation
 has been updated to use `dplyr` and `tidyr` tools for database manipulation and `ggplot2` for plots.
@@ -51,11 +51,6 @@ has been updated to use `dplyr` and `tidyr` tools for database manipulation and 
 For the current CRAN version, simply use:
 
     install.packages("Lahman")
-
-The current up to date pre-CRAN release version can be installed in your R library via:
-
-    library(devtools)
-    install_github("cdalzell/Lahman", ref="master")
 
 If you wish to use a non-release version of `Lahman`, use `dev_mode()`.
 
