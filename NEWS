@@ -1,3 +1,7 @@
+Version 8.0-1 (2021-01-11)
+
+o .RData files now compressed with version=2 to avoid dplyr warnings
+
 Version 8.0-0 (2020-06-06)
 
 o Updated with data for the 2019 season

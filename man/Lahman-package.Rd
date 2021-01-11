@@ -33,8 +33,8 @@ and \code{ggplot2} for graphics.
 \tabular{ll}{
 Package: \tab Lahman\cr
 Type: \tab Package\cr
-Version: \tab 8.0-0\cr
-Date: \tab 2030-03-01\cr
+Version: \tab 8.0-1\cr
+Date: \tab 2021-01-11\cr
 License: \tab GPL version 2 or newer\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr
