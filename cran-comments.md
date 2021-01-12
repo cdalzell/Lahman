@@ -3,16 +3,7 @@
 * win-builder, release (2021-01-11)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs  
-There was one NOTE in Windows; this is expected because Lahman is a large data package:  
-
-> checking installed package size ... NOTE  
->    installed size is  9.5Mb  
->    sub-directories of 1Mb or more:  
->      data   8.9Mb  
->[All data files were compressed using the maximum known compression `tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)`]
-
-This note did not occur under win-builder, R version 4.0.0.
+There were no ERRORs, WARNINGs, or NOTEs
 
 ## Reverse dependencies
 
