@@ -1,7 +1,6 @@
 ## Test environments
-* local Windows 10 x64 install, R version 3.6.3 (2020-06-06)
-* ubuntu 16.04 (on travis-ci), R version 3.6.2 (2020-06-06)
-* win-builder, release (2020-06-06)
+* local Windows 10 x64 install, R version 4.0.3 (2021-01-11)
+* win-builder, release (2021-01-11)
 
 ## R CMD check results
 There were no ERRORs or WARNINGs  
