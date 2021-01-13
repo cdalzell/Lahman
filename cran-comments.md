@@ -1,5 +1,6 @@
 ## Test environments
 * local Windows 10 x64 install, R version 4.0.3 (2021-01-11)
+* ubuntu 20.04, R version 4.0.3 (2021-01-11)
 * win-builder, release (2021-01-11)
 
 ## R CMD check results
@@ -17,8 +18,6 @@ Lahman has reverse dependencies of the following packages:
 
 `revdepcheck::revdep_check()` reported all packages passed,
 
-*Wow, no problems at all. :)*
-
 ## Comments
-This is a major release, bringing the Lahman R package up to the current 2019
-version of the Lahman Database. A collection of vignettes has also been added.
+This is a minor release to resolve an incompatibility with dplyr that was causing
+issues with automated checks in their development process.
