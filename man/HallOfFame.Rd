@@ -28,7 +28,7 @@ This table links to the \code{\link{People}} table via the \code{playerID}.
 
 \code{votedBy}: Most Hall of Fame inductees have been elected by the 
 Baseball Writers Association of America (\code{BBWAA}).  Rules for election are
-described in \url{http://en.wikipedia.org/wiki/National_Baseball_Hall_of_Fame_and_Museum#Selection_process}.
+described in \url{https://en.wikipedia.org/wiki/National_Baseball_Hall_of_Fame_and_Museum#Selection_process}.
 
 }
 \source{

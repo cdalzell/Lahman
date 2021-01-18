@@ -43,8 +43,8 @@ where players are identified only by \code{playerID}.
     \item{\code{throws}}{a factor: Player's throwing hand (left(L) or right(R))}
     \item{\code{debut}}{Date that player made first major league appearance}
     \item{\code{finalGame}}{Date that player made first major league appearance (blank if still active)}
-    \item{\code{retroID}}{ID used by retrosheet, \url{http://www.retrosheet.org/}}
-    \item{\code{bbrefID}}{ID used by Baseball Reference website, \url{http://www.baseball-reference.com/}}
+    \item{\code{retroID}}{ID used by retrosheet, \url{https://www.retrosheet.org/}}
+    \item{\code{bbrefID}}{ID used by Baseball Reference website, \url{https://www.baseball-reference.com/}}
     \item{\code{birthDate}}{Player's birthdate, in \code{as.Date} format}
     \item{\code{deathDate}}{Player's deathdate, in \code{as.Date} format}
   }
