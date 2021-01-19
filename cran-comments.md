@@ -1,10 +1,20 @@
 ## Test environments
-* local Windows 10 x64 install, R version 4.0.3 (2021-01-11)
-* ubuntu 20.04, R version 4.0.3 (2021-01-11)
-* win-builder, release (2021-01-11)
+* local Windows 10 x64 install, R version 4.0.3 (2021-01-18)
+* ubuntu 20.04, R version 4.0.3 (2021-01-18)
+* win-builder, devel & release (2021-01-18)
+* macOS 10.13.6 High Sierra, R-release, CRAN's setup (2021-01-18)
 
 ## R CMD check results
-There were no ERRORs, WARNINGs, or NOTEs
+There were no ERRORs or WARNINGs. 
+
+There was 1 NOTE; this is expected because Lahman is a large data package:  
+
+> checking installed package size ... NOTE
+>    installed size is  9.5Mb
+>    sub-directories of 1Mb or more:
+>      data   8.9Mb
+>[All data files were compressed using the maximum known compression `tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)`]
+
 
 ## Reverse dependencies
 
