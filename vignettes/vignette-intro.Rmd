@@ -76,7 +76,7 @@ Steven Buechler (2014-2015) [Analysis of career performance in top home run hitt
 * This is lecture 16 from [Computing with Data Seminar](https://www3.nd.edu/~steve/computing_with_data/)
 
 
-Kris Eberwein (2015-09-30) ["Hacking The New Lahman Package 4.0-1 with R-Studio"](https://www.r-bloggers.com/hacking-the-new-lahman-package-4-0-1-with-r-studio/) (via [r-bloggers.com])
+Kris Eberwein (2015-09-30) ["Hacking The New Lahman Package 4.0-1 with R-Studio"](https://www.r-bloggers.com/2015/09/hacking-the-new-lahman-package-4-0-1-with-r-studio/) (via [r-bloggers.com])
 
 
 Michael Lopez (2016) [Lab materials for Skidmore College MA 276, “Sports and Statistics”](https://statsbylopez.com/276labs/)
@@ -84,7 +84,7 @@ Michael Lopez (2016) [Lab materials for Skidmore College MA 276, “Sports and S
 * [course reference page](https://statsbylopez.com/stats-sports-class/) 
 
 
-Bill Petti (2015-09-21) [A Short(-ish) Introduction to Using R Packages for Baseball Research](https://www.fangraphs.com/tht/a-short-ish-introduction-to-using-r-for-baseball-research/)
+Bill Petti (2015-09-21) [A Short(-ish) Introduction to Using R Packages for Baseball Research](https://tht.fangraphs.com/a-short-ish-introduction-to-using-r-for-baseball-research/)
 
 
 

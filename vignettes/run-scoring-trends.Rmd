@@ -129,7 +129,7 @@ MLBRPGplot +
 Easy.
 
 
-For more information about the `labs` function in `ggplot2`, the ["Modify axis, legend, and plot labels"](http://ggplot2.tidyverse.org/reference/labs.html) reference page within the [`ggplot2`](http://ggplot2.tidyverse.org/) site, part of the [Tidyverse](https://www.tidyverse.org/).
+For more information about the `labs` function in `ggplot2`, the ["Modify axis, legend, and plot labels"](https://ggplot2.tidyverse.org/reference/labs.html) reference page within the [`ggplot2`](https://ggplot2.tidyverse.org/) site, part of the [Tidyverse](https://www.tidyverse.org/).
 
 
 ***

@@ -35,7 +35,7 @@ library(dplyr)
 
 This vignette examines whether there is a relationship between total team salaries (payroll) and World Series success.
 It was inspired by Nolan & Lang (2015), "Baseball: Exploring Data in a Relational Database", 
-Chapter 10 in [*Data Science in R*](http://www.rdatasciencecases.org/). They use `SQL` on the raw Lahman files `.csv`, rather
+Chapter 10 in [*Data Science in R*](https://rdatasciencecases.org/). They use `SQL` on the raw Lahman files `.csv`, rather
 than the Lahman package.
 
 Here, We largely use `dplyr` for data munging and `ggplot2` for plotting.
@@ -231,7 +231,7 @@ American and National leagues.
 For proper comparisons, we should correct for inflation. Lets do this by scaling salary
 back to 1985 dollars,
 The data below gives inflation rates for all subsequent years. It comes from Nolan & Lang, extended to 2015
-using (http://www.in2013dollars.com/).
+using (https://www.in2013dollars.com/).
 
 ```{r}
 inflation = c(1,    1.02, 1.06, 1.10, 1.15, 1.21, 
