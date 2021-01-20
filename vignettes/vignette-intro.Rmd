@@ -64,9 +64,9 @@ David Robinson (2017) [_Introduction to Empirical Bayes_](https://gumroad.com/l/
 * the [blog introduction to the book](http://varianceexplained.org/r/empirical-bayes-book/)
 
 
-Hadley Wickham and Garrett Grolemund (2017) [_R for Data Science: Import, Tidy, Transform, Visualize, and Model Data_](http://r4ds.had.co.nz/) (O'Reilly)
+Hadley Wickham and Garrett Grolemund (2017) [_R for Data Science: Import, Tidy, Transform, Visualize, and Model Data_](https://r4ds.had.co.nz/) (O'Reilly)
 
-* [Section 5.6.3, "Counts"](http://r4ds.had.co.nz/transform.html#counts)
+* [Section 5.6.3, "Counts"](https://r4ds.had.co.nz/transform.html#counts)
 
 
 ### Articles, blog entries, and course materials

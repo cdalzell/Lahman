@@ -28,7 +28,7 @@ released from time to time to correct errors in the R version or add functionali
 Please report any problems or issues with this new version as an issue on this site,
 https://github.com/cdalzell/Lahman/issues
 
-There exists an old pseudo-wiki on R-Forge, http://lahman.r-forge.r-project.org/ that
+There exists an old pseudo-wiki on R-Forge, https://lahman.r-forge.r-project.org/ that
 collects some additional analyses and visualizations.
 
 -- Team Lahman: Chris Dalzell (maintainer), Michael Friendly (author), Denis Murphy, Martin Monkman, Sean Lahman
