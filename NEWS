@@ -1,4 +1,4 @@
-Version 8.0-1 (2021-01-18)
+Version 8.0-1 (2021-01-20)
 
 o .RData files now compressed with version=2 to avoid dplyr warnings
 

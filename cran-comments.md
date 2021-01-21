@@ -1,8 +1,8 @@
 ## Test environments
-* local Windows 10 x64 install, R version 4.0.3 (2021-01-18)
-* ubuntu 20.04, R version 4.0.3 (2021-01-18)
-* win-builder, devel & release (2021-01-18)
-* macOS 10.13.6 High Sierra, R-release, CRAN's setup (2021-01-18)
+* local Windows 10 x64 install, R version 4.0.3 (2021-01-20)
+* ubuntu 20.04, R version 4.0.3 (2021-01-20)
+* win-builder, devel & release (2021-01-20)
+* macOS 10.13.6 High Sierra, R-release, CRAN's setup (2021-01-20)
 
 ## R CMD check results
 There were no ERRORs or WARNINGs. 
