@@ -15,6 +15,10 @@ There was 1 NOTE; this is expected because Lahman is a large data package:
 >      data   8.9Mb
 >[All data files were compressed using the maximum known compression `tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)`]
 
+The intent of this data package is that it is only updated once per year (last published on June 8th, 2020)
+with data updates for the previous year. The reason for the additional release is
+that there was a data format incompatibility with dplyr that showed up and is causing
+issues with their build process.
 
 ## Reverse dependencies
 
