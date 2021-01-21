@@ -137,9 +137,9 @@ For more information about the `labs` function in `ggplot2`, the ["Modify axis, 
 
 This vignette is an update of the blog posts:
 
-* [Major League Baseball run scoring trends with R's Lahman package](http://bayesball.blogspot.ca/2013/06/major-league-baseball-run-scoring.html)
+* [Major League Baseball run scoring trends with R's Lahman package](https://bayesball.blogspot.com/2013/06/major-league-baseball-run-scoring.html)
 
-* [Run scoring trends: using Shiny to create dynamic charts and tables in R](http://bayesball.blogspot.ca/2015/01/run-scoring-trends-using-shiny-to.html)
+* [Run scoring trends: using Shiny to create dynamic charts and tables in R](https://bayesball.blogspot.com/2015/01/run-scoring-trends-using-shiny-to.html)
 
 * [github.com/MonkmanMH/MLBrunscoring_shiny](https://github.com/MonkmanMH/MLBrunscoring_shiny)
 
