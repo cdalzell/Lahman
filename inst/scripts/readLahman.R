@@ -9,11 +9,11 @@ outdir <- "D:/Dev/R/Lahman/data"
 setwd(indir)
 
 # local data location
-dataFile <- "../source-data/baseballdatabank-master.zip"
+dataFile <- "../source-data/baseballdatabank-2021.1.zip"
 
 # no need to download if we already have the file
 if (!file.exists(dataFile)) {
-  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/v2020.1.zip"
+  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/v2021.1.zip"
   download.file(zipfile, dataFile)
 }
 
