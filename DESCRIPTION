@@ -38,6 +38,7 @@ License: GPL
 URL: https://CRAN.R-project.org/package=Lahman
 LazyLoad: yes
 LazyData: yes
+LazyDataCompression: xz
 BugReports: https://github.com/cdalzell/Lahman/issues
 Repository: CRAN
 NeedsCompilation: no
