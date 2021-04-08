@@ -8,8 +8,8 @@ Lahman <img src="inst/hex/Lahman_hex.png" align="right" />
 R Library for Sean Lahman's Baseball Database
 ========================================================
 
-Version: 8.0-1
-Date: 2021-01-20
+Version: 9.0-0
+Date: 2021-04-09
 
 Authors:
 
