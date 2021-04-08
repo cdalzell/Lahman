@@ -32,7 +32,7 @@ described in \url{https://en.wikipedia.org/wiki/National_Baseball_Hall_of_Fame_a
 
 }
 \source{
-Lahman, S. (2020) Lahman's Baseball Database, 1871-2019, 2019 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2021) Lahman's Baseball Database, 1871-2020, 2020 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

@@ -10,7 +10,7 @@ Data on player appearances
 
 \usage{data(Appearances)}
 \format{
-  A data frame with 107357 observations on the following 21 variables.
+  A data frame with 108717 observations on the following 21 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{teamID}}{Team; a factor}
