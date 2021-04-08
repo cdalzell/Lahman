@@ -9,7 +9,7 @@ R Library for Sean Lahman's Baseball Database
 ========================================================
 
 Version: 9.0-0
-Date: 2021-04-09
+Date: 2021-04-08
 
 Authors:
 
