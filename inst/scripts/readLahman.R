@@ -24,7 +24,7 @@ unzip(dataFile, exdir=indir)
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
 
 # set indir to the directories the csv are extracted to
-indir <- paste0(indir, "/baseballdatabank-master/core")
+indir <- paste0(indir, "/baseballdatabank-2021.2/core")
 setwd(indir)
 
 (files <- list.files(path=getwd(), pattern="*.csv$"))
