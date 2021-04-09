@@ -15,7 +15,7 @@ Author: Michael Friendly [aut], Chris Dalzell [cre, aut], Martin Monkman [aut], 
 Maintainer: Chris Dalzell <cdalzell@gmail.com>
 Description: Provides the tables from the 'Sean Lahman Baseball Database' as
     a set of R data.frames. It uses the data on pitching, hitting and fielding
-    performance and other tables from 1871 through 2019, as recorded in the 2020
+    performance and other tables from 1871 through 2020, as recorded in the 2021
     version of the database. Documentation examples show how many baseball
     questions can be investigated.
 Depends:
