@@ -1,19 +1,19 @@
 # Script to read the Lahman data base .csv files & create Rdata files
 
 # directory where the .csv files will be created
-indir <- "D:/Dev/R/Lahman/source-data"
+indir <- "D:/Dev/Projects/Lahman/source-data"
 
 # directory where the .RData files will be created
-outdir <- "D:/Dev/R/Lahman/data"
+outdir <- "D:/Dev/Projects/Lahman/data"
 
 setwd(indir)
 
 # local data location
-dataFile <- "../source-data/baseballdatabank-2021.2.zip"
+dataFile <- "../source-data/baseballdatabank-2022.2.zip"
 
 # no need to download if we already have the file
 if (!file.exists(dataFile)) {
-  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/refs/tags/v2021.2.zip"
+  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/refs/tags/v2022.2.zip"
   download.file(zipfile, dataFile)
 }
 
@@ -24,10 +24,10 @@ unzip(dataFile, exdir=indir)
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
 
 # set indir to the directories the csv are extracted to
-indir <- paste0(indir, "/baseballdatabank-2021.2/core")
+indir <- paste0(indir, "/baseballdatabank-2022.2/core")
 setwd(indir)
 
-(files <- list.files(path=getwd(), pattern="*.csv$"))
+(files <- list.files(path=getwd(), pattern="csv"))
 
 for (i in 1:length(files)) {
 	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="")
