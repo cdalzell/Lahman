@@ -4,6 +4,8 @@ Lahman <img src="inst/hex/Lahman_hex.png" align="right" />
 [![](https://www.r-pkg.org/badges/version/Lahman)](https://cran.r-project.org/package=Lahman) [![](https://cranlogs.r-pkg.org/badges/grand-total/Lahman)](https://cran.r-project.org/package=Lahman)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Travis build status](https://travis-ci.com/cdalzell/Lahman.svg?branch=master)](https://travis-ci.com/cdalzell/Lahman)
+[![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html) 
+
 
 R Library for Sean Lahman's Baseball Database
 ========================================================
@@ -22,10 +24,6 @@ Authors:
 Maintainer: Chris Dalzell
 
 Required: R (>= 3.5.0)
-
-Suggests: lattice, ggplot2, googleVis, data.table, vcd, dplyr, tidyr, reshape2
-
-License: GPL
 
 URL: https://CRAN.R-project.org/package=Lahman
 
