@@ -9,7 +9,7 @@ R Library for Sean Lahman's Baseball Database
 ========================================================
 
 Version: 10.0-0
-Date: 2021-04-08
+Date: 2022-04-15
 
 Authors:
 
@@ -31,12 +31,15 @@ URL: https://CRAN.R-project.org/package=Lahman
 
 ## Current Version
 
-This is the R version of the 2020 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
+This is the R version of the 2021 edition of Sean Lahman's Baseball Database, http://www.seanlahman.com/baseball-archive/statistics/.
 
-* A notable change is that the old `Master` table, has been renamed `People` in the
-Lahman Database. To avoid breaking old scripts or examples, the `People` table
-has been copied to `Master`. In the next annual release, it is **very likely** that `Master`
-will be removed.
+* It now fully reflects the reorganization of data tables in Lahman's source,
+the most notable was the renaming of the old `Master` table, to `People` in the
+Lahman Database. 
+
+The current database schema is shown in the figure below:
+
+![](man/figures/Lahnan-db-diagram.jpg){width=70%}
 
 * A collection of vignettes has been added, illustrating various data manipulation
 tasks and analyses to explore some baseball questions.  Try: `browseVignettes("Lahman")`
