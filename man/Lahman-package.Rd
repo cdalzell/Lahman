@@ -123,7 +123,7 @@ Maintainer: Chris Dalzell <cdalzell@gmail.com>
 %%  ~~ possibly secondary sources and usages ~~
 %}
 \source{
-Lahman, S. (2020) Lahman's Baseball Database, 1871-2019, Main page, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2020) Lahman's Baseball Database, 1871-2019, Main page, \url{https://www.seanlahman.com/baseball-archive/statistics/}
 
 
 }

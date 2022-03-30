@@ -40,7 +40,7 @@ The Appearances table in the original version has some incorrect variable names.
 In particular, the 5th column is \code{career_year}.
 }
 \source{
-Lahman, S. (2021) Lahman's Baseball Database, 1871-2020, 2020 version, \url{http://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2021) Lahman's Baseball Database, 1871-2020, 2020 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
