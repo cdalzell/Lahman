@@ -62,4 +62,13 @@ If you wish to use a non-release version of `Lahman`, use `dev_mode()`.
 Please report any problems or issues with this new version as an [issue](https://github.com/cdalzell/Lahman/issues) on this site.
 
 ## Related
-A MySQL version of the Lahman database is provided by Nat Dunn: https://github.com/WebucatorTraining/lahman-baseball-mysql
+* A MySQL version of the Lahman database is provided by Nat Dunn: https://github.com/WebucatorTraining/lahman-baseball-mysql
+
+* The [BaseballDBR](https://cran.r-project.org/package=baseballDBR) package
+works with `Lahman` & other baseball databases and provides some functions
+to compute other baseball metrics.
+
+* The [Baseball with R](https://baseballwithr.wordpress.com/) blog contains
+analyses of baseball data stemming from the book _Analyzing Baseball Data with R_ (CRC Press, 2014).
+
+
