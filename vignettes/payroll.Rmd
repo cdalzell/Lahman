@@ -48,8 +48,9 @@ analyses done later.
 
 ### The `Salaries` data
 
-The `Salaries` data.frame contains data on all players' salaries from 1985-2015 in the latest release, v. `r packageVersion("Lahman")`,
-of the `Lahman` package.  We use the `sample_n` function to display a random sample of observations.
+The `Salaries` data.frame contains data on all players' salaries from 1985-2016 in the latest release, v. `r packageVersion("Lahman")`,
+of the `Lahman` package.  (Additions to the `Salaries` table in San Lahman's database were discontinued after 2016.)
+We use the `sample_n` function to display a random sample of observations.
 ```{r}
 data("Salaries", package="Lahman")
 str(Salaries)
