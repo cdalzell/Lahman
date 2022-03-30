@@ -1,4 +1,4 @@
-Lahman <img src="inst/hex/Lahman_hex.png" align="right" />
+Lahman <img src="man/figures/Lahman_hex.png" align="right" />
 ==========================================================
 
 [![](https://www.r-pkg.org/badges/version/Lahman)](https://cran.r-project.org/package=Lahman) [![](https://cranlogs.r-pkg.org/badges/grand-total/Lahman)](https://cran.r-project.org/package=Lahman)
@@ -37,7 +37,7 @@ Lahman Database.
 
 The current database schema is shown in the figure below:
 
-![](man/figures/Lahnan-db-diagram.jpg){width=70%}
+![](man/figures/Lahnan-db-diagram.jpg)
 
 * A collection of vignettes has been added, illustrating various data manipulation
 tasks and analyses to explore some baseball questions.  Try: `browseVignettes("Lahman")`
