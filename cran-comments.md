@@ -26,7 +26,13 @@ Lahman has reverse dependencies of the following packages:
  [7] "ibawds"        "implyr"        "mdsr"          "pinnacle.data" "raw"           "sparklyr"     
 [13] "teamcolors"   
 
-TODO: `revdepcheck::revdep_check()` reported all packages passed,  ???
+## revdepcheck results
+
+We checked 14 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
+
+ * We saw 0 new problems
+ * We failed to check 0 packages
+
 
 ## Comments
 This is an annual release, updating the data tables to the 2021 baseball season.
