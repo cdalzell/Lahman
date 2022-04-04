@@ -23,11 +23,12 @@ unzip(dataFile, exdir=indir)
 #Batting <- read.csv(file="Batting.csv", header=TRUE, stringsAsFactors=FALSE, na.strings="")
 #Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
 
-# set indir to the directories the csv are extracted to
-indir <- paste0(indir, "/baseballdatabank-2022.2/core")
+
+indir <- paste0(indir, "/baseballdatabank-2022.2")
 setwd(indir)
 
-(files <- list.files(path=getwd(), pattern="csv"))
+directoryList = c(paste0(getwd(), "/core"), paste0(getwd(), "/contrib"))
+(files <- list.files(directoryList, pattern="csv", full.names=TRUE))
 
 for (i in 1:length(files)) {
 	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="")
@@ -45,12 +46,8 @@ for (i in 1:length(files)) {
 	if("teamIDwinner" %in% names(inp)) inp$teamIDwinner <- factor(inp$teamIDwinner)
 	if("teamIDloser" %in% names(inp)) inp$teamIDloser <- factor(inp$teamIDloser)
 
-	cname <- name <- sub(".csv", "", files[i])
-	assign( name, inp)
-  
-	# these will be saved below after being compressed
-	#save(inp, file=paste(cname, ".RData", sep=""))
-  #promptData(inp, name=cname)
+	name <- sub(".csv", "", basename(files[i]))
+	assign(name, inp)
 }
 
 # fix column names or perform any needed data cleanup here
@@ -87,7 +84,7 @@ People <- within(People, {
 #  'named Guillermo VelC!zquez' in object 'Master'
 #  'Martmn Magdaleno Dihigo (Llanos)' in object 'Master'
 
-tools:::showNonASCII(paste0(indir, 'People.csv'))
+tools:::showNonASCII(paste0(indir, '/core/People.csv'))
 
 # then, fix manually, because I don't know an R way ...
 
@@ -151,8 +148,7 @@ if (FALSE) {
   promptData(HallOfFame,          filename="HallOfFame.Rd")         
   promptData(HOFold,              filename="HOFold.Rd")             
   promptData(Managers,            filename="Managers.Rd")           
-  promptData(ManagersHalf,        filename="ManagersHalf.Rd")       
-  promptData(Master,              filename="Master.Rd")             
+  promptData(ManagersHalf,        filename="ManagersHalf.Rd")
   promptData(Pitching,            filename="Pitching.Rd")           
   promptData(PitchingPost,        filename="PitchingPost.Rd")       
   promptData(Salaries,            filename="Salaries.Rd")           
