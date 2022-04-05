@@ -4,9 +4,8 @@ library(devtools)
 rev_pkgs <- revdep("Lahman")
 
 # > rev_pkgs
-# [1] "baseballDBR"   "broom"         "dbplyr"        "dplyr"         "implyr"       
-# [6] "mdsr"          "pinnacle.data" "poplite"       "raw"           "sparklyr"     
-# [11] "teamcolors"   
+# [1] "baseballDBR"   "broom"         "dados"         "datos"         "dbplyr"        "dplyr"         "ibawds"        "implyr"       
+# [9] "mdsr"          "pinnacle.data" "raw"           "sparklyr"      "teamcolors"  
 
 # devtools::revdep_check() - deprecated
 
