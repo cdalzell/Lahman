@@ -21,7 +21,7 @@ unzip(dataFile, exdir=indir)
 
 # Read the Lahman MLB .csv files and create .RData and .Rd files
 #Batting <- read.csv(file="Batting.csv", header=TRUE, stringsAsFactors=FALSE, na.strings="")
-#Master <- read.csv(file="Master.csv", header=TRUE, stringsAsFactors=FALSE)
+#People <- read.csv(file="People", header=TRUE, stringsAsFactors=FALSE)
 
 
 indir <- paste0(indir, "/baseballdatabank-2022.2")
@@ -83,7 +83,6 @@ People <- within(People, {
 #  Warning: found non-ASCII string(s)
 #  'named Guillermo VelC!zquez' in object 'Master'
 #  'Martmn Magdaleno Dihigo (Llanos)' in object 'Master'
-
 tools:::showNonASCII(paste0(indir, '/core/People.csv'))
 
 # then, fix manually, because I don't know an R way ...
@@ -120,11 +119,6 @@ save(SeriesPost,          file="SeriesPost.RData", version = 2)
 save(Teams,               file="Teams.RData", version = 2)              
 save(TeamsFranchises,     file="TeamsFranchises.RData", version = 2)    
 save(TeamsHalf,           file="TeamsHalf.RData", version = 2)
-
-# Master table was changed to People in the 2017 data
-# We will maintain Master as part of the package for now as it's likely to be a breaking change
-Master <- People
-save(Master,              file="Master.RData", version = 2)
 
 # version currently still defaults to 2 here, but setting for backwards compatibility
 tools::resaveRdaFiles(outdir, compress="xz", compression_level=9, version = 2)
