@@ -18,7 +18,7 @@ datalist <- scan(system.file("data", "datalist", package="Lahman"), what="charac
 #HallOfFame
 #Managers
 #ManagersHalf
-#Master
+#People
 #Pitching
 #PitchingPost
 #Salaries

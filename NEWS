@@ -1,3 +1,7 @@
+Version 10.0-0 (2022-04-07)
+o Updated with data for the 2021 season
+o Removed Master table which has been replaced by the People table
+
 Version 9.0-0 (2021-04-09)
 
 o Updated with data for the 2020 season

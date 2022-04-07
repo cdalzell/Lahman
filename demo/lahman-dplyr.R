@@ -23,18 +23,17 @@ batting2 <- merge(batting,
 
 
 # Add name, age and bat hand information from People
-master <- select(tbl_df(People), playerID, birthYear, birthMonth, 
+people <- select(tbl_df(People), playerID, birthYear, birthMonth, 
                                  nameLast, nameFirst, bats)
 batting <- batting %>%
-	left_join(master) %>%
+	left_join(people) %>%
 	mutate(age = yearID - birthYear - ifelse(birthMonth < 10, 0, 1)) %>%
 	select(-(birthYear:birthMonth))
 
 # same with base R	                                 
-People[, c('playerID', 'birthYear', 'birthMonth',
-                          'nameLast', 'nameFirst', 'bats')]
-batting2 <- merge(batting, masterInfo, all.x = TRUE)
-batting2$age <- with(batting, yearID - birthYear -
+People[, c('playerID', 'birthYear', 'birthMonth', 'nameLast', 'nameFirst', 'bats')]
+batting2 <- merge(batting, people, all.x = TRUE)
+batting2$age <- with(batting2, yearID - birthYear -
                              ifelse(birthMonth < 10, 0, 1))
 
 #' ## Queries about players

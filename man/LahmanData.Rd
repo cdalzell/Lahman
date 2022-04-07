@@ -53,11 +53,15 @@ jaccard <- function(A, B) {
 distmat <- function(vars, FUN=jaccard) {
 	nv <- length(vars)
 	d <- matrix(0, nv, nv, dimnames=list(names(vars), names(vars)))
+	
 	for(i in 1:nv) {
 		for (j in 1:nv) {
 			if (i != j) d[i,j] <- FUN(vars[[i]], vars[[j]])
 		}
 	}
+	
+	d[is.nan(d)] = 0
+	
 	d
 }
 
