@@ -23,6 +23,8 @@ Authors:
     
 Maintainer: Chris Dalzell
 
+Copyright: Sean Lahman
+
 Required: R (>= 3.5.0)
 
 URL: https://CRAN.R-project.org/package=Lahman
@@ -62,6 +64,7 @@ If you wish to use a non-release version of `Lahman`, use `dev_mode()`.
 Please report any problems or issues with this new version as an [issue](https://github.com/cdalzell/Lahman/issues) on this site.
 
 ## Related
+
 * A MySQL version of the Lahman database is provided by Nat Dunn: https://github.com/WebucatorTraining/lahman-baseball-mysql
 
 * The [BaseballDBR](https://cran.r-project.org/package=baseballDBR) package
