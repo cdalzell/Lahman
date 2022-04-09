@@ -1,14 +1,14 @@
-## Lahman package v. 9.0.0 released to CRAN
+## Lahman package v. 10.0.0 released to CRAN
 
-Team Lahman is pleased to announce that v. 9.0.0 of the Lahamn package is now
+Team Lahman is pleased to announce that v. 10.0.0 of the Lahamn package is now
 on CRAN.  It contains the data from Sean Lahman's Baseball Database,
 https://www.seanlahman.com/baseball-archive/statistics/
 as a collection of data frames covering nearly all aspects of baseball
-statistics from 1871-2020.
+statistics from 1871-2021.
 
 In this release,
 
-* All data sets have veen updated with data for the 2020 baseball season.  In
+* All data sets have been updated with data for the 2021 baseball season.  In
   addition, numerous corrections of data errors and inconsistencies discovered
   in previous year tables were applied.
 
