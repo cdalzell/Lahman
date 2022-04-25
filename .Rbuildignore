@@ -9,3 +9,4 @@ ANNOUNCE.md
 ^CRAN-RELEASE$
 hex/
 ^\.travis\.yml$
+^CRAN-SUBMISSION$
