@@ -7,7 +7,7 @@
 ## R CMD check results
 There were no ERRORs or WARNINGs or NOTEs on win-builder 
 
-The local Windows check gave 1 NOTE; this is expected because Lahman is a large data package:  
+The local Windows check gave 1 NOTE; this is expected because Lahman is a large annually released data package:  
 
 > checking installed package size
 >    installed size is  6.3Mb

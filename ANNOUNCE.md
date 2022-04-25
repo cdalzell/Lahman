@@ -1,6 +1,6 @@
-## Lahman package v. 10.0.0 released to CRAN
+## Lahman package v. 10.0.1 released to CRAN
 
-Team Lahman is pleased to announce that v. 10.0.0 of the Lahamn package is now
+Team Lahman is pleased to announce that v. 10.0.1 of the Lahamn package is now
 on CRAN.  It contains the data from Sean Lahman's Baseball Database,
 https://www.seanlahman.com/baseball-archive/statistics/
 as a collection of data frames covering nearly all aspects of baseball
