@@ -1,11 +1,11 @@
 ## Test environments
-* local Windows 10 x64 install, R version 4.1.3 (2022-03-10)
-* ubuntu 20.04, R version 4.0.5 (2021-04-07)
-* win-builder, R version 4.2.0 alpha (2022-03-29 r82022 ucrt)
-* macOS 10.13.6 High Sierra, R-release, CRAN's setup (2021-04-07)
+* local Windows 10 x64 install, R version 4.1.3 (2022-04-24)
+* ubuntu 20.04, R version 4.0.5 (2021-04-24)
+* win-builder, R version 4.2.0  (2022-04-24 ucrt)
+* macOS 11.5.2 High Sierra, 4.2.0, CRAN's setup (2021-04-24)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs or NOTEs on win-builder 
+There were no ERRORs or WARNINGs or NOTEs on win-builder (development or release)
 
 The local Windows check gave 1 NOTE; this is expected because Lahman is a large annually released data package:  
 
