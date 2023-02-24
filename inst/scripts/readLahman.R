@@ -9,11 +9,11 @@ outdir <- "D:/Dev/Projects/Lahman/data"
 setwd(indir)
 
 # local data location
-dataFile <- "../source-data/baseballdatabank-2022.2.zip"
+dataFile <- "../source-data/baseballdatabank-2023.1.zip"
 
 # no need to download if we already have the file
 if (!file.exists(dataFile)) {
-  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/refs/tags/v2022.2.zip"
+  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/refs/tags/v2023.1.zip"
   download.file(zipfile, dataFile)
 }
 
@@ -24,10 +24,10 @@ unzip(dataFile, exdir=indir)
 #People <- read.csv(file="People", header=TRUE, stringsAsFactors=FALSE)
 
 
-indir <- paste0(indir, "/baseballdatabank-2022.2")
+indir <- paste0(indir, "/baseballdatabank-2023.1")
 setwd(indir)
 
-directoryList = c(paste0(getwd(), "/core"), paste0(getwd(), "/contrib"))
+directoryList = c(paste0(getwd(), "/core"), paste0(getwd(), "/contrib")) 
 (files <- list.files(directoryList, pattern="csv", full.names=TRUE))
 
 for (i in 1:length(files)) {
