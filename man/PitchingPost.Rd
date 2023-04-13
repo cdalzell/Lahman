@@ -9,7 +9,7 @@ Post season pitching statistics
 }
 \usage{data(PitchingPost)}
 \format{
-  A data frame with 6308 observations on the following 30 variables.
+  A data frame with 6538 observations on the following 30 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -47,7 +47,7 @@ Post season pitching statistics
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2022) Lahman's Baseball Database, 1871-2021, 2021 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2023) Lahman's Baseball Database, 1871-2022, 2022 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

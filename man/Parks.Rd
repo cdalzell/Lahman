@@ -30,7 +30,7 @@ The ballparks can be associated with teams through the \code{park} variable in t
 }
 \seealso{\code{\link{Teams}}}
 \source{
-Lahman, S. (2022) Lahman's Baseball Database, 1871-2021, 2021 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2023) Lahman's Baseball Database, 1871-2022, 2022 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
 }
 \examples{
 data(Parks)

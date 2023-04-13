@@ -9,7 +9,7 @@ Data mapping teams to the stadiums they played regular season games in as the ho
 }
 \usage{data(HomeGames)}
 \format{
-  A data frame with 3195 observations on the following 9 variables.
+  A data frame with 3200 observations on the following 9 variables.
   \describe{
     \item{\code{year.key}}{Year}
     \item{\code{league.key}}{League; a factor with levels \code{AA} \code{AL} \code{FL} \code{NL} \code{PL} \code{UA}}
@@ -23,7 +23,7 @@ Data mapping teams to the stadiums they played regular season games in as the ho
   }
 }
 \source{
-Lahman, S. (2022) Lahman's Baseball Database, 1871-2021, 2021 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2023) Lahman's Baseball Database, 1871-2022, 2022 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
 }
 \keyword{datasets}
 \examples{

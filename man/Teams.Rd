@@ -9,7 +9,7 @@ Yearly statistics and standings for teams
 }
 \usage{data(Teams)}
 \format{
-  A data frame with 2985 observations on the following 48 variables.
+  A data frame with 3015 observations on the following 48 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{lgID}}{League; a factor with levels \code{AA} \code{AL} \code{FL} \code{NL} \code{PL} \code{UA}}
