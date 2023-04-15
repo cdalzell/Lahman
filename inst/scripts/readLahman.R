@@ -53,6 +53,10 @@ for (i in 1:length(files)) {
 # fix column names or perform any needed data cleanup here
 #colnames(HallOfFame)[2] <- 'yearID'
 
+# HallOfFame uses both empty strings and "NA"
+HallOfFame[HallOfFame == 'NA'] <- NA
+hofNumCols <- c("ballots", "needed", "votes")
+HallOfFame[hofNumCols] <- sapply(HallOfFame[hofNumCols], as.numeric)
 
 # Date variables
 
