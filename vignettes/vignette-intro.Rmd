@@ -58,7 +58,7 @@ Max Marchi and Jim Albert (2014) _Analyzing Baseball Data with R_ (CRC Press)
 There is a [Baseball with R](https://baseballwithr.wordpress.com/) blog containing extensions
 and other analyses.
 
-David Robinson (2017) [_Introduction to Empirical Bayes_](https://app.gumroad.com/l/empirical-bayes) (published at [gumroad.com])
+David Robinson (2017) [_Introduction to Empirical Bayes_](https://drob.gumroad.com/l/empirical-bayes) (published at [gumroad.com])
 
 * the book makes extensive use of the package to explain "the empirical Bayesian approach to estimation, credible intervals, A/B testing, mixture models, and other methods, all through the example of baseball batting averages." 
 
