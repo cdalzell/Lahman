@@ -21,7 +21,7 @@ Description: Provides the tables from the 'Sean Lahman Baseball Database' as
     questions can be investigated.
 Language: en-US
 Depends:
-    R (>= 2.10)
+    R (>= 3.5.0)
 Suggests:
     lattice,
     ggplot2,
