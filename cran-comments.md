@@ -1,8 +1,8 @@
 ## Test environments
-* local Windows 10 x64 install, R version 4.1.3 (2022-04-24)
-* ubuntu 20.04, R version 4.0.5 (2021-04-24)
-* win-builder, R version 4.2.0  (2022-04-24 ucrt)
-* macOS 11.5.2 High Sierra, 4.2.0, CRAN's setup (2021-04-24)
+* local Windows 11 x64 install, R version 4.2.3 (2023-03-15 ucrt)
+* ubuntu 22.04, R version 4.3.0 (2023-04-21)
+* win-builder, R version 4.2.0  (2023-04-23)
+* macOS (mac.r-project.org), R version 4.3.0
 
 ## R CMD check results
 There were no ERRORs or WARNINGs or NOTEs on win-builder (development or release)
