@@ -1,7 +1,7 @@
 ## Test environments
 * local Windows 11 x64 install, R version 4.2.3 (2023-03-15 ucrt)
 * ubuntu 22.04, R version 4.3.0 (2023-04-21)
-* win-builder, R version 4.2.0  (2023-04-23)
+* win-builder, R version 4.3.0 (2023-04-21 ucrt)
 * macOS (mac.r-project.org), R version 4.3.0
 
 ## R CMD check results
@@ -35,5 +35,5 @@ We checked 14 reverse dependencies, comparing R CMD check results across CRAN an
 
 
 ## Comments
-This is an annual release, updating the data tables to the 2021 baseball season.
+This is an annual release, updating the data tables to the 2022 baseball season.
 
