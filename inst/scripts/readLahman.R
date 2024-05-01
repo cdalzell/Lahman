@@ -1,4 +1,5 @@
 # Script to read the Lahman data base .csv files & create Rdata files
+library("archive")
 
 # directory where the .csv files will be created
 indir <- "D:/Dev/Projects/Lahman/source-data"
@@ -9,26 +10,22 @@ outdir <- "D:/Dev/Projects/Lahman/data"
 setwd(indir)
 
 # local data location
-dataFile <- "../source-data/baseballdatabank-2023.1.zip"
+dataFile <- "lahman_1871-2023_csv.7z"
 
 # no need to download if we already have the file
 if (!file.exists(dataFile)) {
-  zipfile <- "https://github.com/chadwickbureau/baseballdatabank/archive/refs/tags/v2023.1.zip"
+  # dataset url obtained from http://www.seanlahman.com/
+  zipfile <- "https://www.dropbox.com/scl/fi/hy0sxw6gaai7ghemrshi8/lahman_1871-2023_csv.7z?rlkey=edw1u63zzxg48gvpcmr3qpnhz&dl=1"
   download.file(zipfile, dataFile)
 }
 
-unzip(dataFile, exdir=indir)
+archive_extract(dataFile, dir=indir)
 
 # Read the Lahman MLB .csv files and create .RData and .Rd files
-#Batting <- read.csv(file="Batting.csv", header=TRUE, stringsAsFactors=FALSE, na.strings="")
-#People <- read.csv(file="People", header=TRUE, stringsAsFactors=FALSE)
-
-
-indir <- paste0(indir, "/baseballdatabank-2023.1")
+indir <- paste0(indir, "/lahman_1871-2023_csv")
 setwd(indir)
 
-directoryList = c(paste0(getwd(), "/core"), paste0(getwd(), "/contrib")) 
-(files <- list.files(directoryList, pattern="csv", full.names=TRUE))
+files <- list.files(indir, pattern="csv", full.names=TRUE)
 
 for (i in 1:length(files)) {
 	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="")
@@ -87,7 +84,7 @@ People <- within(People, {
 #  Warning: found non-ASCII string(s)
 #  'named Guillermo VelC!zquez' in object 'Master'
 #  'Martmn Magdaleno Dihigo (Llanos)' in object 'Master'
-tools:::showNonASCII(paste0(indir, '/core/People.csv'))
+tools:::showNonASCII(paste0(indir, 'People.csv'))
 
 # then, fix manually, because I don't know an R way ...
 
