@@ -16,6 +16,5 @@ README.html
 inst/doc
 .DS_Store
 CRAN-RELEASE
-source-data/
 revdep/library/
 CRAN-SUBMISSION
