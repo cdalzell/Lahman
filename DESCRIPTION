@@ -44,5 +44,5 @@ LazyDataCompression: xz
 BugReports: https://github.com/cdalzell/Lahman/issues
 Repository: CRAN
 NeedsCompilation: no
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
