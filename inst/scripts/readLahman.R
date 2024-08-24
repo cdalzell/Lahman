@@ -1,5 +1,6 @@
 # Script to read the Lahman data base .csv files & create Rdata files
 library("archive")
+source("D:/Dev/Projects/Lahman/inst/scripts/dataMapping.R")
 
 # directory where the .csv files will be created
 indir <- "D:/Dev/Projects/Lahman/source-data"
@@ -47,9 +48,6 @@ for (i in 1:length(files)) {
 	assign(name, inp)
 }
 
-# fix column names or perform any needed data cleanup here
-#colnames(HallOfFame)[2] <- 'yearID'
-
 # HallOfFame uses both empty strings and "NA"
 HallOfFame[HallOfFame == 'NA'] <- NA
 hofNumCols <- c("ballots", "needed", "votes")
@@ -80,13 +78,12 @@ People <- within(People, {
    throws = factor(throws)
 })
 
-#* checking data for non-ASCII characters ... WARNING
-#  Warning: found non-ASCII string(s)
-#  'named Guillermo VelC!zquez' in object 'Master'
-#  'Martmn Magdaleno Dihigo (Llanos)' in object 'Master'
-tools:::showNonASCII(paste0(indir, 'People.csv'))
-
-# then, fix manually, because I don't know an R way ...
+# do some data remapping due to minor schema drift
+Batting <- mapBatting(Batting)
+HallOfFame <- mapHallOfFame(HallOfFame)
+HomeGames <- mapHomeGames(HomeGames)
+Parks <- mapParks(Parks)
+People <- mapPeople(People)
 
 setwd(outdir)
 
