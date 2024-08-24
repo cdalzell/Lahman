@@ -10,7 +10,7 @@ Name and location data for baseball stadiums.
 }
 \usage{data(Parks)}
 \format{
-  A data frame with 255 observations on the following 6 variables.
+  A data frame with 260 observations on the following 6 variables.
   \describe{
     \item{\code{park.key}}{unique identifier for each ballpark}
     \item{\code{park.name}}{the name of the ballpark}
@@ -30,7 +30,7 @@ The ballparks can be associated with teams through the \code{park} variable in t
 }
 \seealso{\code{\link{Teams}}}
 \source{
-Lahman, S. (2023) Lahman's Baseball Database, 1871-2022, 2022 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2024) Lahman's Baseball Database, 1871-2023, 2023 version, \url{http://www.seanlahman.com/}
 }
 \examples{
 data(Parks)

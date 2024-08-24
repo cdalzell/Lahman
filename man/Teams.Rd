@@ -9,7 +9,7 @@ Yearly statistics and standings for teams
 }
 \usage{data(Teams)}
 \format{
-  A data frame with 3015 observations on the following 48 variables.
+  A data frame with 3045 observations on the following 48 variables.
   \describe{
     \item{\code{yearID}}{Year}
     \item{\code{lgID}}{League; a factor with levels \code{AA} \code{AL} \code{FL} \code{NL} \code{PL} \code{UA}}
@@ -66,7 +66,7 @@ Yearly statistics and standings for teams
 Variables \code{X2B} and \code{X3B} are named \code{2B} and \code{3B} in the original database
 }
 \source{
-Lahman, S. (2021) Lahman's Baseball Database, 1871-2020, 2020 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2024) Lahman's Baseball Database, 1871-2023, 2024 version, \url{http://www.seanlahman.com/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

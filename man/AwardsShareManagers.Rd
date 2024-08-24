@@ -9,7 +9,7 @@ Award voting for managers awards
 }
 \usage{data(AwardsShareManagers)}
 \format{
-  A data frame with 425 observations on the following 7 variables.
+  A data frame with 510 observations on the following 7 variables.
   \describe{
     \item{\code{awardID}}{name of award votes were received for}
     \item{\code{yearID}}{Year}
@@ -24,7 +24,7 @@ Award voting for managers awards
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2023) Lahman's Baseball Database, 1871-2022, 2022 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2024) Lahman's Baseball Database, 1871-2023, 2023 version, \url{http://www.seanlahman.com/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

@@ -9,7 +9,7 @@ Award information for players awards
 }
 \usage{data(AwardsPlayers)}
 \format{
-  A data frame with 6879 observations on the following 6 variables.
+  A data frame with 6797 observations on the following 6 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{awardID}}{Name of award won}
@@ -23,7 +23,7 @@ Award information for players awards
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2023) Lahman's Baseball Database, 1871-2022, 2022 version, \url{https://www.seanlahman.com/baseball-archive/statistics/}
+Lahman, S. (2024) Lahman's Baseball Database, 1871-2023, 2024 version, \url{http://www.seanlahman.com/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~
