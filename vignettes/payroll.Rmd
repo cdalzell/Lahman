@@ -35,7 +35,7 @@ library(dplyr)
 
 This vignette examines whether there is a relationship between total team salaries (payroll) and World Series success.
 It was inspired by Nolan & Lang (2015), "Baseball: Exploring Data in a Relational Database", 
-Chapter 10 in [*Data Science in R*](https://rdatasciencecases.org/). They use `SQL` on the raw Lahman files `.csv`, rather
+Chapter 10 in [*Data Science in R*](https://www.routledge.com/Data-Science-in-R-A-Case-Studies-Approach-to-Computational-Reasoning-and-Problem-Solving/Nolan-Lang/p/book/9781482234817). They use `SQL` on the raw Lahman files `.csv`, rather
 than the Lahman package.
 
 Here, We largely use `dplyr` for data munging and `ggplot2` for plotting.
