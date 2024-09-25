@@ -1,8 +1,8 @@
 ## Test environments
-* local Windows 11 x64 install, R version 4.4.1 (2024-06-14 ucrt)
-* ubuntu 22.04, R version 4.3.0 (2023-04-21)
-* win-builder, R version 4.4.1 (2024-06-14 ucrt)
-* macOS (mac.r-project.org), R version 4.4.0
+- local Windows 11 x64 install, R version 4.4.1 (2024-08-24 ucrt)
+- ubuntu 22.04, R version 4.4.0 (2024-09-19)
+- win-builder, R version 4.4.1 (2024-09-24 ucrt)
+- macOS (mac.r-project.org), R version 4.4.0
 
 ## R CMD check results
 There were no ERRORs or WARNINGs or NOTEs on win-builder (development or release)
@@ -13,7 +13,8 @@ The local Windows check gave 1 NOTE; this is expected because Lahman is a large 
 >    installed size is  6.2Mb
 >    sub-directories of 1Mb or more:
 >      data   5.4Mb
->[All data files were compressed using the maximum known compression `tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)`]
+
+All data files were compressed using the maximum known compression `tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)`
 
 Added `LazyDataCompression: xz` to the DESCRPITION file, which should prevent this on CRAN
 
