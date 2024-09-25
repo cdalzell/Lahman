@@ -1,4 +1,4 @@
-#### Version 12.0-0 (2024-08-24)
+#### Version 12.0-0 (2024-09-24)
 - Updated with data for the 2023 season
 
 #### Version 11.0-0 (2023-04-16)

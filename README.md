@@ -11,7 +11,7 @@ R Library for Sean Lahman's Baseball Database
 ========================================================
 
 Version: 12.0-0
-Date: 2024-08-24
+Date: 2024-09-24
 
 Authors:
 

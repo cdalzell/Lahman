@@ -1,5 +1,5 @@
 ## Test environments
-- local Windows 11 x64 install, R version 4.4.1 (2024-08-24 ucrt)
+- local Windows 11 x64 install, R version 4.4.1 (2024-09-24 ucrt)
 - ubuntu 22.04, R version 4.4.0 (2024-09-19)
 - win-builder, R version 4.4.1 (2024-09-24 ucrt)
 - macOS (mac.r-project.org), R version 4.4.0
