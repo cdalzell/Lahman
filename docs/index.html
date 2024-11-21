@@ -17,8 +17,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.9/font.css" rel="stylesheet">
 <link href="deps/JetBrains_Mono-0.4.9/font.css" rel="stylesheet">
 <link href="deps/Roboto_Slab-0.4.9/font.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Sean Lahman Baseball Database">
 <meta name="description" content="Provides the tables from the Sean Lahman Baseball Database as a set of R data.frames. It uses the data on pitching, hitting and fielding performance and other tables from 1871 through 2023, as recorded in the 2024 version of the database. Documentation examples show how many baseball questions can be investigated.">
 <meta property="og:description" content="Provides the tables from the Sean Lahman Baseball Database as a set of R data.frames. It uses the data on pitching, hitting and fielding performance and other tables from 1871 through 2023, as recorded in the 2024 version of the database. Documentation examples show how many baseball questions can be investigated.">
@@ -71,7 +71,7 @@
 <img src="logo.png" class="logo" alt=""><h1 id="lahman-">Lahman <a class="anchor" aria-label="anchor" href="#lahman-"></a>
 </h1>
 </div>
-<p><a href="https://cran.r-project.org/package=Lahman" class="external-link"><img src="https://www.r-pkg.org/badges/version/Lahman"></a> <a href="https://cran.r-project.org/package=Lahman" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/Lahman"></a> <a href="http://www.repostatus.org/#active" class="external-link"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."></a> <a href="https://www.gnu.org/licenses/gpl-2.0.html" class="external-link"><img src="https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat" alt="License"></a></p>
+<p><a href="https://cran.r-project.org/package=Lahman" class="external-link"><img src="https://www.r-pkg.org/badges/version/Lahman" alt="CRAN"></a> <a href="https://cran.r-project.org/package=Lahman" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/Lahman" alt="Downloads"></a> <a href="http://www.repostatus.org/#active" class="external-link"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."></a> <a href="https://www.gnu.org/licenses/gpl-2.0.html" class="external-link"><img src="https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat" alt="License"></a></p>
 </div>
 <div class="section level1">
 <h1 id="r-library-for-sean-lahmans-baseball-database">R Library for Sean Lahman’s Baseball Database<a class="anchor" aria-label="anchor" href="#r-library-for-sean-lahmans-baseball-database"></a>
@@ -97,7 +97,9 @@
 <li>It now fully reflects the reorganization of data tables in Lahman’s source, the most notable was the renaming of the old <code>Master</code> table, to <code>People</code> in the Lahman Database.</li>
 </ul>
 <p>The current database schema is shown in the figure below:</p>
-<p><img src="reference/figures/Lahnan-db-diagram.jpg"></p>
+<div class="float">
+<img src="reference/figures/Lahnan-db-diagram.jpg" alt="Lahman database schema"><div class="figcaption">Lahman database schema</div>
+</div>
 <ul>
 <li><p>A collection of vignettes has been added, illustrating various data manipulation tasks and analyses to explore some baseball questions. Try: <code>browseVignettes("Lahman")</code></p></li>
 <li><p>In addition, the documentation has been updated to use <code>dplyr</code> and <code>tidyr</code> tools for database manipulation and <code>ggplot2</code> for plots.</p></li>

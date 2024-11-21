@@ -1,7 +1,8 @@
 Lahman <img src="man/figures/logo.png" align="right" />
 ==========================================================
 
-[![](https://www.r-pkg.org/badges/version/Lahman)](https://cran.r-project.org/package=Lahman) [![](https://cranlogs.r-pkg.org/badges/grand-total/Lahman)](https://cran.r-project.org/package=Lahman)
+[![CRAN](https://www.r-pkg.org/badges/version/Lahman)](https://cran.r-project.org/package=Lahman) 
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/Lahman)](https://cran.r-project.org/package=Lahman)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html) 
 
@@ -38,7 +39,7 @@ Lahman Database.
 
 The current database schema is shown in the figure below:
 
-![](man/figures/Lahnan-db-diagram.jpg)
+![Lahman database schema](man/figures/Lahnan-db-diagram.jpg)
 
 * A collection of vignettes has been added, illustrating various data manipulation
 tasks and analyses to explore some baseball questions.  Try: `browseVignettes("Lahman")`
