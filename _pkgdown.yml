@@ -6,3 +6,49 @@ template:
     base_font: {google: "Roboto"}
     heading_font: {google: "Roboto Slab"}
     code_font: {google: "JetBrains Mono"}
+
+reference:
+  - title: Package description
+    contents:
+      - Lahman-package
+  - title: Functions
+    desc: Functions in the Lahman package
+    contents:
+      - battingStats
+      - Label
+      - playerInfo
+      - teamInfo
+  - title: Data
+    desc:  Data sets in the Lahman package
+    contents:
+      - AllstarFull
+      - Appearances
+      - AwardsManagers
+      - AwardsPlayers
+      - AwardsShareManagers
+      - AwardsSharePlayers
+      - Batting
+      - BattingPost
+      - CollegePlaying
+      - Fielding
+      - FieldingOF
+      - FieldingOFsplit
+      - FieldingPost
+      - HallOfFame
+      - HomeGames
+      - LahmanData
+      - Managers
+      - ManagersHalf
+      - Parks
+      - People
+      - Pitching
+      - PitchingPost
+      - Salaries
+      - Schools
+      - SeriesPost
+      - Teams
+      - TeamsFranchises
+      - TeamsHalf
+      - battingLabels
+      - fieldingLabels
+      - pitchingLabels
