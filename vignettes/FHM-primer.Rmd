@@ -1,0 +1,351 @@
+---
+title: "Primer for Full House Modeling"
+author: "Daniel J Eck"
+date: "2025-04-28"
+urlcolor: blue
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+vignette: >
+  %\VignetteIndexEntry{Primer for Full House Modeling}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}    
+---
+
+```{r nomessages, echo = FALSE}
+# set some default options for chunks
+knitr::opts_chunk$set(
+  warning = FALSE,   # avoid warnings and messages in the output
+  message = FALSE,
+  collapse = TRUE,   # collapse all output into a single block
+  tidy = FALSE,      # don't tidy our code-- assume we do it ourselves
+  fig.height = 5,
+  fig.width = 7
+)
+options(digits=4)    # number of digits to display in output; can override with chunk option R.options=list(digits=)
+
+set.seed(1234)       # reproducibility
+```
+
+# Introduction 
+
+This primer is intended to develop the statistical intuition which underlies the mechanics of [Full House Modeling](https://arxiv.org/abs/2207.11332). The intention is that this document can be followed by a motivated individual with some formal exposure to mathematical statistical concepts. Conceptually, Full House Modeling makes a connection between distributions of observed measurements for individuals in a system (e.g. professional baseball league) and latent aptitudes in a large source population (e.g. talent pool). This connection involves a formal pairing of latent aptitudes with achievement so that an individual's observed achievement is a function of expressed latent aptitude. Often, studies involving Full House Modeling focus on systems comprising individuals with the highest aptitude, with primary interest in the top performers (e.g. the most talented baseball players in history). 
+
+
+The two main ingredients that make Full House Modeling work are [probability integral transformation](https://en.wikipedia.org/wiki/Probability_integral_transform) and [order statistics](https://en.wikipedia.org/wiki/Order_statistic). 
+
+In this primer, we illustrate Full House Modeling through a comparison of batting averages across eras, showing how latent aptitude can differ from raw achievement for legendary players like Tony Gwynn and Ty Cobb. A larger suite of era-adjusted baseball stats, including broader applications to baseball history, is available at 
+
+https://eckeraadjustment.web.illinois.edu/
+
+
+# Ingredients for Full House Modeling
+
+## Probability Integral Transform
+
+Suppose that we have random variable $Y$ from some cumulative distribution function $F$. Then the probability integral transform states that the transformed variable $F(Y)$ follows a uniform distribution on the interval $[0, 1]$, i.e., $F(Y) \sim \text{Uniform}(0,1)$.
+
+We can confirm this result via simulation. Suppose that $Y \sim N(0,1)$, the standard normal distribution. The code below generates $B = 1,000$ realizations of $Y$, transforms them using $F = \texttt{pnorm}$, and stores the result in the vector \texttt{u}.
+
+\vspace*{6pt}
+```{r}
+B = 1e3
+u = pnorm(rnorm(B))
+```
+\vspace*{6pt}
+
+To verify that the values in \texttt{u} are approximately uniformly distributed, we construct a [Q-Q plot](https://en.wikipedia.org/wiki/Q%E2%80%93Q_plot), which compares the quantiles of the observed values in \texttt{u} to the theoretical quantiles of the $\text{Uniform}(0,1)$ distribution. For the theoretical quantiles, we use the plotting positions $i/(B+1)$, which avoid the extremes of 0 and 1 and are commonly used in Q-Q plotting for Uniform distributions. If the values in \texttt{u} follow a uniform distribution, the Q-Q plot will closely follow a 45-degree reference line, indicating good agreement between the empirical and theoretical quantiles. That is exactly what we observe.
+
+\vspace*{6pt}
+```{r}
+u_true = 1:B / (B+1) # almost true uniform quantiles (slight bias in tails)
+plot(u_true, sort(u), pch = 19, cex = 0.25, 
+     main = "Uniform Q-Q Plot",
+     xlab = "Theoretical Quantiles", 
+     ylab = "Observed Quantiles")
+lines(u_true, u_true, lty = 2, col = "red")
+```
+\vspace*{6pt}
+
+The probability integral transform also allows a reverse relationship. Let $F^{-1}$ denote the inverse cumulative distribution function, i.e. $F^{-1}(F(Y)) = Y$. Then we can start with a realization $U \sim \text{Uniform}(0,1)$ and transform it into a realization of $Y$ via 
+$$
+ Y = F^{-1}(U).
+$$
+
+
+## Order Statistics
+
+Now suppose that we have a random sample $Y_1, \ldots, Y_n$ realized as $n$ independent and identically distributed (iid) observations from some distribution $F$ with probability density function $f$. This sample of observations can be reordered from smallest to largest $Y_{(1)} < \cdots < Y_{(n)}$. Each of these order statistics $Y_{(r)}$, $r = 1,\ldots,n$ has its own cumulative distribution function $F_{Y_{(r)}}$ and corresponding probability density function $f_{Y_{(r)}}$. These are given by:
+\begin{align*}
+  F_{Y_{(r)}}(y) &= \sum_{j=r}^n \binom{n}{r} \left[F(y)\right]^j\left[1-F(y)\right]^{n-j}, \\
+  f_{Y_{(r)}}(y) &= \frac{n!}{(r-1)!(n-r)!} f(y) \left[F(y)\right]^{r-1}\left[1-F(y)\right]^{n-r},
+\end{align*}
+where $\binom{n}{r}$ is the [binomial coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient). As a simple example, consider the maximum order statistic by setting $r = n$. In this case, the cumulative distribution function and probability density function simplify as follows:
+\begin{align*}
+  F_{Y_{(n)}}(y) = \left[F(y)\right]^n, \qquad \text{and} \qquad
+  f_{Y_{(n)}}(y) = nf(y) \left[F(y)\right]^{n-1}.
+\end{align*}
+
+We can verify this distributional result through simulation. Let $n = 100$ denote the sample size and we will generate data according to the standard normal distribution. In general the distribution of the maximum value is $\left[F(y)\right]^{n}$. 
+
+To simulate from this distribution, we generate $B = 1000$ samples of size $n$ from the standard normal, compute their maximums, apply the CDF (i.e., $F = \texttt{pnorm}$), and raise to the power $n$, yielding values distributed as $\left[F(Y_{(n)})\right]^n$. The probability integral transform implies that these values should follow a $\text{Uniform}(0,1)$ distribution. We can assess this using a Q-Q plot, comparing the empirical quantiles from these transformed maximums to the theoretical quantiles of a $\texttt{Uniform}(0,1)$ distribution.
+
+\vspace*{6pt}
+```{r}
+n = 100
+u_obs = sort(unlist(replicate(B, pnorm(max(rnorm(n)))^100)))
+plot(u_true, u_obs, pch = 19, cex = 0.25, 
+     main = "Uniform Q-Q Plot for Maximum of 100 Normals",
+     xlab = "Theoretical Quantiles", 
+     ylab = "Observed Quantiles")
+lines(u_true,u_true, lty = 2, col = "red")
+```
+
+
+
+# The Core of Full House Modeling
+
+Full House Modeling builds on the concepts of the probability integral transform and order statistics to connect a latent distribution of aptitude $X$ to observed achievement $Y$. A key feature of the framework is that aptitudes are defined for all $N$ individuals in a source population, but only a subset of size $n$ is selected to form the system for which achievement is observed.
+
+## Simple Setup: one source population and system
+
+In its simplest form, we assume that the individuals with the highest latent aptitudes are selected into the system. That is, achievement $Y$ is only observed for the $n$ individuals with the highest latent aptitudes: $X_{(N - n + 1)}, X_{(N - n + 2)}, \ldots, X_{(N)}$.
+
+To connect the distribution of aptitude to that of achievement, we impose a rank-preserving pairing. Under this pairing, the individual with the highest achievement is assumed to have the highest latent aptitude, so the top pair is $(X_{(N)}, Y_{(n)})$; the second-highest achiever is paired with the second-highest aptitude $(X_{(N-1)}, Y_{(n-1)})$, and so on. In general, for each $r = 1, \ldots, n$, we pair:
+$$
+(X_{(N - n + r)}, Y_{(r)}).
+$$
+This setup allows us to generate achievement values from latent aptitudes using the composition of distribution functions:
+\begin{equation} 
+  Y_{(r)} = F_{Y_{(r)}}^{-1} \left[ F_{X_{(N - n + r)}} \left( X_{(N - n + r)} \right) \right],
+\end{equation}
+where $F_{X_{(N - n + r)}}$ and $F_{Y_{(r)}}$ denote the cumulative distribution functions of the corresponding order statistics. 
+
+This generation rule mirrors the logic of the probability integral transform: we first compute the percentile of the latent aptitude $X_{(N-n+r)}$ within its distribution using $F_{X_{(N - n + r)}} \left( X_{(N - n + r)} \right)$, which yields a value on the $[0,1]$ scale. This quantity can be interpreted as a draw from a uniform random variable. We then map this percentile into the achievement scale using the inverse cumulative distribution function $F_{Y_{(r)}}^{-1}$, producing the corresponding value $Y_{(r)}$. In this way, each achievement value preserves the rank structure of its paired latent aptitude through distributional matching.
+
+Conversely, we can recover latent aptitude scores from observed achievement by inverting the relationship:
+\begin{equation}
+  X_{(N - n + r)} = F_{X_{(N - n + r)}}^{-1} \left[ F_{Y_{(r)}} \left( Y_{(r)} \right) \right].
+\end{equation}
+
+This is the core of Full House Modeling in the setting where achievement is observed only for the most capable individuals from a larger population. The key insight is that matching the marginal distributions of ranked latent and observed variables provides a principled way to translate between aptitude and achievement.
+
+
+## More General Setup: multiple source populations and systems
+
+The previous generation rules for $Y_{(r)}$ and $X_{(N - n + r)}$ can be extended to allow for multiple source populations and systems indexed by $i$. Let
+
+- $N_i$ be the size of source population $i$,
+- $n_i$ be the size of system $i$,
+- $F_{Y_{i,(r)}}$ be the cumulative distribution function for achievement of individuals in system $i$.
+
+Under this setup $Y_{(r)}$ becomes
+\begin{equation} 
+  Y_{i,(r)} = F_{Y_{i,(r)}}^{-1} \left[ F_{X_{(N_i - n_i + r)}} \left( X_{(N_i - n_i + r)} \right) \right],
+\end{equation}
+and $X_{(N - n + r)}$ becomes 
+\begin{equation} \label{eq:genXi}
+  X_{(N_i - n_i + r)} = F_{X_{(N_i - n_i + r)}}^{-1} \left[ F_{Y_{i,(r)}} \left( Y_{i,(r)} \right) \right].
+\end{equation}
+Notice that the cumulative distribution function $F_X$ is not assumed to change across source populations. The only differences across the source populations is that the sizes differ. This is for studies where distributions of aptitude is thought not to change but how aptitude is expressed changes.
+
+
+# Example: Comparing Batting Averages Across Eras
+
+We now demonstrate Full House Modeling using a simple comparison between Ty Cobb’s MLB-leading batting average in 1911 and Tony Gwynn’s MLB-leading batting average in 1997. This comparison served as the motivating example for the development of Full House Modeling’s working mechanics in the [original Full House Modeling paper](https://arxiv.org/abs/2207.11332) (see the last paragraph of Section 2 at the linked reference). We first load the necessary R packages and perform some basic preprocessing.
+
+\vspace*{6pt}
+```{r, message = FALSE, warning = FALSE}
+# software
+library(Lahman)
+library(tidyverse)
+#install.packages("devtools")
+#library(devtools)
+#devtools::install_github(repo = "DEck13/fullhouse")
+library(fullhouse)
+
+# version numbers
+packageVersion("Lahman")
+packageVersion("tidyverse")
+packageVersion("fullhouse")
+
+# data preprocessing
+foo = Batting %>% 
+  # get years 1911 and 1997
+  filter(yearID %in% c(1911, 1997)) %>% 
+  # compute batting average
+  mutate(BA = round(H/AB, 3)) %>% 
+  # get player names
+  left_join(People %>% mutate(name = paste(nameFirst, nameLast, sep = " "))) %>% 
+  # subset columns
+  select(name, yearID, AB, BA) %>% 
+  # only consider full-time players
+  filter(AB >= 320)
+```
+\vspace*{6pt}
+
+We see that Ty Cobb's batting average was much higher than Tony Gwynn's.
+
+\vspace*{6pt}
+```{r}
+max_BA = foo %>% 
+  summarise(name = name[which(BA == max(BA))], max_BA = max(BA), .by = yearID)
+max_BA
+```
+\vspace*{6pt}
+
+However, distributions of batting averages among full-time players have changed across eras. Here we define full-time players as those with 320 ABs (about two ABs per game, as defined on page 105 in Stephen Jay Gould's 1996 book [Full House: The Spread of Excellence from Plato to Darwin](https://archive.org/details/fullhouse00step)). Both the means and standard deviations were higher in 1911.
+
+\vspace*{6pt}
+```{r}
+means_sds = foo %>% 
+  summarise(mean_BA = mean(BA), sd_BA = sd(BA), .by = yearID)
+means_sds
+```
+\vspace*{6pt}
+
+A simple visual comparison reveals that the 1911 distribution was more heavy-tailed, although both distributions appear approximately normal.
+
+\vspace*{6pt}
+```{r}
+foo %>% 
+  ggplot() + 
+  aes(x = BA, color = factor(yearID)) + 
+  geom_density() + 
+  theme_minimal() + 
+  labs(color = "yearID")
+```
+
+
+## Z-scores
+
+One simple era-adjustment technique is to scale the separate distributions and compute Z-scores of batting averages,
+$$
+  Z_{i,j} = \frac{Y_{i,j} - \hat{\mu}_i}{\hat{\sigma}_i}
+$$
+where $Y_{i,j}$ is an observed batting average for individual $j$ from year $i$, $\hat{\mu}_i$ is the estimated mean batting average of full-time players from year $i$, and $\hat{\sigma}_i$ is the estimated standard deviation of batting averages for full-time players from year $i$. 
+
+Computing Z-scores for batting events as an era-adjustment technique has been common for decades. For example, see Jim Albert's [2002 Baseball Course primer](https://jse.amstat.org/v10n2/albert.html), Michael J Schell's  [2019 SABR article](https://sabr.org/journal/article/tony-gwynn-meeting-baseballs-best-hitter/), and Benjamin Alter's [2025 SABR article](https://sabr.org/journal/article/using-z-scores-to-measure-player-performance/). The code below computes the maximum Z-scores for each season. We see that Ty Cobb still rates ahead of Tony Gwynn, his performance was slightly more standard deviations above the mean than Gwynn’s.
+
+\vspace*{6pt}
+```{r}
+foo %>% 
+  summarise(name = name[which(scale(BA) == max(scale(BA)))], 
+            Z_max = max(scale(BA)), 
+            .by = yearID)
+```
+
+
+## Full House Modeling
+
+Now we obtain the talent pool sizes and the number of full-time players for both the 1911 and 1997 seasons. Talent pool sizes are in the \texttt{fullhouse} R package. These were estimated following the procedure described in [this technical report](https://eckeraadjustment.web.illinois.edu/MLBeligiblepop.html).
+
+\vspace*{6pt}
+```{r, message = FALSE}
+# get talent pool estimates from fullhouse package
+data('talentpool')
+
+# talent pool size
+N_1911 = talentpool %>% filter(year == 1911) %>% pull(ALpop)
+N_1997 = talentpool %>% filter(year == 1997) %>% pull(NLpop)
+
+# number of full-time players
+ns = foo %>% summarise(n = n(), .by = yearID)
+n_1911 = ns %>% filter(yearID == 1911) %>% pull(n)
+n_1997 = ns %>% filter(yearID == 1997) %>% pull(n)
+```
+\vspace*{6pt}
+
+We get the means and standard deviations of batting averages for full-time players from 1911 and 1997.
+
+\vspace*{6pt}
+```{r}
+# means and standard deviations for BA from 1911 
+means_sds_1911 = means_sds %>% 
+  filter(yearID == 1911) %>% select(mean_BA, sd_BA)
+# means and standard deviations for BA from 1997
+means_sds_1997 = means_sds %>% 
+  filter(yearID == 1997) %>% select(mean_BA, sd_BA)
+```
+\vspace*{6pt}
+
+We now compute the extreme batting average percentiles, $\left(F_i(Y_{i,(n_i)})\right)^{n_i}$, for Ty Cobb and Tony Gwynn. These percentiles behave like realizations from a Uniform$(0,1)$ distribution. Again, we see that Ty Cobb stood further above his peers.
+
+\vspace*{6pt}
+```{r}
+# max BA from 1911 
+max_BA_1911 = max_BA %>% 
+  filter(yearID == 1911) %>% pull(max_BA)
+# max BA from 1997 
+max_BA_1997 = max_BA %>% 
+  filter(yearID == 1997) %>% pull(max_BA)
+# 1911 Ty Cobb's extreme batting average percentile
+F_max_1911 = 
+  pnorm(max_BA_1911, 
+        mean = means_sds_1911$mean_BA, 
+        sd = means_sds_1911$sd_BA)^n_1911
+F_max_1911
+# 1997 Tony Gwynn's extreme batting average percentile
+F_max_1997 = 
+  pnorm(max_BA_1997, 
+        mean = means_sds_1997$mean_BA, 
+        sd = means_sds_1997$sd_BA)^n_1997
+F_max_1997
+```
+\vspace*{6pt}
+
+We now estimate $X_{i,(N_i)}$ assuming that batting average aptitude is realized according to a standard normal distribution. Surprisingly, we find that 1997 Tony Gwynn had a higher inferred aptitude than 1911 Ty Cobb!
+
+\vspace*{6pt}
+```{r}
+# aptitude for 1911 Ty Cobb
+qnorm(F_max_1911^(1/N_1911))
+# aptitude for 1997 Tony Gwynn
+qnorm(F_max_1997^(1/N_1997))
+```
+\vspace*{6pt}
+
+While the assumption of a standard normal latent distribution might initially seem strong, the conclusions are actually robust to the choice of distribution. This is because the general equation for obtaining $X_{i,(N_i)}$ involves an input for the quantile function $F_{X}^{-1}(\cdot)$ of the form
+$$
+  \left(F_i(Y_{i,(n_i)})\right)^{n_i/N_i},
+$$
+and this value is higher for 1997 Tony Gwynn than it is for 1911 Ty Cobb. 
+
+\vspace*{6pt}
+```{r}
+# input for 1997 Tony Gwynn
+sprintf("%.10f", F_max_1997^(1/N_1997))
+# input for 1911 Ty Cobb
+sprintf("%.10f", F_max_1911^(1/N_1911))
+```
+\vspace*{6pt}
+
+In general the quantile function $F_{X}^{-1}(\cdot)$ is non-decreasing. Thus any choice for the talent generating process will yield the same conclusion under this Full House Model: 
+
+**1997 Tony Gwynn had higher latent batting average aptitude than 1911 Ty Cobb, even though raw batting averages and Z-scores suggest otherwise. This reversal reflects Gwynn dominating a vastly larger source population than Cobb.**
+
+
+# Discussion
+
+Michael Schell’s 2019 SABR article, referenced earlier, focused on comparing the career batting averages of Tony Gwynn and Ty Cobb. Using a Z-score based analysis, Schell concluded that Gwynn’s relative performance was stronger. His article appeared in [The National Pastime: Pacific Ghosts (San Diego, 2019)](https://sabr.org/journals/pacific-ghosts/), a SABR collection that was published roughly five years after Gwynn's death.
+
+Earlier, in his 2005 book [Baseball's All-Time Best Sluggers: Adjusted Batting Performance from Strikeouts to Home Runs](https://www.jstor.org/stable/j.ctt19705ks), Schell had acknowledged the limitations of Z-score based adjustments. On page 58, he noted (paraphrased slightly):
+
+"Someday we will need to abandon the use of the standard deviation as a talent pool adjustment altogether and search for another talent pool adjustment method, likely involving more difficult statistical methods than those used in this book."
+
+Full House Modeling provides such a method. It directly connects achievement to underlying talent, after accounting for talent pool size through explicit modeling inputs.
+
+The name "Full House" is a deliberate reference to Stephen Jay Gould’s 1996 book [Full House: The Spread of Excellence from Plato to Darwin](https://archive.org/details/fullhouse00step). In that book, Gould argued that the disappearance of 0.400 hitting in baseball reflected a general improvement of play and a narrowing of variation in performance, rather than a decline in greatness. Gould had originally introduced this argument in his 1986 essay, "Entropic Homogeneity Isn't Why No One Hits .400 Anymore."
+
+Gould’s work provided the conceptual groundwork linking talent pool expansion, training improvements, and shrinking variance in achievement. However, a formal mathematical framework connecting these ideas to an era-adjustment method for player achievement did not emerge until much later. Full House Modeling builds on these insights by providing a statistical apparatus for relating observed achievements to underlying aptitudes across changing competitive environments.
+
+At the time of Schell’s 2019 article, Z-score based methods and other standard deviation-based approaches remained standard practice for era adjustment. Full House Modeling represents a further step in formalizing and extending the conceptual foundations laid by earlier work.
+
+A suite of era-adjusted statistics obtained through Full House Modeling is available here:
+
+https://eckeraadjustment.web.illinois.edu/
+
+Several preprocessing steps, including handedness-specific park factor adjustments building on Michael Schell's earlier work, were incorporated into the computation of era-adjusted batting averages on this website.
+
