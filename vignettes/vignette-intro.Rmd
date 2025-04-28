@@ -37,7 +37,7 @@ Vignettes completed to-date:
 3. [Team Payroll and the World Series](payroll.Rmd) -- This vignette examines whether there is a relationship between total team salaries (payroll) and World Series success.
 
 
-
+4. [Primer for Full House Modeling](FHM-primer.Rmd) -- This vignette introduces the key ideas behind Full House Modeling, a framework connecting observed achievement to latent talent distributions. It walks through the statistical foundations and demonstrates an application comparing batting averages across eras.
 
 
 
@@ -71,6 +71,8 @@ Hadley Wickham and Garrett Grolemund (2017) [_R for Data Science: Import, Tidy, 
 
 
 ### Articles, blog entries, and course materials
+
+Shen Yan, Adrian Burgos Jr., Christopher Kinson, and Daniel J. Eck (2024-2025) [Estimation of the MLB talent pool](https://eckeraadjustment.web.illinois.edu/MLBeligiblepop.html)
 
 Steven Buechler (2014-2015) [Analysis of career performance in top home run hitters](https://www3.nd.edu/~steve/computing_with_data/16_Baseball_example/baseball_example.html)
 
