@@ -9,7 +9,7 @@ Authors@R: c(person(given = "Michael", family = "Friendly", role="aut", email="f
         person(given= "Dennis", family = "Murphy", role="aut"), 
         person(given ="Vanessa", family = "Foot", role="ctb"),
         person(given = "Justeena", family = "Zaki-Azat", role="ctb"),
-        person(given = "Daniel J", family = "Eck", role="ctb", email="dje13@illinois.edu"),
+        person(given = "Daniel J", family = "Eck", role="aut", email="dje13@illinois.edu"),
         person(given = "Sean", family = "Lahman", role="cph")
         )
 Author: Michael Friendly [aut], Chris Dalzell [cre, aut], Martin Monkman [aut], Dennis Murphy [aut], 
