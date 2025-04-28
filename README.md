@@ -20,6 +20,7 @@ Authors:
 * Dennis Murphy
 * Martin Monkman
 * Vanessa Foot & Justeena Zaki-Azat [vignettes]
+* Daniel J Eck [vignettes]
     
 Maintainer: Chris Dalzell
 
