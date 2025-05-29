@@ -1,7 +1,7 @@
 ---
 title: "Primer for Full House Modeling"
 author: "Daniel J Eck"
-date: "2025-04-28"
+date: "2025-05-29"
 urlcolor: blue
 output:
   rmarkdown::html_vignette:
@@ -31,7 +31,7 @@ set.seed(1234)       # reproducibility
 
 # Introduction 
 
-This primer is intended to develop the statistical intuition which underlies the mechanics of [Full House Modeling](https://arxiv.org/abs/2207.11332). The intention is that this document can be followed by a motivated individual with some formal exposure to mathematical statistical concepts. Conceptually, Full House Modeling makes a connection between distributions of observed measurements for individuals in a system (e.g. professional baseball league) and latent aptitudes in a large source population (e.g. talent pool). This connection involves a formal pairing of latent aptitudes with achievement so that an individual's observed achievement is a function of expressed latent aptitude. Often, studies involving Full House Modeling focus on systems comprising individuals with the highest aptitude, with primary interest in the top performers (e.g. the most talented baseball players in history). 
+This primer is intended to develop the statistical intuition which underlies the mechanics of [Full House Modeling](https://projecteuclid.org/journals/annals-of-applied-statistics/volume-19/issue-2/Comparing-baseball-players-across-eras-via-novel-Full-House-Modeling/10.1214/24-AOAS1992.short). The intention is that this document can be followed by a motivated individual with some formal exposure to mathematical statistical concepts. Conceptually, Full House Modeling makes a connection between distributions of observed measurements for individuals in a system (e.g. professional baseball league) and latent aptitudes in a large source population (e.g. talent pool). This connection involves a formal pairing of latent aptitudes with achievement so that an individual's observed achievement is a function of expressed latent aptitude. Often, studies involving Full House Modeling focus on systems comprising individuals with the highest aptitude, with primary interest in the top performers (e.g. the most talented baseball players in history). 
 
 
 The two main ingredients that make Full House Modeling work are [probability integral transformation](https://en.wikipedia.org/wiki/Probability_integral_transform) and [order statistics](https://en.wikipedia.org/wiki/Order_statistic). 
@@ -206,7 +206,7 @@ means_sds
 ```
 \vspace*{6pt}
 
-A simple visual comparison reveals that the 1911 distribution was more heavy-tailed, although both distributions appear approximately normal.
+A simple visual comparison reveals that the 1911 distribution was more heavy-tailed, although both distributions appear approximately normal (a Shapiro Wilk test rejects normality for the 1911 distribution when testing at $\alpha = 0.05$).
 
 \vspace*{6pt}
 ```{r}
@@ -348,4 +348,9 @@ A suite of era-adjusted statistics obtained through Full House Modeling is avail
 https://eckeraadjustment.web.illinois.edu/
 
 Several preprocessing steps, including handedness-specific park factor adjustments building on Michael Schell's earlier work, were incorporated into the computation of era-adjusted batting averages on this website.
+
+
+# References
+
+Shen Yan, Adrian Burgos Jr., Christopher Kinson, and Daniel J. Eck (2025). "Comparing baseball players across eras via novel Full House Modeling." *Annals of Applied Statistics*, 19(2): 1778-1799. DOI: 10.1214/24-AOAS1992.
 
