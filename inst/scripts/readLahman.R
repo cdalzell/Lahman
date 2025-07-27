@@ -11,19 +11,20 @@ outdir <- "D:/Dev/Projects/Lahman/data"
 setwd(indir)
 
 # local data location
-dataFile <- "lahman_1871-2023_csv.7z"
+dataFile <- "lahman_1871-2024_csv.zip"
 
-# no need to download if we already have the file
+# TODO: find permanent url to download source zip file (if possible)
+# - Data can be found at: https://sabr.app.box.com/s/rsry2en86bimvybwsorumfsxmf91002a?page=1
 if (!file.exists(dataFile)) {
-  # dataset url obtained from http://www.seanlahman.com/
-  zipfile <- "https://www.dropbox.com/scl/fi/hy0sxw6gaai7ghemrshi8/lahman_1871-2023_csv.7z?rlkey=edw1u63zzxg48gvpcmr3qpnhz&dl=1"
-  download.file(zipfile, dataFile)
+  print("Current download URL unknown")
+  #zipfile <- "https://www.dropbox.com/scl/fi/hy0sxw6gaai7ghemrshi8/lahman_1871-2023_csv.7z?rlkey=edw1u63zzxg48gvpcmr3qpnhz&dl=1"
+  #download.file(zipfile, dataFile)
 }
 
 archive_extract(dataFile, dir=indir)
 
 # Read the Lahman MLB .csv files and create .RData and .Rd files
-indir <- paste0(indir, "/lahman_1871-2023_csv")
+indir <- paste0(indir, "/lahman_1871-2024_csv")
 setwd(indir)
 
 files <- list.files(indir, pattern="csv", full.names=TRUE)
