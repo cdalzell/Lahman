@@ -16,7 +16,7 @@ The local Windows check gave 1 NOTE; this is expected because Lahman is a large 
 
 All data files were compressed using the maximum known compression `tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)`
 
-Added `LazyDataCompression: xz` to the DESCRPITION file, which should prevent this on CRAN
+Added `LazyDataCompression: xz` to the DESCRIPTION file, which should prevent this on CRAN
 
 ## Reverse dependencies
 
