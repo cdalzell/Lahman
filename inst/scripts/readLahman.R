@@ -30,7 +30,7 @@ setwd(indir)
 files <- list.files(indir, pattern="csv", full.names=TRUE)
 
 for (i in 1:length(files)) {
-	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="", encoding="latin1")
+	inp <- read.csv(file=files[i], header=TRUE, stringsAsFactors=FALSE, na.strings="", encoding="UTF-8")
 	cat("Read:", files[i], "\trows: ", nrow(inp), " cols: ", ncol(inp), "\n")
 
 	# make a few variables factors
