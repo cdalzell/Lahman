@@ -9,7 +9,7 @@ Pitching table
 }
 \usage{data(Pitching)}
 \format{
-  A data frame with 50402 observations on the following 30 variables.
+  A data frame with 52344 observations on the following 30 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -47,7 +47,7 @@ Pitching table
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2024) Lahman's Baseball Database, 1871-2023, 2024 version, \url{http://www.seanlahman.com}
+Lahman, S. (2025) Lahman's Baseball Database, 1871-2023, 2024 version, \url{http://www.seanlahman.com}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

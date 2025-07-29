@@ -1,14 +1,14 @@
-## Lahman package v. 12.0.0 released to CRAN
+## Lahman package v. 13.0.0 released to CRAN
 
-Team Lahman is pleased to announce that v. 12.0.0 of the Lahamn package is now
+Team Lahman is pleased to announce that version 13.0.0 of the Lahman package is now
 on CRAN.  It contains the data from Sean Lahman's Baseball Database,
 https://www.seanlahman.com/baseball-archive/statistics/
 as a collection of data frames covering nearly all aspects of baseball
-statistics from 1871-2023.
+statistics from 1871-2024.
 
 In this release,
 
-* All data sets have been updated with data for the 2023 baseball season.  In
+* All data sets have been updated with data for the 2024 baseball season. In
   addition, numerous corrections of data errors and inconsistencies discovered
   in previous year tables were applied.
 
@@ -21,7 +21,7 @@ In this release,
 
 All development of the package takes place on Github, https://github.com/cdalzell/Lahman.
 Major versions of the R package are released only once a year, following the release of a
-new archive update on Sean Lahman's site.  This R release occurs after sufficient time has 
+new archive update on the SABR website. This R release occurs after sufficient time has 
 elapsed to correct errors in the source data for a new season. Minor versions may be 
 released from time to time to correct errors in the R version or add functionality.
 

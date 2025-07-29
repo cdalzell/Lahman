@@ -9,7 +9,7 @@ Outfield position data: information about positions played in the outfield
 }
 \usage{data(FieldingOF)}
 \format{
-  A data frame with 12380 observations on the following 6 variables.
+  A data frame with 12028 observations on the following 6 variables.
   \describe{
     \item{\code{playerID}}{Player ID code}
     \item{\code{yearID}}{Year}
@@ -23,7 +23,7 @@ Outfield position data: information about positions played in the outfield
 %%%  ~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Lahman, S. (2024) Lahman's Baseball Database, 1871-2023, 2024 version, \url{http://www.seanlahman.com/}
+Lahman, S. (2025) Lahman's Baseball Database, 1871-2023, 2024 version, \url{https://sabr.org/lahman-database/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

@@ -1,8 +1,8 @@
 Package: Lahman
 Type: Package
 Title: Sean 'Lahman' Baseball Database
-Version: 12.0-0
-Date: 2024-09-24
+Version: 13.0-0
+Date: 2025-07-31
 Authors@R: c(person(given = "Michael", family = "Friendly", role="aut", email="friendly@yorku.ca"), 
         person(given ="Chris", family = "Dalzell", role=c("cre","aut"), email="cdalzell@gmail.com"),
         person(given ="Martin", family = "Monkman", role="aut"),
