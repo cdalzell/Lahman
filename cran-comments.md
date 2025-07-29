@@ -35,5 +35,5 @@ We checked 14 reverse dependencies, comparing R CMD check results across CRAN an
 
 
 ## Comments
-This is an annual release, updating the data tables to the 2023 baseball season.
+This is an annual release, updating the data tables to the 2024 baseball season.
 
