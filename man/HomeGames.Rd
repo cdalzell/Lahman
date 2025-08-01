@@ -23,7 +23,7 @@ Data mapping teams to the stadiums they played regular season games in as the ho
   }
 }
 \source{
-Lahman, S. (2025) Lahman's Baseball Database, 1871-2023, 2024 version, \url{https://sabr.org/lahman-database/}
+Lahman, S. (2025) Lahman's Baseball Database, 1871-2024, 2025 version, \url{https://sabr.org/lahman-database/}
 }
 \keyword{datasets}
 \examples{

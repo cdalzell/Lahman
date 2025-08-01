@@ -30,7 +30,7 @@ us to better account for players who attended multiple colleges or
 skipped a season, as well as to identify teammates.
 }
 \source{
-Lahman, S. (2025) Lahman's Baseball Database, 1871-2023, 2024 version, \url{https://sabr.org/lahman-database/}
+Lahman, S. (2025) Lahman's Baseball Database, 1871-2024, 2025 version, \url{https://sabr.org/lahman-database/}
 }
 %\references{
 %%  ~~ possibly secondary sources and usages ~~

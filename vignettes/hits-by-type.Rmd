@@ -81,7 +81,7 @@ We can use `geom_line` and then make titles with `xlab`, `ylab`, and `ggtitle`. 
 
 The `guides` function tells ggplot what we want from our legend and overrides the default. We want singles at the bottom (so we reverse the legend which automatically does the opposite), and we want to set our own title for the legend. 
 ```{r plot1}
-#| fig.alt: Time-series of percentage of hits over the years 1870-2023, by type of hit (single, double, triple, home run)
+#| fig.alt: Time-series of percentage of hits over the years 1870-2024, by type of hit (single, double, triple, home run)
 library(ggplot2)
 hitsperyear <- ggplot(bat_long, aes(x=yearID, y= value, col=variable)) +
        geom_line() + 
@@ -100,7 +100,7 @@ hitsperyear
 We can see the overall trends more clearly by adding linear regression lines for each
 type of hit.
 ```{r plot2}
-#| fig.alt: Time-series of percentage of hits over the years 1870-2023, by type of hit (single, double, triple, home run), with linear regression lines
+#| fig.alt: Time-series of percentage of hits over the years 1870-2024, by type of hit (single, double, triple, home run), with linear regression lines
 hitsperyear + geom_smooth(method="lm")
 
 ```

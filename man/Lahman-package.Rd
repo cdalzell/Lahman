@@ -7,7 +7,7 @@ Sean Lahman's Baseball Database
 }
 \description{
 This database contains pitching, hitting, and fielding statistics for
-Major League Baseball from 1871 through 2023.  It includes data from
+Major League Baseball from 1871 through 2024.  It includes data from
 the two current leagues (American and National), the four other "major" 
 leagues (American Association, Union Association, Players League, and
 Federal League), and the National Association of 1871-1875. 
@@ -33,8 +33,8 @@ and \code{ggplot2} for graphics.
 \tabular{ll}{
 Package: \tab Lahman\cr
 Type: \tab Package\cr
-Version: \tab 12.0-0\cr
-Date: \tab 2024-08-24\cr
+Version: \tab 13.0-0\cr
+Date: \tab 2025-07-31\cr
 License: \tab GPL version 2 or newer\cr
 LazyLoad: \tab yes\cr
 LazyData: \tab yes\cr
@@ -123,7 +123,7 @@ Maintainer: Chris Dalzell <cdalzell@gmail.com>
 %%  ~~ possibly secondary sources and usages ~~
 %}
 \source{
-Lahman, S. (2025) Lahman's Baseball Database, 1871-2023, Main page, \url{https://sabr.org/lahman-database/}
+Lahman, S. (2025) Lahman's Baseball Database, 1871-2024, Main page, \url{https://sabr.org/lahman-database/}
 
 
 }
