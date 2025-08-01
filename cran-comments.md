@@ -9,10 +9,10 @@ There were no ERRORs or WARNINGs or NOTEs on win-builder (development or release
 
 The local Windows check gave 1 NOTE; this is expected because Lahman is a large annually released data package:  
 
-> checking installed package size
->    installed size is  6.2Mb
->    sub-directories of 1Mb or more:
->      data   5.4Mb
+> checking installed package size ... INFO
+>     installed size is  6.3Mb
+>     sub-directories of 1Mb or more:
+>       data   5.4Mb
 
 All data files were compressed using the maximum known compression `tools::resaveRdaFiles(outdir, compress="xz", compression_level=9)`
 
