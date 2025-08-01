@@ -32,7 +32,7 @@ URL: https://CRAN.R-project.org/package=Lahman
 
 ## Current Version
 
-This is the R version of the 2024 edition of Sean Lahman's Baseball Database, https://sabr.org/lahman-database/.
+This is the R version of the 2025 edition of Sean Lahman's Baseball Database, https://sabr.org/lahman-database/.
 
 * It now fully reflects the reorganization of data tables in Lahman's source,
 the most notable was the renaming of the old `Master` table, to `People` in the
