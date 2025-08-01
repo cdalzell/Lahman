@@ -10,3 +10,8 @@ ANNOUNCE.md
 hex/
 ^\.travis\.yml$
 ^CRAN-SUBMISSION$
+.nojekyl
+docs/
+_pkgdown.yml
+pkgdown
+
