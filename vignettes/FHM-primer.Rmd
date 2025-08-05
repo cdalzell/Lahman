@@ -164,12 +164,12 @@ library(tidyverse)
 #install.packages("devtools")
 #library(devtools)
 #devtools::install_github(repo = "DEck13/fullhouse")
-library(fullhouse)
+#library(fullhouse)
 
 # version numbers
 packageVersion("Lahman")
 packageVersion("tidyverse")
-packageVersion("fullhouse")
+#packageVersion("fullhouse")
 
 # data preprocessing
 foo = Batting %>% 
@@ -244,12 +244,9 @@ Now we obtain the talent pool sizes and the number of full-time players for both
 
 \vspace*{6pt}
 ```{r, message = FALSE}
-# get talent pool estimates from fullhouse package
-data('talentpool')
-
-# talent pool size
-N_1911 = talentpool %>% filter(year == 1911) %>% pull(ALpop)
-N_1997 = talentpool %>% filter(year == 1997) %>% pull(NLpop)
+# talent pool size (from fullhouse package)
+N_1911 = 1694866
+N_1997 = 9669798
 
 # number of full-time players
 ns = foo %>% summarise(n = n(), .by = yearID)
@@ -352,5 +349,5 @@ Several preprocessing steps, including handedness-specific park factor adjustmen
 
 # References
 
-Shen Yan, Adrian Burgos Jr., Christopher Kinson, and Daniel J. Eck (2025). "Comparing baseball players across eras via novel Full House Modeling." *Annals of Applied Statistics*, 19(2): 1778-1799. DOI: 10.1214/24-AOAS1992.
+Shen Yan, Adrian Burgos Jr., Christopher Kinson, and Daniel J. Eck (2025). Comparing baseball players across eras via novel Full House Modeling. *Annals of Applied Statistics*, 19(2): 1778-1799. DOI: 10.1214/24-AOAS1992.
 
