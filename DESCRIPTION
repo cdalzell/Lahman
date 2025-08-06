@@ -40,7 +40,7 @@ Imports:
     dplyr
 Encoding: UTF-8
 License: GPL
-URL: https://cdalzell.github.io/Lahman, https://CRAN.R-project.org/package=Lahman
+URL: https://cdalzell.github.io/Lahman/, https://CRAN.R-project.org/package=Lahman
 LazyLoad: yes
 LazyData: yes
 LazyDataCompression: xz
