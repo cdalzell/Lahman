@@ -33,7 +33,10 @@ Suggests:
     tidyr,
     knitr,
     rmarkdown,
-    car
+    car,
+    plyr,
+    tidyverse,
+    fullhouse
 Imports:
     dplyr
 Encoding: UTF-8
