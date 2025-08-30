@@ -3,6 +3,7 @@
 - local Ubuntu 24.04, R version 4.5.1
 - win-builder, R version 4.5.1
 - macOS (mac.r-project.org), R version 4.5.1
+- r-universe: all flavors (Linux/Mac/Windows) * (released / devel)
 
 ## R CMD check results
 There were no ERRORs or WARNINGs or NOTEs on win-builder (development or release)
