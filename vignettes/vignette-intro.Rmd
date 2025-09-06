@@ -74,9 +74,9 @@ Hadley Wickham and Garrett Grolemund (2017) [_R for Data Science: Import, Tidy, 
 
 Shen Yan, Adrian Burgos Jr., Christopher Kinson, and Daniel J. Eck (2024-2025) [Estimation of the MLB talent pool](https://eckeraadjustment.web.illinois.edu/MLBeligiblepop.html)
 
-Steven Buechler (2014-2015) [Analysis of career performance in top home run hitters](https://www3.nd.edu/~steve/computing_with_data/16_Baseball_example/baseball_example.html)
+Steven Buechler (2014-2015) [Analysis of career performance in top home run hitters](https://web.archive.org/web/20230926102540/https://www3.nd.edu/~steve/computing_with_data/16_Baseball_example/baseball_example.html)
 
-* This is lecture 16 from [Computing with Data Seminar](https://www3.nd.edu/~steve/computing_with_data/)
+* This is lecture 16 from [Computing with Data Seminar](https://web.archive.org/web/20240212000848/https://www3.nd.edu/~steve/computing_with_data/)
 
 
 Kris Eberwein (2015-09-30) ["Hacking The New Lahman Package 4.0-1 with R-Studio"](https://www.r-bloggers.com/2015/09/hacking-the-new-lahman-package-4-0-1-with-r-studio/) (via [r-bloggers.com])
