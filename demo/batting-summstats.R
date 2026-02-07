@@ -3,7 +3,7 @@
 
 ## Add some useful statistics:
 
-require('plyr')
+require('dplyr')
 require('reshape2')
 #require('data.table')
 #require('ggplot2')
@@ -26,7 +26,7 @@ require('reshape2')
 #   * batting average on balls in play (BABIP)
 #
 summstats <- function(d) {
-    require('plyr')
+    require('dplyr')
     NAmassage <- function(x) {
     # Takes a column vector and replaces NAs by zeros
         x[is.na(x)] <- 0
@@ -57,7 +57,7 @@ summstats <- function(d) {
 # actually a weighted average of the seasonal percentages.
 
 careerTotals <- function(d) {
-    require('plyr')
+    require('dplyr')
     sumstats <-
       as.data.frame(as.list(colSums(as.matrix(d[, 6:24, drop = FALSE]),
                                                na.rm = TRUE)))
@@ -80,11 +80,16 @@ careerTotals <- function(d) {
 
 # Each of these takes about a minute or two...
 # Create a *list* for the season profiles of each player
-playerBattingProfiles <- dlply(Batting, .(playerID), summstats)
+# Create a list for the season profiles of each player
+playerBattingProfiles <- Batting %>%
+    group_split(playerID) %>%
+    purrr::map(summstats)
 
 # Summarize into career summaries
 # the output object is a *data frame*
-careerBattingProfiles <- ldply(playerBattingProfiles, careerTotals)
+careerBattingProfiles <- Batting %>%
+    group_by(playerID) %>%
+    group_modify(~ careerTotals(.x))
 
 # Individual player season records
 # The difference in calls has to do with the types of objects
@@ -93,3 +98,4 @@ playerBattingProfiles[['iorgga01']]   # Garth Iorg
 subset(careerBattingProfiles, playerID == 'brettge01') # George Brett
 
 #########################################################################
+
