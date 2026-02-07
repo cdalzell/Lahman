@@ -34,7 +34,6 @@ Suggests:
     knitr,
     rmarkdown,
     car,
-    plyr,
     tidyverse
 Imports:
     dplyr
