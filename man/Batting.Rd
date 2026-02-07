@@ -47,7 +47,7 @@ Lahman, S. (2025) Lahman's Baseball Database, 1871-2024, 2025 version, \url{http
 \seealso{
 \code{\link{battingStats}} for calculating batting average (BA) and other derived statistics
 
-\code{\link[plyr]{baseball}} for a similar dataset, but a subset of players who played 15 or more seasons.
+\code{plyr::baseball} for a similar dataset, but a subset of players who played 15 or more seasons.
 
 \code{\link[vcd]{Baseball}} for data on batting in the 1987 season.
 
