@@ -72,7 +72,7 @@ with(subset(Fielding, playerID == "rosepe01"), xtabs(G ~ POS))
 Fielding \%>\%
     filter(playerID == "aparilu01") \%>\% 
     select(G, PO, A, E, DP) \%>\%
-    summarise_each(funs(sum))
+    summarise(across(everything(), sum))
 
 
 # Top ten 2B/SS in turning DPs
